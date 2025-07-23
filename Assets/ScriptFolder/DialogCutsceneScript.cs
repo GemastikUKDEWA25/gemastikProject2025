@@ -28,6 +28,7 @@ public class DialogCutsceneScript : MonoBehaviour
 
     double pauseTime;
     public AudioClip clip;
+    public AudioClip bellSound;
     public AudioSource audioSource;
     public PlayerControllerScript playerController;
     public DialogCutscene[] dialogList;
@@ -99,6 +100,7 @@ public class DialogCutsceneScript : MonoBehaviour
 
         if (dialogList[dialogCounter].name == "EnterName")
         {
+            audioSource.PlayOneShot(bellSound);
             showNameTextField();
         }
         else
