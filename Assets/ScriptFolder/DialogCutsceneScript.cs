@@ -25,9 +25,6 @@ public class DialogCutsceneScript : MonoBehaviour
     UnityEngine.UI.Image characterExpression;
 
     double pauseTime;
-    public GameObject dialogPosition;
-    public GameObject character;
-    
     public AudioClip clip;
     public AudioSource audioSource;
     PlayerControllerScript playerController;
