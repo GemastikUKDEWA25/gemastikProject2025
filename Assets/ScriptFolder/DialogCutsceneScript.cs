@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using System;
 
 [System.Serializable]
 public class DialogCutscene
@@ -14,6 +15,7 @@ public class DialogCutsceneScript : MonoBehaviour
 {
     // public string[] dialog;
     public UnityEngine.Playables.PlayableDirector director;
+    public EnterNameCanvasController nameTF;
     bool isInDialog = false;
     int dialogCounter = 0;
     bool isInInteractArea = false;
@@ -65,6 +67,8 @@ public class DialogCutsceneScript : MonoBehaviour
 
         if (dialogCounter >= dialogList.Length)
         {
+            isInDialog = false;
+            dialogCounter = 0;
             hideDialog();
         }
     }
@@ -87,25 +91,37 @@ public class DialogCutsceneScript : MonoBehaviour
         }
     }
     void showDialog()
-    {   
+    {  
         if (playerController != null) playerController.setIsInDialog(true);
             isInDialog = true;
-        dialogBackground.enabled = true;
-        characterExpression.enabled = true;
-        string[] dialogSplit = dialogList[dialogCounter].dialog.Split(" ");
-        dialogName.text = dialogList[dialogCounter].name;
-        if (dialogList[dialogCounter].expression != null) characterExpression.sprite = dialogList[dialogCounter].expression;
-        StartCoroutine(TypeText(dialogSplit));
+
+        if (dialogList[dialogCounter].name == "EnterName")
+        {
+            showNameTextField();
+        }
+        else
+        {
+            dialogBackground.enabled = true;
+            characterExpression.enabled = true;
+            string[] dialogSplit = dialogList[dialogCounter].dialog.Split(" ");
+            dialogName.text = dialogList[dialogCounter].name;
+            if (dialogList[dialogCounter].expression != null) characterExpression.sprite = dialogList[dialogCounter].expression;
+            StartCoroutine(TypeText(dialogSplit));
+        }
     }
 
     void hideDialog()
     {
-        isInDialog = false; 
         if (playerController != null) playerController.setIsInDialog(false);
-        dialogCounter = 0;
         characterExpression.enabled = false;
         dialogBackground.enabled = false;
         dialogtext.text = "";
+    }
+
+    public void showNameTextField()
+    {
+        hideDialog();
+        nameTF.showEnterNameCanvas();
     }
 
     IEnumerator TypeText(string[] dialogSplit)
