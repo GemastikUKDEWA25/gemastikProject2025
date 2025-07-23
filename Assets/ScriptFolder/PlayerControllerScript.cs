@@ -31,6 +31,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(isInDialog);
         if (!isInDialog)
         {
             handleMovement();

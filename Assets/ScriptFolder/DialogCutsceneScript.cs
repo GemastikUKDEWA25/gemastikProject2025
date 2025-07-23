@@ -29,7 +29,7 @@ public class DialogCutsceneScript : MonoBehaviour
     double pauseTime;
     public AudioClip clip;
     public AudioSource audioSource;
-    PlayerControllerScript playerController;
+    public PlayerControllerScript playerController;
     public DialogCutscene[] dialogList;
     void Start()
     {
@@ -39,10 +39,11 @@ public class DialogCutsceneScript : MonoBehaviour
 
         dialogtext = GameObject.Find("DialogTMP").GetComponent<TextMeshProUGUI>();
         dialogName = GameObject.Find("SpeakerName").GetComponent<TextMeshProUGUI>();
-        
-        
+
+
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
+        playerController.setIsInDialog(true);
     }
 
     // Update is called once per frame
@@ -69,6 +70,7 @@ public class DialogCutsceneScript : MonoBehaviour
         {
             isInDialog = false;
             dialogCounter = 0;
+            if (playerController != null) playerController.setIsInDialog(false);
             hideDialog();
         }
     }
@@ -112,7 +114,6 @@ public class DialogCutsceneScript : MonoBehaviour
 
     void hideDialog()
     {
-        if (playerController != null) playerController.setIsInDialog(false);
         characterExpression.enabled = false;
         dialogBackground.enabled = false;
         dialogtext.text = "";

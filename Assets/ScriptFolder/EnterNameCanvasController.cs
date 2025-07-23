@@ -3,12 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class EnterNameCanvasController : MonoBehaviour
 {
-    public GameObject EnterNameCanvas;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        EnterNameCanvas.SetActive(false);
+        hideEnterNameCanvas();
     }
 
     // Update is called once per frame
@@ -22,11 +21,11 @@ public class EnterNameCanvasController : MonoBehaviour
 
     public void showEnterNameCanvas()
     {
-        EnterNameCanvas.SetActive(true);
+        gameObject.SetActive(true);
     }
 
     public void hideEnterNameCanvas() {
-        EnterNameCanvas.SetActive(false);
+        gameObject.SetActive(false);
     }
     
     
