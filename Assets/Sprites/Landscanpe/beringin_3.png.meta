@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      beringin_3_0: 5585673218828396484
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

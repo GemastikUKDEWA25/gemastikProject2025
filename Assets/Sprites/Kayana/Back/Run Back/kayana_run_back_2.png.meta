@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      kayana_run_back_2_0: -8763777053640925427
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
