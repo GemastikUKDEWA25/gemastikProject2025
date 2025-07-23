@@ -569,6 +569,7 @@ MonoBehaviour:
   nameTF: {fileID: 885182583}
   clip: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
   audioSource: {fileID: 258189166}
+  playerController: {fileID: 1902839747}
   dialogList:
   - name: Kayana
     dialog: Hello There!
@@ -1495,10 +1496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d90563990503442bcd2dba6a14f003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnterNameCanvasBg: {fileID: 1736965729}
-  textFieldNameBackground: {fileID: 1426457384}
-  textFieldNameBackgroundPlaceHolder: {fileID: 2000592720}
-  label: {fileID: 925245291}
 --- !u!1 &925245289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,7 +1540,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925245289}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -1833,37 +1830,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 943137365}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1198253069
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1198253070}
-  m_Layer: 0
-  m_Name: DialogPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1198253070
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198253069}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26, y: -1.53, z: 0.115908526}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1263958316
@@ -2195,7 +2161,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426457380}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2487,7 +2453,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736965728}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2552,6 +2518,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5335041749109108125, guid: f9ac1a21ba0eaa14383398c142f2d7bb, type: 3}
   m_PrefabInstance: {fileID: 483897723}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1902839747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8074014314019444900, guid: f9ac1a21ba0eaa14383398c142f2d7bb, type: 3}
+  m_PrefabInstance: {fileID: 483897723}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cdb0989fe7740438e12d978f32a649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2000592719
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,7 +2555,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000592719}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -2806,7 +2783,6 @@ SceneRoots:
   - {fileID: 232127627}
   - {fileID: 500223916}
   - {fileID: 258189165}
-  - {fileID: 1198253070}
   - {fileID: 241390799}
   - {fileID: 1630486808}
   - {fileID: 337331692}
