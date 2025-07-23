@@ -3,15 +3,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class EnterNameCanvasController : MonoBehaviour
 {
-    public Image EnterNameCanvasBg;
-    public Image textFieldNameBackground;
-    public TextMeshProUGUI textFieldNameBackgroundPlaceHolder;
-    public TextMeshProUGUI label;
+    public GameObject EnterNameCanvas;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        hideEnterNameCanvas();
+        EnterNameCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,17 +22,11 @@ public class EnterNameCanvasController : MonoBehaviour
 
     public void showEnterNameCanvas()
     {
-        EnterNameCanvasBg.enabled = true;
-        textFieldNameBackground.enabled = true;
-        textFieldNameBackgroundPlaceHolder.enabled = true;
-        label.enabled = true;
+        EnterNameCanvas.SetActive(true);
     }
 
     public void hideEnterNameCanvas() {
-        EnterNameCanvasBg.enabled = false;
-        textFieldNameBackground.enabled = false;
-        textFieldNameBackgroundPlaceHolder.enabled = false;
-        label.enabled = false;
+        EnterNameCanvas.SetActive(false);
     }
     
     

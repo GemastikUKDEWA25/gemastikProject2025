@@ -91,7 +91,7 @@ public class DialogCutsceneScript : MonoBehaviour
         }
     }
     void showDialog()
-    {  
+    {
         if (playerController != null) playerController.setIsInDialog(true);
             isInDialog = true;
 
