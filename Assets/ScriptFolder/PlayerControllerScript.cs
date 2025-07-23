@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerControllerScript : MonoBehaviour
 {
-    private float moveSpeed = 4f;
-    private float sprintSpeed = 5f;
+    private float moveSpeed = 1.5f;
+    private float sprintSpeed = 1f;
     private int Health = 100;
 
     bool isInDialog;
