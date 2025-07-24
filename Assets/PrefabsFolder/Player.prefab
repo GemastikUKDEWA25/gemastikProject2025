@@ -104,7 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8cdb0989fe7740438e12d978f32a649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footStepSound: {fileID: 8300000, guid: b6558661fe50ac7469528ba9bfd528b4, type: 3}
+  Health: 100
+  stage: 0
+  footStepSound: {fileID: 8300000, guid: 25c28994ac030c3429851a6685de2894, type: 3}
 --- !u!50 &8244991420525751401
 Rigidbody2D:
   serializedVersion: 5

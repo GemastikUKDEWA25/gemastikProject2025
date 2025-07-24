@@ -1,10 +1,12 @@
+using System.Data.Common;
 using UnityEngine;
 
 public class PlayerControllerScript : MonoBehaviour
 {
     private float moveSpeed = 1.5f;
     private float sprintSpeed = 1f;
-    private int Health = 100;
+    public int Health = 100;
+    public int stage = 0;
 
     bool isInDialog;
     public static PlayerControllerScript Instance { get; private set; }
@@ -31,10 +33,28 @@ public class PlayerControllerScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isInDialog);
         if (!isInDialog)
         {
             handleMovement();
+        }
+    }
+
+    public void saving()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        SaveFile data = SaveSystem.LoadPlayer();
+        if (data != null)
+        {
+            // Restore position
+            Vector3 pos = new Vector3(data.position[0], data.position[1], data.position[2]);
+            transform.position = pos;
+
+            // Restore health
+            Health = data.health;
         }
     }
 

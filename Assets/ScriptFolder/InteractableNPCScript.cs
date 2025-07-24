@@ -20,28 +20,25 @@ public class InteractableNPCScript : MonoBehaviour
     int dialogCounter = 0;
     bool isInInteractArea = false;
     float wordDelay = 0.09f;
-    TextMeshProUGUI dialogtext;
-    TextMeshProUGUI dialogName;
 
-    UnityEngine.UI.Image dialogBackground;
-    UnityEngine.UI.Image characterExpression;
+    // dialog ui
+    [Header("Dialog UI")]
+    public TextMeshProUGUI dialogtext;
+    public TextMeshProUGUI dialogName;
+    public UnityEngine.UI.Image dialogBackground;
+    public UnityEngine.UI.Image characterExpression;
 
+    [Header("Audio")]
     public AudioClip clip;
     public AudioSource audioSource;
     PlayerControllerScript playerController;
+
+    [Header("Dialog")]
     public Dialog[] dialogList;
     // public Dictionary<string, Sprite> dialogDict = new();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-        dialogBackground = GameObject.Find("DialogBackground").GetComponent<UnityEngine.UI.Image>();
-
-        characterExpression = GameObject.Find("ExpressionDialog").GetComponent<UnityEngine.UI.Image>();
-
-        dialogtext = GameObject.Find("DialogTMP").GetComponent<TextMeshProUGUI>();
-        dialogName = GameObject.Find("SpeakerName").GetComponent<TextMeshProUGUI>();
-        
-        
+    {   
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
     }
@@ -55,6 +52,7 @@ public class InteractableNPCScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E) && isInInteractArea == true && isInDialog == false)
         {
+            playerController.LoadPlayer();
             if (isInInteractArea) interactKey.enabled = false;
             showDialog();
 
