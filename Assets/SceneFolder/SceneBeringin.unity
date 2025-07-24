@@ -197,7 +197,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 5165574535567133044, guid: 028459fcdb9007044821e818b4a02bd4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.13725491}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -568,7 +568,7 @@ MonoBehaviour:
   director: {fileID: 258189164}
   nameTF: {fileID: 885182583}
   clip: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
-  bellSound: {fileID: 0}
+  bellSound: {fileID: 8300000, guid: e12702b3165b5944aaaecb75e641a9b9, type: 3}
   audioSource: {fileID: 258189166}
   playerController: {fileID: 1902839747}
   dialogList:
@@ -1713,7 +1713,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 5165574535567133044, guid: 028459fcdb9007044821e818b4a02bd4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.13725491}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
