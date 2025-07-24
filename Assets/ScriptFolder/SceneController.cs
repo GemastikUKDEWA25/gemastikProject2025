@@ -7,7 +7,9 @@ public class SceneController : MonoBehaviour
 {
 
     public static SceneController instance { get; private set; }
-    [SerializeField] Animator transitionSceneAnimation; 
+    public GameObject menu;
+    bool isPaused;
+    [SerializeField] Animator transitionSceneAnimation;
     private void Awake()
     {
         if (instance == null)
@@ -18,6 +20,21 @@ public class SceneController : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    void Start()
+    {
+        menu.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused) ResumeGame();
+            else PauseGame();
+
         }
     }
 
@@ -32,5 +49,19 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         transitionSceneAnimation.SetTrigger("Start");
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        isPaused = true;
+        menu.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        isPaused = false;
+        menu.SetActive(false);
     }
 }

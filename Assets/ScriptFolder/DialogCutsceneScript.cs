@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using System;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class DialogCutscene
@@ -13,38 +14,32 @@ public class DialogCutscene
 
 public class DialogCutsceneScript : MonoBehaviour
 {
-    // public string[] dialog;
     public UnityEngine.Playables.PlayableDirector director;
-    public EnterNameCanvasController nameTF;
-    bool isInDialog = false;
-    int dialogCounter = 0;
-    bool isInInteractArea = false;
-    float wordDelay = 0.09f;
-    TextMeshProUGUI dialogtext;
-    TextMeshProUGUI dialogName;
+    public DialogController dialog;
+    public GameObject nameTF;
+    public TMP_InputField nameInputField;
 
-    UnityEngine.UI.Image dialogBackground;
-    UnityEngine.UI.Image characterExpression;
-
-    double pauseTime;
+    [Header("Audio")]
     public AudioClip clip;
     public AudioClip bellSound;
     public AudioSource audioSource;
+    
     public PlayerControllerScript playerController;
     public DialogCutscene[] dialogList;
+
+
+    bool isInDialog = false;
+    int dialogCounter = 0;
+    float wordDelay = 0.09f;
+    double pauseTime;
+    bool isInEnterNameState = false;
+
     void Start()
     {
-        dialogBackground = GameObject.Find("DialogBackground").GetComponent<UnityEngine.UI.Image>();
-
-        characterExpression = GameObject.Find("ExpressionDialog").GetComponent<UnityEngine.UI.Image>();
-
-        dialogtext = GameObject.Find("DialogTMP").GetComponent<TextMeshProUGUI>();
-        dialogName = GameObject.Find("SpeakerName").GetComponent<TextMeshProUGUI>();
-
-
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
         playerController.setIsInDialog(true);
+        nameTF.SetActive(false);
     }
 
     // Update is called once per frame
@@ -54,25 +49,25 @@ public class DialogCutsceneScript : MonoBehaviour
         {
             director.time = pauseTime;
             director.Evaluate(); // Apply the state at this time
-        }
-        // showDialog();
-        if (Input.GetKeyDown(KeyCode.Space) && isInDialog == true)
-        {
-            dialogCounter += 1;
-            dialogtext.text = "";
-            dialogName.text = "";
-            if (dialogCounter < dialogList.Length)
-            {
-                showDialog();
-            }
+
         }
 
+        if (isInEnterNameState && nameInputField.text != "" && Input.GetKey(KeyCode.Return))
+        {
+            isInEnterNameState = false;
+            nameTF.SetActive(false);
+            nextDialog();
+        }
+        if (isInDialog && !isInEnterNameState && Input.GetKeyDown(KeyCode.Space))
+        {
+            nextDialog();
+        }
         if (dialogCounter >= dialogList.Length)
         {
             isInDialog = false;
             dialogCounter = 0;
             if (playerController != null) playerController.setIsInDialog(false);
-            hideDialog();
+            dialog.hideDialog();
         }
     }
 
@@ -87,16 +82,14 @@ public class DialogCutsceneScript : MonoBehaviour
                 director.time = pauseTime;
                 director.Evaluate(); // Apply the state at this time
             }
-
             dialogCounter = 0;
             showDialog(); // your own dialogue logic
-            isInDialog = true;
         }
     }
     void showDialog()
     {
         if (playerController != null) playerController.setIsInDialog(true);
-            isInDialog = true;
+        isInDialog = true;
 
         if (dialogList[dialogCounter].name == "EnterName")
         {
@@ -105,26 +98,27 @@ public class DialogCutsceneScript : MonoBehaviour
         }
         else
         {
-            dialogBackground.enabled = true;
-            characterExpression.enabled = true;
+            dialog.showDialog();
             string[] dialogSplit = dialogList[dialogCounter].dialog.Split(" ");
-            dialogName.text = dialogList[dialogCounter].name;
-            if (dialogList[dialogCounter].expression != null) characterExpression.sprite = dialogList[dialogCounter].expression;
+            dialog.dialogName.text = dialogList[dialogCounter].name;
+            if (dialogList[dialogCounter].expression != null) dialog.characterExpression.sprite = dialogList[dialogCounter].expression;
             StartCoroutine(TypeText(dialogSplit));
         }
     }
 
-    void hideDialog()
+
+    void nextDialog()
     {
-        characterExpression.enabled = false;
-        dialogBackground.enabled = false;
-        dialogtext.text = "";
+        dialogCounter += 1;
+        dialog.resetDialog();
+        if (dialogCounter < dialogList.Length) showDialog();
     }
 
     public void showNameTextField()
     {
-        hideDialog();
-        nameTF.showEnterNameCanvas();
+        dialog.hideDialog();
+        isInEnterNameState = true;
+        nameTF.SetActive(true);
     }
 
     IEnumerator TypeText(string[] dialogSplit)
@@ -133,7 +127,7 @@ public class DialogCutsceneScript : MonoBehaviour
         {
             if (isInDialog)
             {                
-                dialogtext.text += word + " ";
+                dialog.dialogtext.text += word + " ";
                 audioSource.PlayOneShot(clip);
                 yield return new WaitForSeconds(wordDelay);
             }

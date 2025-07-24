@@ -11,7 +11,6 @@ public class PlayerControllerScript : MonoBehaviour
     bool isInDialog;
     public static PlayerControllerScript Instance { get; private set; }
 
-    SpriteRenderer spriteRenderer;
     Animator animator;
 
     string currentState = "";
@@ -24,8 +23,6 @@ public class PlayerControllerScript : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = footStepSound;
         audioSource.loop = true;
