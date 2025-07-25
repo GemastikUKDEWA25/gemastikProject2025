@@ -4,34 +4,38 @@ using UnityEngine;
 
 public class PlayerControllerSideViewScript : MonoBehaviour
 {
-    float moveSpeed = 10f;
-    float sprintSpeed = 5f;
-    float jumpForce = 15f;
+    float moveSpeed = 1.5f;
+    float sprintSpeed = 1f;
+    float jumpForce = 10f;
     private int doubleJump = 2;
     private Rigidbody2D rb;
+    private Animator animator;
     bool isSliding = false;
     private float slideTimer = 0f;
     float slideDuration = 0.5f;
+    string direction = "Right";
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
+        float moveInput = 0f;
+        bool isMoving = false;
+        
         if (Input.GetKeyDown(KeyCode.W) && doubleJump > 1)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             doubleJump -= 1;
         }
-
         if (IsGroundedScript.Instance.getGrounded())
         {
             doubleJump = 2;
         }
-
         if (isSliding)
         {
             slideTimer -= Time.deltaTime;
@@ -40,33 +44,31 @@ public class PlayerControllerSideViewScript : MonoBehaviour
                 isSliding = false;
             }
         }
-
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isSliding)
         {
             isSliding = true;
             slideTimer = slideDuration;
         }
-    }
-
-    void FixedUpdate()
-    {
-        float moveInput = 0f;
         if (Input.GetKey(KeyCode.A))
         {
+            isMoving = true;
+            direction = "Left";
             moveInput -= 1;
-            if (hitAreaScript.Instance.getCircleOffset().x > 0)
-            {
-                hitAreaScript.Instance.flipCircleOffset();
-            }
+            if (hitAreaScript.Instance.getCircleOffset().x > 0) hitAreaScript.Instance.flipCircleOffset();
+            animator.Play("RunLeft");
         }
         if (Input.GetKey(KeyCode.D))
         {
+            isMoving = true;
+            direction = "Right";
             moveInput += 1;
-            
-            if (hitAreaScript.Instance.getCircleOffset().x < 0)
-            {
-                hitAreaScript.Instance.flipCircleOffset();
-            }
+            if (hitAreaScript.Instance.getCircleOffset().x < 0) hitAreaScript.Instance.flipCircleOffset();
+            animator.Play("RunRight");
+        }
+        if (!isMoving)
+        {
+            if (direction == "Left") animator.Play("IdleLeft");
+            if (direction == "Right") animator.Play("IdleRight");
         }
 
         float moveSpeedTemp = moveSpeed;
@@ -77,6 +79,11 @@ public class PlayerControllerSideViewScript : MonoBehaviour
         }
 
         rb.linearVelocity = new Vector2(moveInput * moveSpeedTemp, rb.linearVelocity.y);
+    }
+
+    void FixedUpdate()
+    {
+        
     }
 
 }

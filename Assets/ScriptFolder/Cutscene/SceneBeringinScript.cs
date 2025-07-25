@@ -1,8 +1,6 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using System;
-using UnityEngine.UI;
 
 [System.Serializable]
 public class DialogCutscene
@@ -40,8 +38,8 @@ public class SceneBeringinScript : MonoBehaviour
     void Start()
     {
         if (audioSource == null) audioSource = GetComponent<AudioSource>();
-        playerController.setIsInDialog(true);
         nameTF.SetActive(false);
+        playerController.setIsInDialog(true);
         MovingButtonInstruction.SetActive(false);
     }
 
