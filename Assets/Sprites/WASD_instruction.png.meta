@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 5fa5a6fdf0f39c349a619627717a7640
+guid: 2be80e812b3fa4b41b171d7295fd736d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1295126469957867886
-    second: pngtree-keyboard-keys-vector-png-image_6705739_0
+      213: -8111308550058764471
+    second: WASD_instruction_0
   - first:
-      213: 852028094411959866
-    second: pngtree-keyboard-keys-vector-png-image_6705739_1
+      213: 2930857740571163309
+    second: WASD_instruction_1
   - first:
-      213: 3277167921999031256
-    second: pngtree-keyboard-keys-vector-png-image_6705739_2
+      213: -3883821799595170500
+    second: WASD_instruction_2
   - first:
-      213: -5467549430588405715
-    second: pngtree-keyboard-keys-vector-png-image_6705739_3
+      213: -1283641204802810735
+    second: WASD_instruction_3
+  - first:
+      213: -7300431562940876768
+    second: WASD_instruction_4
+  - first:
+      213: -1609269717235023077
+    second: WASD_instruction_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -105,17 +111,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pngtree-keyboard-keys-vector-png-image_6705739_1
+      name: WASD_instruction_3
       rect:
         serializedVersion: 2
-        x: 25
-        y: 75
-        width: 309
-        height: 210
+        x: 9
+        y: 7
+        width: 113
+        height: 91
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a3ee312a90303db00800000000000000
-      internalID: 852028094411959866
+      spriteID: 19c8ca010279f2ee0800000000000000
+      internalID: -1283641204802810735
       vertices: []
       indices: 
       edges: []
@@ -134,7 +153,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d1401bacf66c53b44a4929fcbbb39322
+    spriteID: 73d162a8f23ebb44696e062812c206f2
     internalID: 0
     vertices: []
     indices: 
@@ -144,7 +163,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pngtree-keyboard-keys-vector-png-image_6705739_1: 852028094411959866
+      WASD_instruction_1: 2930857740571163309
+      WASD_instruction_2: -3883821799595170500
+      WASD_instruction_3: -1283641204802810735
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

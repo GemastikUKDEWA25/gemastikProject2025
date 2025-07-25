@@ -12,8 +12,9 @@ public class DialogCutscene
     public Sprite expression;
 }
 
-public class DialogCutsceneScript : MonoBehaviour
+public class SceneBeringinScript : MonoBehaviour
 {
+    public GameObject MovingButtonInstruction;
     public UnityEngine.Playables.PlayableDirector director;
     public DialogController dialog;
     public GameObject nameTF;
@@ -28,18 +29,20 @@ public class DialogCutsceneScript : MonoBehaviour
     public DialogCutscene[] dialogList;
 
 
+    float timer = 0;
     bool isInDialog = false;
     int dialogCounter = 0;
     float wordDelay = 0.09f;
     double pauseTime;
     bool isInEnterNameState = false;
+    bool isInstructionShowed = false;
 
     void Start()
     {
-        if (audioSource == null)
-            audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
         playerController.setIsInDialog(true);
         nameTF.SetActive(false);
+        MovingButtonInstruction.SetActive(false);
     }
 
     // Update is called once per frame
@@ -49,8 +52,16 @@ public class DialogCutsceneScript : MonoBehaviour
         {
             director.time = pauseTime;
             director.Evaluate(); // Apply the state at this time
-
         }
+        if(isInstructionShowed){
+            timer += Time.deltaTime;
+            if (timer >= 5f)
+            {
+                MovingButtonInstruction.GetComponent<Animator>().Play("AWSDanimationFadeOut");
+                isInstructionShowed = false;
+            }
+        }
+
 
         if (isInEnterNameState && nameInputField.text != "" && Input.GetKey(KeyCode.Return))
         {
@@ -71,7 +82,6 @@ public class DialogCutsceneScript : MonoBehaviour
         {
             isInDialog = false;
             dialogCounter = 0;
-            if (playerController != null) playerController.setIsInDialog(false);
             dialog.hideDialog();
         }
     }
@@ -128,6 +138,13 @@ public class DialogCutsceneScript : MonoBehaviour
         dialog.hideDialog();
         isInEnterNameState = true;
         nameTF.SetActive(true);
+    }
+
+    public void showInstruction()
+    {
+        MovingButtonInstruction.SetActive(true);
+        if (playerController != null) playerController.setIsInDialog(false);
+        isInstructionShowed = true;
     }
 
     IEnumerator TypeText(string[] dialogSplit)
