@@ -15,7 +15,6 @@ public class Dialog
 public class InteractableNPCScript : MonoBehaviour
 {
     public TextMeshProUGUI interactKey;
-    // public string[] dialog;
     bool isInDialog = false;
     int dialogCounter = 0;
     bool isInInteractArea = false;
@@ -23,10 +22,7 @@ public class InteractableNPCScript : MonoBehaviour
 
     // dialog ui
     [Header("Dialog UI")]
-    public TextMeshProUGUI dialogtext;
-    public TextMeshProUGUI dialogName;
-    public UnityEngine.UI.Image dialogBackground;
-    public UnityEngine.UI.Image characterExpression;
+    public DialogController dialog;
 
     [Header("Audio")]
     public AudioClip clip;
@@ -35,8 +31,7 @@ public class InteractableNPCScript : MonoBehaviour
 
     [Header("Dialog")]
     public Dialog[] dialogList;
-    // public Dictionary<string, Sprite> dialogDict = new();
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {   
         if (audioSource == null)
@@ -52,7 +47,7 @@ public class InteractableNPCScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E) && isInInteractArea == true && isInDialog == false)
         {
-            playerController.LoadPlayer();
+            // playerController.LoadPlayer();
             if (isInInteractArea) interactKey.enabled = false;
             showDialog();
 
@@ -60,8 +55,7 @@ public class InteractableNPCScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isInDialog == true)
         {
             dialogCounter += 1;
-            dialogtext.text = "";
-            dialogName.text = "";
+            dialog.resetDialog();
             if (dialogCounter < dialogList.Length)
             {
                 showDialog();
@@ -86,6 +80,17 @@ public class InteractableNPCScript : MonoBehaviour
         }
     }
 
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        Debug.Log(collision.tag);
+        if (collision.CompareTag("Player"))
+        {
+            playerController = collision.GetComponent<PlayerControllerScript>();
+            interactKey.enabled = true;
+            isInInteractArea = true;
+        }
+    }
+
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -99,12 +104,19 @@ public class InteractableNPCScript : MonoBehaviour
     void showDialog()
     {   
         if (playerController != null) playerController.setIsInDialog(true);
-            isInDialog = true;
-        dialogBackground.enabled = true;
-        characterExpression.enabled = true;
+        isInDialog = true;
+
         string[] dialogSplit = dialogList[dialogCounter].dialog.Split(" ");
-        dialogName.text = dialogList[dialogCounter].name;
-        if (dialogList[dialogCounter].expression != null) characterExpression.sprite = dialogList[dialogCounter].expression;
+        string nameDialog = dialogList[dialogCounter].name;
+        dialog.showDialog();
+        if (nameDialog.Trim() == "Player")
+        {
+            playerController.LoadName();
+            dialog.dialogName.text = playerController.playerName;
+        }
+        else dialog.dialogName.text = nameDialog;
+
+        if (dialogList[dialogCounter].expression != null) dialog.characterExpression.sprite = dialogList[dialogCounter].expression;
         StartCoroutine(TypeText(dialogSplit));
     }
 
@@ -113,9 +125,8 @@ public class InteractableNPCScript : MonoBehaviour
         isInDialog = false; 
         if (playerController != null) playerController.setIsInDialog(false);
         dialogCounter = 0;
-        characterExpression.enabled = false;
-        dialogBackground.enabled = false;
-        dialogtext.text = "";
+        dialog.resetDialog();
+        dialog.hideDialog();
     }
 
     IEnumerator TypeText(string[] dialogSplit)
@@ -124,7 +135,7 @@ public class InteractableNPCScript : MonoBehaviour
         {
             if (isInDialog)
             {                
-                dialogtext.text += word + " ";
+                dialog.dialogtext.text += word + " ";
                 audioSource.PlayOneShot(clip);
                 yield return new WaitForSeconds(wordDelay);
             }
