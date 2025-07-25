@@ -12,15 +12,17 @@ public class SceneController : MonoBehaviour
     [SerializeField] Animator transitionSceneAnimation;
     private void Awake()
     {
-        if (instance == null)
+        if (instance != null && instance != this)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            // Destroy the old instance (the one already stored)
+            Destroy(instance.gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
+        // Assign this as the current instance
+        instance = this;
+
+        // Make this object persist between scenes
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()

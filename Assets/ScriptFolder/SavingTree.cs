@@ -12,7 +12,7 @@ public class SavingTree : MonoBehaviour
             InteractKey.enabled = true;
             if (Input.GetKeyDown(KeyCode.E))
             {
-                player.saving();
+                SaveSystem.SavePlayerPosition(player.transform.position);
                 Debug.Log("Saving");
             }
         }
@@ -26,7 +26,7 @@ public class SavingTree : MonoBehaviour
             InteractKey.enabled = true;
             if (Input.GetKeyDown(KeyCode.E))
             {
-                player.saving();
+                SaveSystem.SavePlayerPosition(player.transform.position);
                 Debug.Log("Saving");
             }
         }

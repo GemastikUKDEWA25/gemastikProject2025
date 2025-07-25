@@ -7,6 +7,7 @@ public class PlayerControllerScript : MonoBehaviour
     private float sprintSpeed = 1f;
     public int Health = 100;
     public int stage = 0;
+    public string playerName = "???";
 
     bool isInDialog;
     public static PlayerControllerScript Instance { get; private set; }
@@ -36,10 +37,11 @@ public class PlayerControllerScript : MonoBehaviour
         }
     }
 
-    public void saving()
+    public void savingName()
     {
-        SaveSystem.SavePlayer(this);
+        SaveSystem.SavePlayerName(name);
     }
+    
 
     public void LoadPlayer()
     {
@@ -49,9 +51,27 @@ public class PlayerControllerScript : MonoBehaviour
             // Restore position
             Vector3 pos = new Vector3(data.position[0], data.position[1], data.position[2]);
             transform.position = pos;
-
-            // Restore health
+            playerName = data.name;
             Health = data.health;
+        }
+    }
+
+    public void LoadPosition()
+    {
+        SaveFile data = SaveSystem.LoadPlayer();
+        if (data != null)
+        {
+            Vector3 pos = new Vector3(data.position[0], data.position[1], data.position[2]);
+            transform.position = pos;
+        }
+    }
+
+    public void LoadName()
+    {
+        SaveFile data = SaveSystem.LoadPlayer();
+        if (data != null)
+        {
+            playerName = data.name;
         }
     }
 

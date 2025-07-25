@@ -55,6 +55,11 @@ public class DialogCutsceneScript : MonoBehaviour
         if (isInEnterNameState && nameInputField.text != "" && Input.GetKey(KeyCode.Return))
         {
             isInEnterNameState = false;
+
+            SaveSystem.SavePlayerName(nameInputField.text.Trim());
+            playerController.LoadName();
+            Debug.Log(playerController.playerName);
+
             nameTF.SetActive(false);
             nextDialog();
         }
@@ -77,13 +82,12 @@ public class DialogCutsceneScript : MonoBehaviour
         {
             if (director != null)
             {
-                // Freeze the timeline at the current time when the signal triggers
                 pauseTime = director.time;
                 director.time = pauseTime;
-                director.Evaluate(); // Apply the state at this time
+                director.Evaluate();
             }
             dialogCounter = 0;
-            showDialog(); // your own dialogue logic
+            showDialog();
         }
     }
     void showDialog()
@@ -99,9 +103,14 @@ public class DialogCutsceneScript : MonoBehaviour
         else
         {
             dialog.showDialog();
+            string nameDialog = dialogList[dialogCounter].name;
             string[] dialogSplit = dialogList[dialogCounter].dialog.Split(" ");
-            dialog.dialogName.text = dialogList[dialogCounter].name;
+
+            if (nameDialog == "Player") {dialog.dialogName.text = playerController.playerName;}
+            else dialog.dialogName.text = nameDialog;
+
             if (dialogList[dialogCounter].expression != null) dialog.characterExpression.sprite = dialogList[dialogCounter].expression;
+            
             StartCoroutine(TypeText(dialogSplit));
         }
     }
