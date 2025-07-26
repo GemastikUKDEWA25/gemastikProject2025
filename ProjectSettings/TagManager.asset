@@ -8,6 +8,11 @@ TagManager:
   - NPC
   - Obstacle
   - Floor
+  - Inventory
+  - OrganicTrashBin
+  - InOrganicTrashBin
+  - OrganicTrash
+  - InOrganicTrash
   layers:
   - Default
   - TransparentFX
