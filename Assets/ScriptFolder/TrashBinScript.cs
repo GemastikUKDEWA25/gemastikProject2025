@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrashBinScript : MonoBehaviour
 {
-    public TextMeshProUGUI InteractKey;
+    public SpriteRenderer InteractKey;
     public AudioClip wrongSound;
     public AudioClip rightSound;
     public AudioSource audioSource;

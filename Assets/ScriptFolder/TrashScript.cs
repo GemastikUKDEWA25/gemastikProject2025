@@ -4,7 +4,7 @@ using TMPro;
 
 public class TrashScript : MonoBehaviour
 {
-    public TextMeshProUGUI InteractKey;
+    public SpriteRenderer InteractKey;
     SpriteRenderer spriteRenderer;
     InventoryScript inventory;
     bool isInInteractArea = false;
