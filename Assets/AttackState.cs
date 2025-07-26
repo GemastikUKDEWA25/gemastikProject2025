@@ -5,7 +5,7 @@ public class AttackState : StateMachineBehaviour
 {
     Rigidbody2D rb;
     float movementSpeed = 3f;
-    float timer = 10f;
+    float timer = 5f;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -23,6 +23,7 @@ public class AttackState : StateMachineBehaviour
         if (timer <= 0)
         {
             animator.SetTrigger("ToIdle");
+            timer = 5f;
         }
     }
 
