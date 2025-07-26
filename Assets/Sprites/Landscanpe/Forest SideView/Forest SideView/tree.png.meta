@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 89e1aef36b0ac8e45a8f5dfcd6c453fb
+guid: 2492bb7230edb2b459266077ab02b221
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2971415683284909131
-    second: forest_5_0
+      213: -8667466294985060184
+    second: tree_0
+  - first:
+      213: 5281997702118322174
+    second: tree_1
+  - first:
+      213: -3105659087322419395
+    second: tree_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,40 +102,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: forest_5_0
+      name: tree_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 243
+        y: 125
         width: 640
-        height: 397
+        height: 515
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b4cb83a12d69c3920800000000000000
-      internalID: 2971415683284909131
+      spriteID: eff2133ccec6d4940800000000000000
+      internalID: 5281997702118322174
       vertices: []
       indices: 
       edges: []
@@ -138,7 +131,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: df601f99eea6e3147b521e36195de7ee
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +141,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      forest_5_0: 2971415683284909131
+      tree_1: 5281997702118322174
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

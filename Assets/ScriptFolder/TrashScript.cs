@@ -6,6 +6,8 @@ public class TrashScript : MonoBehaviour
 {
     public TextMeshProUGUI InteractKey;
     SpriteRenderer spriteRenderer;
+    InventoryScript inventory;
+    bool isInInteractArea = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,25 +19,26 @@ public class TrashScript : MonoBehaviour
     void Update()
     {
 
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("trigger");
-        InteractKey.enabled = true;
-        if (collision.CompareTag("Inventory"))
-        {
-            InventoryScript inventory = collision.GetComponent<InventoryScript>();
-            Debug.Log("Inventory trigger");
-            if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && isInInteractArea)
+            {
+            if (inventory.Carry == "")
             {
                 inventory.Carry = gameObject.tag;
                 inventory.icon.sprite = spriteRenderer.sprite;
                 inventory.icon.enabled = true;
-                if (inventory.Carry != "") Debug.Log("Carry"+gameObject.tag);
+                Destroy(gameObject);
+            }
             
             }
+    }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Inventory"))
+        {
+            inventory = collision.GetComponent<InventoryScript>();
+            InteractKey.enabled = true;
+            isInInteractArea = true;
         }
     }
 
@@ -43,16 +46,9 @@ public class TrashScript : MonoBehaviour
     {
         if (collision.CompareTag("Inventory"))
         {
-            InventoryScript inventory = collision.GetComponent<InventoryScript>();
+            inventory = collision.GetComponent<InventoryScript>();
             InteractKey.enabled = true;
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                inventory.Carry = gameObject.tag;
-                inventory.icon.sprite = spriteRenderer.sprite;
-                inventory.icon.enabled = true;
-                if (inventory.Carry != "") Debug.Log("Carry"+gameObject.tag);
-            }
-            
+            isInInteractArea = true;
         }
     }
 
@@ -60,8 +56,8 @@ public class TrashScript : MonoBehaviour
     {
         if (collision.CompareTag("Inventory"))
         {
-            InventoryScript inventory = collision.GetComponent<InventoryScript>();
             InteractKey.enabled = false;
+            isInInteractArea = false;
         }
     }
 }

@@ -8,6 +8,8 @@ public class TrashBinScript : MonoBehaviour
     public AudioClip wrongSound;
     public AudioClip rightSound;
     public AudioSource audioSource;
+    InventoryScript inventory;
+    bool isInInteractArea;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,6 +20,17 @@ public class TrashBinScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (inventory != null)
+        {
+            if (inventory.Carry.ToLower() + "Bin".ToLower() == gameObject.tag.ToLower())
+            {
+                if (Input.GetKeyDown(KeyCode.E) && isInInteractArea)
+                {
+                    inventory.Carry = "";
+                    inventory.icon.enabled = false;
+                }
+            }
+        }
 
     }
 
@@ -25,40 +38,19 @@ public class TrashBinScript : MonoBehaviour
     {
         if (collision.CompareTag("Inventory"))
         {
-            InventoryScript inventory = collision.GetComponent<InventoryScript>();
+            inventory = collision.GetComponent<InventoryScript>();
             InteractKey.enabled = true;
-            Debug.Log(inventory.Carry.ToLower() + "Bin".ToLower());
-            Debug.Log(gameObject.tag.ToLower());
-
-            if (inventory.Carry.ToLower() + "Bin".ToLower() == gameObject.tag.ToLower())
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    inventory.Carry = "";
-                    inventory.icon.enabled = false;
-                }
-            }
-
+            isInInteractArea = true;
         }
     }
     void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Inventory"))
         {
-            InventoryScript inventory = collision.GetComponent<InventoryScript>();
+            inventory = collision.GetComponent<InventoryScript>();
             InteractKey.enabled = true;
-            Debug.Log(inventory.Carry.ToLower() + "Bin".ToLower());
-            Debug.Log(gameObject.tag.ToLower());
-
-            if (inventory.Carry.ToLower() + "Bin".ToLower() == gameObject.tag.ToLower())
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    inventory.Carry = "";
-                    inventory.icon.enabled = false;
-                }
-            }
-
+            isInInteractArea = true;
+            
         }
     }
 
@@ -66,8 +58,8 @@ public class TrashBinScript : MonoBehaviour
     {
         if (collision.CompareTag("Inventory"))
         {
-            // InventoryScript inventory = collision.GetComponent<InventoryScript>();
             InteractKey.enabled = false;
+            isInInteractArea = false;
 
         }
     }
