@@ -471,7 +471,7 @@ Animator:
   m_GameObject: {fileID: 840771442}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 03276854a73aba84ea407437270213c8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 11820f1d250735040a797474f4b7c502, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -581,7 +581,7 @@ Animator:
   m_GameObject: {fileID: 841500270}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b8b80635f59277146adb05eaeb8d70d5, type: 2}
+  m_Controller: {fileID: 9100000, guid: c9d1581b96400ef498dd103c763f31e3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -936,6 +936,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1500226800 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6677633123110406459, guid: 1e2d218c62128f544b49136f7bc6a87f, type: 3}
+  m_PrefabInstance: {fileID: 1261966786}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44410598600d9949afb2a268c5d0704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1981713514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog: {fileID: 455737433}
+  sceneController: {fileID: 1500226800}
   clip: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
   audioSource: {fileID: 1981713517}
   dialogList:
