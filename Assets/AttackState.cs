@@ -5,7 +5,8 @@ public class AttackState : StateMachineBehaviour
 {
     Rigidbody2D rb;
     float movementSpeed = 3f;
-    float timer = 5f;
+    public float delay;
+    float timer;
     GolemScript golem;
 
     string direction = null;
@@ -14,15 +15,13 @@ public class AttackState : StateMachineBehaviour
     {
         rb = animator.GetComponent<Rigidbody2D>();
         golem = animator.GetComponent<GolemScript>();
-        timer = 5f;
+        timer = delay;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetFloat("WheelRollTimer",timer);
         if (direction == null) direction = golem.getFacingDirection();
-
         float moveInput = 0f;
         if (direction == "Right")
         {
@@ -37,20 +36,14 @@ public class AttackState : StateMachineBehaviour
 
         rb.linearVelocity = new Vector2(moveInput * movementSpeed, rb.linearVelocity.y);
         timer -= Time.deltaTime;
+        animator.SetFloat("WheelRollTimer", timer);
 
-        if (timer <= 0)
-        {
-            golem.FlipTowardsPlayer();
-            direction = null;
-            timer = 5f;
-            golem.timer = 3f;
-        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        timer = 5f;
+        timer = delay;
         golem.FlipTowardsPlayer();
         direction = null;
         golem.chance = -1;
