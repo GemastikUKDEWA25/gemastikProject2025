@@ -1,12 +1,10 @@
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerControllerSideViewScript : MonoBehaviour
 {
-    float moveSpeed = 1.5f;
-    float sprintSpeed = 1f;
-    float jumpForce = 10f;
+    public float moveSpeed = 1.5f;
+    public float sprintSpeed = 1f;
+    public float jumpForce = 5f;
     private int doubleJump = 2;
     private Rigidbody2D rb;
     private Animator animator;
