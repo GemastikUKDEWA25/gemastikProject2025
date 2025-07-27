@@ -2186,7 +2186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 263823805860677017, guid: 31bfccd3662722c428a849dc124b550f, type: 3}
       propertyPath: m_GravityScale
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 263823805860677017, guid: 31bfccd3662722c428a849dc124b550f, type: 3}
       propertyPath: m_LinearDamping
@@ -3048,12 +3048,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyeMovementRadius: 0.1
+  centerPosition: {x: 0, y: 0, z: 0}
   golemEye: {fileID: 766126266}
   healthText: {fileID: 1007092614}
+  isDead: 0
   isInAnimation: 0
   followSpeed: 3
   stopDistance: 1.5
   facingRight: 1
+  isAttacking: 0
 --- !u!1 &2027596349
 GameObject:
   m_ObjectHideFlags: 0

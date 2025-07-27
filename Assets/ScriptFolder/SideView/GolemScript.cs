@@ -1,4 +1,5 @@
 using UnityEngine;
+
 using TMPro;
 
 public class GolemScript : MonoBehaviour
@@ -8,17 +9,27 @@ public class GolemScript : MonoBehaviour
 
     public float eyeMovementRadius = 0.3f;
     Transform player;
-    private Vector3 centerPosition;
+    public Vector3 centerPosition;
     public GameObject golemEye;
     public TextMeshProUGUI healthText;
     Animator animator;
-    bool isDead = false;
+    public bool isDead = false;
     public bool isInAnimation = false;
 
-    public float followSpeed = 3f;
-    public float stopDistance = 1.5f;
-    
+    public float followSpeed = 2f;
+    public float stopDistance = 1f;
     public bool facingRight = true;
+
+    bool isRunning = false;
+    bool isIdle = false;
+
+    public bool isAttacking = false;
+    float distanceToPlayer;
+
+    public float timer = 3f;
+
+    public int chance = -1;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,20 +41,24 @@ public class GolemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if (!isDead && !isInAnimation){
-            FollowPlayer();
-            FlipTowardsPlayer();
+        distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        FlipTowardsPlayer();
+        
+        animator.SetFloat("Distance", distanceToPlayer);
+        animator.SetFloat("Health", health);
+        timer -= Time.deltaTime;
 
-            Vector3 localPlayerPos = golemEye.transform.parent.InverseTransformPoint(player.position);
-            Vector3 directionToPlayer = (localPlayerPos - centerPosition).normalized;
-            
-            // Calculate how far the eye should move
-            float distanceToMove = Mathf.Min(eyeMovementRadius, Vector3.Distance(centerPosition, localPlayerPos));
-            
-            // Set the eye position
-            golemEye.transform.localPosition = centerPosition + directionToPlayer * distanceToMove;
+        if (timer <= 0)
+        {
+            chance = Random.Range(0, 10);
+            timer = 3f;
         }
+        animator.SetInteger("WheelRoll", chance);
 
+        Vector3 localPlayerPos = golemEye.transform.parent.InverseTransformPoint(player.position);
+        Vector3 directionToPlayer = (localPlayerPos - centerPosition).normalized;
+        float distanceToMove = Mathf.Min(eyeMovementRadius, Vector3.Distance(centerPosition, localPlayerPos));
+        golemEye.transform.localPosition = centerPosition + directionToPlayer * distanceToMove;
 
         if (health <= 0)
         {
@@ -52,7 +67,6 @@ public class GolemScript : MonoBehaviour
                 animator.SetTrigger("Dead");
                 isDead = true;
             }
-            // Destroy(gameObject);
         }
         healthText.text = health.ToString();
 
@@ -73,20 +87,12 @@ public class GolemScript : MonoBehaviour
         else return "Left";
     }
 
-     void FollowPlayer()
+    public void FollowPlayer()
     {
-        // Calculate distance to player
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        
-        // Only move if farther than stop distance
-        if (distanceToPlayer > stopDistance)
-        {
-            // Move towards player
-            transform.position = Vector2.MoveTowards(transform.position, player.position, followSpeed * Time.deltaTime);
-        }
+        transform.position = Vector2.MoveTowards(transform.position, player.position, followSpeed * Time.deltaTime);
     }
     
-    void FlipTowardsPlayer()
+    public void FlipTowardsPlayer()
     {
         // Determine if player is to the right or left
         bool playerIsRight = player.position.x > transform.position.x;
@@ -112,6 +118,7 @@ public class GolemScript : MonoBehaviour
         Vector3 scale = transform.localScale;
         return scale;
     }
+
 
     void OnTriggerEnter2D(Collider2D collision)
     {

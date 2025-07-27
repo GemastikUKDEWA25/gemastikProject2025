@@ -8,18 +8,21 @@ public class AttackState : StateMachineBehaviour
     float timer = 5f;
     GolemScript golem;
 
-    string direction = null; 
+    string direction = null;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         rb = animator.GetComponent<Rigidbody2D>();
         golem = animator.GetComponent<GolemScript>();
-        if (direction == null) {direction = golem.getFacingDirection(); golem.isInAnimation = true;}
+        timer = 5f;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.SetFloat("WheelRollTimer",timer);
+        if (direction == null) direction = golem.getFacingDirection();
+
         float moveInput = 0f;
         if (direction == "Right")
         {
@@ -38,17 +41,20 @@ public class AttackState : StateMachineBehaviour
 
         if (timer <= 0)
         {
-            animator.SetTrigger("ToIdle");
+            golem.FlipTowardsPlayer();
             direction = null;
-            golem.isInAnimation = false;
             timer = 5f;
+            golem.timer = 3f;
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       
+        timer = 5f;
+        golem.FlipTowardsPlayer();
+        direction = null;
+        golem.chance = -1;
     }
 
 }
