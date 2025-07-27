@@ -41,24 +41,29 @@ public class GolemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        FlipTowardsPlayer();
-        
-        animator.SetFloat("Distance", distanceToPlayer);
-        animator.SetFloat("Health", health);
-        timer -= Time.deltaTime;
 
-        if (timer <= 0)
+        if (!isDead)
         {
-            chance = Random.Range(0, 10);
-            timer = 3f;
-        }
-        animator.SetInteger("WheelRoll", chance);
+            distanceToPlayer = Vector2.Distance(transform.position, player.position);
+            FlipTowardsPlayer();
+            
+            animator.SetFloat("Distance", distanceToPlayer);
+            animator.SetFloat("Health", health);
+            timer -= Time.deltaTime;
 
-        Vector3 localPlayerPos = golemEye.transform.parent.InverseTransformPoint(player.position);
-        Vector3 directionToPlayer = (localPlayerPos - centerPosition).normalized;
-        float distanceToMove = Mathf.Min(eyeMovementRadius, Vector3.Distance(centerPosition, localPlayerPos));
-        golemEye.transform.localPosition = centerPosition + directionToPlayer * distanceToMove;
+            if (timer <= 0)
+            {
+                chance = Random.Range(0, 5);
+                timer = 3f;
+            }
+            animator.SetInteger("WheelRoll", chance);
+
+            // -- golem eye --
+            Vector3 localPlayerPos = golemEye.transform.parent.InverseTransformPoint(player.position);
+            Vector3 directionToPlayer = (localPlayerPos - centerPosition).normalized;
+            float distanceToMove = Mathf.Min(eyeMovementRadius, Vector3.Distance(centerPosition, localPlayerPos));
+            golemEye.transform.localPosition = centerPosition + directionToPlayer * distanceToMove;
+        }
 
         if (health <= 0)
         {
@@ -82,7 +87,7 @@ public class GolemScript : MonoBehaviour
     }
 
     public string getFacingDirection()
-    {
+    {   
         if (facingRight) return "Right";
         else return "Left";
     }

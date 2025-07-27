@@ -26,14 +26,13 @@ public class AttackState : StateMachineBehaviour
         float moveInput = 0f;
         if (direction == "Right")
         {
-            if (golem.getScale().x > 0) golem.Flip();
+            golem.FlipTowardsPlayer();
             moveInput += 1f;
         }
         if (direction == "Left")
         {
-            if (golem.getScale().x < 0) golem.Flip();
+            golem.FlipTowardsPlayer();
             moveInput -= 1f;
-
         }
 
         rb.linearVelocity = new Vector2(moveInput * movementSpeed, rb.linearVelocity.y);
