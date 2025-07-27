@@ -2755,7 +2755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a77d5be8c507c4eaceb17dce35f8e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eyeMovementRadius: 0.3
+  eyeMovementRadius: 0.1
   golemEye: {fileID: 766126266}
   healthText: {fileID: 1007092614}
 --- !u!1 &2027596349
