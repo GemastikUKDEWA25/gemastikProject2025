@@ -83,6 +83,7 @@ public class SceneBeringinScript : MonoBehaviour
             dialog.hideDialog();
         }
     }
+    
 
     public void ShowDialogEvent()
     {

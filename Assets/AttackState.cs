@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class AttackState : StateMachineBehaviour
 {
-    Rigidbody2D rb;
+    public float jumpForce = 10f;
     float movementSpeed = 3f;
     public float delay;
     float timer;
     GolemScript golem;
+    Rigidbody2D rb;
 
     string direction = null;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -21,6 +22,12 @@ public class AttackState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (golem.isGrounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // jump
+            golem.isGrounded = false;
+        }
+
         if (direction == null) direction = golem.getFacingDirection();
         float moveInput = 0f;
         if (direction == "Right")

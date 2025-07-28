@@ -799,6 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a398302e132a043b12930b9dbb0eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 10
   delay: 3
 --- !u!1101 &4449951101436916336
 AnimatorStateTransition:

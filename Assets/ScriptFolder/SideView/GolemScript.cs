@@ -30,6 +30,8 @@ public class GolemScript : MonoBehaviour
 
     public int chance = -1;
 
+    public bool isGrounded = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,8 +42,8 @@ public class GolemScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-
+    {
+        Debug.Log(isGrounded);
         if (!isDead)
         {
             distanceToPlayer = Vector2.Distance(transform.position, player.position);
@@ -53,7 +55,7 @@ public class GolemScript : MonoBehaviour
 
             if (timer <= 0)
             {
-                chance = Random.Range(0, 5);
+                chance = Random.Range(0, 2);
                 timer = 3f;
             }
             animator.SetInteger("WheelRoll", chance);
@@ -123,6 +125,8 @@ public class GolemScript : MonoBehaviour
         Vector3 scale = transform.localScale;
         return scale;
     }
+
+    
 
 
     void OnTriggerEnter2D(Collider2D collision)

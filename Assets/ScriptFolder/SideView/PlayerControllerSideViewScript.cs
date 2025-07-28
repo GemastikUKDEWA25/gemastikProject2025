@@ -27,7 +27,7 @@ public class PlayerControllerSideViewScript : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.W) && doubleJump > 1)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // jump
             doubleJump -= 1;
         }
         if (IsGroundedScript.Instance.getGrounded())
