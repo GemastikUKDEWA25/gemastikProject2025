@@ -32,6 +32,8 @@ public class GolemScript : MonoBehaviour
     public GolemHitAreaScript RightHand;
     public GolemHitAreaScript LeftFoot;
     public GolemHitAreaScript RightFoot;
+    public GolemHitAreaScript laser;
+    
 
     [Header("Rocks")]
     public GolemHitAreaScript[] rocks;
@@ -132,7 +134,78 @@ public class GolemScript : MonoBehaviour
     }
 
 
+    public void GolemPunch()
+    {
+        hitAreaNeutral();
+        LeftHand.trigger = true;
+        LeftFoot.trigger = true;
+        RightHand.trigger = true;
+        RightFoot.trigger = true;
+        rocksHitAreaTriggerOn();
+    }
 
+    public void GolemRockPunch()
+    {
+        hitAreaNeutral();
+        RightHand.trigger = true;
+        LeftHand.trigger = true;
+        rocksHitAreaTriggerOn();
+    }
+
+    public void GolemBasicAttack()
+    {
+        hitAreaNeutral();
+        RightHand.trigger = true;
+    }
+
+    public void GolemRocketPunch()
+    {
+        hitAreaNeutral();
+        RightHand.trigger = true;
+    }
+
+    public void GolemLaser()
+    {
+        hitAreaNeutral();
+        laser.trigger = true;
+    }
+
+    public void GolemWheelRoll()
+    {
+        hitAreaNeutral();
+        LeftHand.trigger = true;
+        LeftFoot.trigger = true;
+        RightHand.trigger = true;
+        RightFoot.trigger = true;
+    }
+
+    void rocksHitAreaTriggerOn()
+    {
+        for (int i = 0; i < rocks.Length; i++)
+        {
+            rocks[i].trigger = true;
+        }
+    }
+
+    void rocksHitAreaTriggerOff()
+    {
+        for (int i = 0; i < rocks.Length; i++)
+        {
+            rocks[i].trigger = false;
+        }
+    }
+
+
+
+    public void hitAreaNeutral()
+    {
+        LeftHand.trigger = false;
+        LeftFoot.trigger = false;
+        RightHand.trigger = false;
+        RightFoot.trigger = false;
+        laser.trigger = false;
+        rocksHitAreaTriggerOff();
+    }
 
 
     void OnTriggerEnter2D(Collider2D collision)

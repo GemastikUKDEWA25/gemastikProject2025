@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class IdleStateScript : StateMachineBehaviour
 {
-    float timer = 3;
+    float timer = 0.1f;
     GolemScript golem;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -11,7 +11,7 @@ public class IdleStateScript : StateMachineBehaviour
     {
         golem = animator.GetComponent<GolemScript>();
         golem.isAttacking = false;
-        timer = 3;
+        timer = 0.1f;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -24,7 +24,7 @@ public class IdleStateScript : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        timer = 3;
+        timer = 0.1f;
         animator.SetFloat("Timer", timer);
     }
 }

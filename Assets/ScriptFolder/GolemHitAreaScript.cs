@@ -5,6 +5,7 @@ public class GolemHitAreaScript : MonoBehaviour
     public GolemScript golem;
     PlayerControllerSideViewScript player;
     public bool trigger = false;
+    public float damage = 5f;
 
     void Start()
     {
@@ -15,7 +16,7 @@ public class GolemHitAreaScript : MonoBehaviour
         Debug.Log("TriggeredPlayer");
         if (collision.CompareTag("Player"))
         {
-            if (trigger)
+            if (trigger && !player.isSliding)
             {
                 if (player.transform.position.x <= transform.position.x)
                 {
@@ -25,6 +26,7 @@ public class GolemHitAreaScript : MonoBehaviour
                 {
                     player.knockFromRight = false;
                 }
+                player.attack(damage);
                 player.knockBackCounter = player.knockBackTotalTime;
                 Debug.Log("HitPlayer");
             }

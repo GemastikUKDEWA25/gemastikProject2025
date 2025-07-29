@@ -8,16 +8,18 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     private int doubleJump = 2;
     private Rigidbody2D rb;
     private Animator animator;
-    bool isSliding = false;
+    public bool isSliding = false;
     private float slideTimer = 0f;
     float slideDuration = 0.5f;
     string direction = "Right";
+
+    public float health = 100f;
 
     public float knockBackForce;
     public float knockBackCounter;
     public float knockBackTotalTime;
     public bool knockFromRight;
-    
+
 
 
     void Start()
@@ -27,6 +29,11 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     }
 
     void Update()
+    {
+        
+    }
+
+    void FixedUpdate()
     {
         float moveInput = 0f;
         bool isMoving = false;
@@ -104,9 +111,10 @@ public class PlayerControllerSideViewScript : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    public void attack(float damage)
     {
-        
+        health -= damage;
+        Debug.Log(health);
     }
 
 }
