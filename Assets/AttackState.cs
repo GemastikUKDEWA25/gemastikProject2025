@@ -28,16 +28,17 @@ public class AttackState : StateMachineBehaviour
             golem.isGrounded = false;
         }
 
-        if (direction == null) direction = golem.getFacingDirection();
+        // if (direction == null) direction = golem.getFacingDirection();
+        direction = golem.getFacingDirection();
         float moveInput = 0f;
         if (direction == "Right")
         {
-            golem.FlipTowardsPlayer();
+            // golem.FlipTowardsPlayer();
             moveInput += 1f;
         }
         if (direction == "Left")
         {
-            golem.FlipTowardsPlayer();
+            // golem.FlipTowardsPlayer();
             moveInput -= 1f;
         }
 

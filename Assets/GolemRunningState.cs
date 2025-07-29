@@ -3,13 +3,10 @@ using UnityEngine;
 public class GolemRunningState : StateMachineBehaviour
 {
     GolemScript golem;
-    Transform player;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         golem = animator.GetComponent<GolemScript>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        // golem.isAttacking = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

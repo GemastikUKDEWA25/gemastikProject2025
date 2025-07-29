@@ -3,16 +3,14 @@ using UnityEngine;
 
 public class IdleStateScript : StateMachineBehaviour
 {
-    GolemScript golem;
-    string[] arrOfAttack = {"Attack","RockPunch"};
-    private bool hasTriggeredAttack = false; // Add this flag
     float timer = 3;
+    GolemScript golem;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         golem = animator.GetComponent<GolemScript>();
-        hasTriggeredAttack = false; // Reset flag when entering Idle state
+        golem.isAttacking = false;
         timer = 3;
     }
 
@@ -26,7 +24,7 @@ public class IdleStateScript : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetFloat("Timer", timer);
         timer = 3;
+        animator.SetFloat("Timer", timer);
     }
 }

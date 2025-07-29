@@ -6,7 +6,6 @@ public class GolemScript : MonoBehaviour
 {
     float health = 100;
     public static GolemScript Instance { get; private set; }
-
     public float eyeMovementRadius = 0.3f;
     Transform player;
     public Vector3 centerPosition;
@@ -15,15 +14,11 @@ public class GolemScript : MonoBehaviour
     Animator animator;
     public bool isDead = false;
     public bool isInAnimation = false;
-
     public float followSpeed = 2f;
-    public float stopDistance = 1f;
     public bool facingRight = true;
 
-    bool isRunning = false;
-    bool isIdle = false;
-
     public bool isAttacking = false;
+
     float distanceToPlayer;
 
     public float timer = 3f;
@@ -31,6 +26,17 @@ public class GolemScript : MonoBehaviour
     public int chance = -1;
 
     public bool isGrounded = false;
+
+    [Header("BodyParts")]
+    public GolemHitAreaScript LeftHand;
+    public GolemHitAreaScript RightHand;
+    public GolemHitAreaScript LeftFoot;
+    public GolemHitAreaScript RightFoot;
+
+    [Header("Rocks")]
+    public GolemHitAreaScript[] rocks;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,19 +49,18 @@ public class GolemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(isGrounded);
         if (!isDead)
         {
             distanceToPlayer = Vector2.Distance(transform.position, player.position);
             FlipTowardsPlayer();
-            
+
             animator.SetFloat("Distance", distanceToPlayer);
             animator.SetFloat("Health", health);
             timer -= Time.deltaTime;
 
             if (timer <= 0)
             {
-                chance = Random.Range(0, 2);
+                chance = Random.Range(0, 4);
                 timer = 3f;
             }
             animator.SetInteger("WheelRoll", chance);
@@ -89,7 +94,7 @@ public class GolemScript : MonoBehaviour
     }
 
     public string getFacingDirection()
-    {   
+    {
         if (facingRight) return "Right";
         else return "Left";
     }
@@ -98,12 +103,12 @@ public class GolemScript : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, player.position, followSpeed * Time.deltaTime);
     }
-    
+
     public void FlipTowardsPlayer()
     {
         // Determine if player is to the right or left
         bool playerIsRight = player.position.x > transform.position.x;
-        
+
         // Only flip if direction changed
         if (playerIsRight != facingRight)
         {
@@ -111,7 +116,7 @@ public class GolemScript : MonoBehaviour
             Flip();
         }
     }
-    
+
     public void Flip()
     {
         // Flip using x scale *= -1
@@ -126,7 +131,8 @@ public class GolemScript : MonoBehaviour
         return scale;
     }
 
-    
+
+
 
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -139,15 +145,16 @@ public class GolemScript : MonoBehaviour
             }
         }
     }
-    
+
     void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.name == "hitArea")
         {
             if (Input.GetKeyDown(KeyCode.J))
             {
-                attack(1);       
+                attack(1);
             }
         }
     }
+    
 }

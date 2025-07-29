@@ -13,6 +13,12 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     float slideDuration = 0.5f;
     string direction = "Right";
 
+    public float knockBackForce;
+    public float knockBackCounter;
+    public float knockBackTotalTime;
+    public bool knockFromRight;
+    
+
 
     void Start()
     {
@@ -24,7 +30,7 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     {
         float moveInput = 0f;
         bool isMoving = false;
-        
+
         if (Input.GetKeyDown(KeyCode.W) && doubleJump > 1)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // jump
@@ -76,7 +82,26 @@ public class PlayerControllerSideViewScript : MonoBehaviour
             moveSpeedTemp += sprintSpeed;
         }
 
-        rb.linearVelocity = new Vector2(moveInput * moveSpeedTemp, rb.linearVelocity.y);
+
+        if (knockBackCounter <= 0)
+        {
+            rb.linearVelocity = new Vector2(moveInput * moveSpeedTemp, rb.linearVelocity.y);
+
+        }
+        else
+        {
+            if (knockFromRight)
+            {
+                rb.linearVelocity = new Vector2(-knockBackForce, knockBackForce);
+            }
+            if (!knockFromRight)
+            {
+                rb.linearVelocity = new Vector2(knockBackForce, knockBackForce);
+            }
+
+            knockBackCounter -= Time.deltaTime;
+        }
+
     }
 
     void FixedUpdate()
