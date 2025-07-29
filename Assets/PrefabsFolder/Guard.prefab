@@ -207,7 +207,6 @@ MonoBehaviour:
   currentNode: {fileID: 0}
   path: []
   currentState: 1
-  player: {fileID: 0}
   speed: 3
   direction: {x: 0, y: 0}
 --- !u!114 &6755923697380499568
@@ -228,8 +227,11 @@ MonoBehaviour:
   enemyScript: {fileID: 6265943127700293681}
   AlertSound: {fileID: 8300000, guid: df539b9f21516b747a02a43fc4d8464d, type: 3}
   source: {fileID: 4161971598547749839}
+  playerDetected: 0
   moveSpeed: 10
   maxDistance: 8
+  chasePlayer: 0
+  isAlreadyAlert: 0
 --- !u!1 &3141716038559348520
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +272,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9066332805810681117}
-  - component: {fileID: 4698847677326188168}
   - component: {fileID: 5269212240734485689}
   m_Layer: 0
   m_Name: HearingDistance
@@ -294,42 +295,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7456863426262012425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &4698847677326188168
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5199715384286715186}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 3
 --- !u!114 &5269212240734485689
 MonoBehaviour:
   m_ObjectHideFlags: 0

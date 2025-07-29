@@ -7,6 +7,7 @@ public class PatrolEnemyScript : MonoBehaviour
     public int curHealth;
     public int panicMultiplier = 1;
     private bool playerSeen;
+    public GameObject alertMark;
     public Node currentNode;
     public List<Node> path = new List<Node>();
     public enum StateMachine
@@ -25,6 +26,7 @@ public class PatrolEnemyScript : MonoBehaviour
         curHealth = maxHealth;
         player = GameObject.Find("Player").GetComponent<PlayerControllerScript>();
         lastPosition = transform.position;
+        alertMark.SetActive(false);
     }
     private void Update()
     {
@@ -69,6 +71,7 @@ public class PatrolEnemyScript : MonoBehaviour
     }
     void Patrol()
     {
+        alertMark.SetActive(false);
         if (path.Count == 0)
         {
             path = AStarManager.instance.GeneratePath(
@@ -79,6 +82,7 @@ public class PatrolEnemyScript : MonoBehaviour
     }
     void Engage()
     {
+        alertMark.SetActive(true);
         if (path.Count == 0)
         {
             path = AStarManager.instance.GeneratePath(
