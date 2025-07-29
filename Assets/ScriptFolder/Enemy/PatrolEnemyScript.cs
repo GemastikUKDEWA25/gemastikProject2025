@@ -1,41 +1,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
 public class PatrolEnemyScript : MonoBehaviour
 {
     public int maxHealth = 100;
     public int curHealth;
     public int panicMultiplier = 1;
     private bool playerSeen;
-
     public Node currentNode;
     public List<Node> path = new List<Node>();
-
     public enum StateMachine
     {
         Patrol,
         Engage,
         Evade
     }
-
     public StateMachine currentState;
-
-    public PlayerControllerScript player;
-
+    private PlayerControllerScript player;
     public float speed = 3f;
     private Vector3 lastPosition;
     public Vector2 direction;  // this stores the movement direction
-
     private void Start()
     {
         curHealth = maxHealth;
         player = GameObject.Find("Player").GetComponent<PlayerControllerScript>();
         lastPosition = transform.position;
     }
-
     private void Update()
     {
+        // Debug.Log("State: " + currentState + " | Seen: " + playerSeen + " | HP: " + curHealth);
+
         // State transitions
         if (!playerSeen && currentState != StateMachine.Patrol && curHealth > (maxHealth * 20) / 100)
         {
@@ -53,7 +47,6 @@ public class PatrolEnemyScript : MonoBehaviour
             currentState = StateMachine.Evade;
             path.Clear();
         }
-
         // Update path if needed
         switch (currentState)
         {
@@ -67,16 +60,13 @@ public class PatrolEnemyScript : MonoBehaviour
                 Evade();
                 break;
         }
-
         // Move and update direction
         CreatePath();
-
         // Calculate direction (difference between this and last frame)
         Vector3 moveDelta = transform.position - lastPosition;
         direction = new Vector2(moveDelta.x, moveDelta.y).normalized;
         lastPosition = transform.position;
     }
-
     void Patrol()
     {
         if (path.Count == 0)
@@ -87,7 +77,6 @@ public class PatrolEnemyScript : MonoBehaviour
             );
         }
     }
-
     void Engage()
     {
         if (path.Count == 0)
@@ -98,7 +87,6 @@ public class PatrolEnemyScript : MonoBehaviour
             );
         }
     }
-
     void Evade()
     {
         if (path.Count == 0)
@@ -109,6 +97,10 @@ public class PatrolEnemyScript : MonoBehaviour
             );
         }
     }
+    public void setToEngaged()
+    {
+        currentState = StateMachine.Patrol;
+    }
 
     public void CreatePath()
     {
@@ -117,7 +109,6 @@ public class PatrolEnemyScript : MonoBehaviour
             int x = 0;
             Vector3 target = new Vector3(path[x].transform.position.x, path[x].transform.position.y, -2);
             transform.position = Vector3.MoveTowards(transform.position, target, (speed * panicMultiplier) * Time.deltaTime);
-
             if (Vector2.Distance(transform.position, path[x].transform.position) < 0.1f)
             {
                 currentNode = path[x];
@@ -125,7 +116,6 @@ public class PatrolEnemyScript : MonoBehaviour
             }
         }
     }
-
     public void setPlayerSeen(bool isSeen)
     {
         playerSeen = isSeen;

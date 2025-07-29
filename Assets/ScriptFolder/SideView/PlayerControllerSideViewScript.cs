@@ -30,11 +30,6 @@ public class PlayerControllerSideViewScript : MonoBehaviour
 
     void Update()
     {
-        
-    }
-
-    void FixedUpdate()
-    {
         float moveInput = 0f;
         bool isMoving = false;
 
@@ -107,8 +102,7 @@ public class PlayerControllerSideViewScript : MonoBehaviour
             }
 
             knockBackCounter -= Time.deltaTime;
-        }
-
+        }   
     }
 
     public void attack(float damage)

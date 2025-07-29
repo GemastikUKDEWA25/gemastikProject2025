@@ -7,7 +7,7 @@ public class HearingAreaScript : MonoBehaviour
     public LineTesting lineOfSight;
     public PatrolEnemyScript enemy;
     float timer = 1f;
-    Vector3 lastPlayerPostion;
+    bool isTriggered = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,27 +17,30 @@ public class HearingAreaScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer <= 0)
+        if (timer <= 0 && !isTriggered)
         {
-            enemy.setPlayerSeen(true); 
+            lineOfSight.TriggerChase();
+            isTriggered = true;
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.tag + " Enemy Hear You");
-        if (collision.CompareTag("Player"))
-        {
-            lastPlayerPostion = collision.transform.position;
-        }
+        // lineOfSight.FollowPlayer(lineOfSight.playerTransform);
 
     }
-
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) timer -= Time.deltaTime;
-        }
+        timer -= Time.deltaTime;
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        // if (collision.CompareTag("Player"))
+        // {
+        // }        
+        isTriggered = false;
+        timer = 1f;
     }
 }

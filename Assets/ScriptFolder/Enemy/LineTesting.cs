@@ -1,3 +1,4 @@
+using System.Net;
 using UnityEngine;
 
 public class LineTesting : MonoBehaviour
@@ -10,7 +11,7 @@ public class LineTesting : MonoBehaviour
     public AudioClip AlertSound;
     public AudioSource source;
 
-    private bool playerDetected = false;
+    public bool playerDetected = false;
     private Transform playerTransform;
 
     public float moveSpeed = 10f;
@@ -18,10 +19,14 @@ public class LineTesting : MonoBehaviour
 
     private Vector2 lastDirection = Vector2.right; // Default direction
 
+    public bool chasePlayer;
+    public bool isAlreadyAlert= false;
+
     void Start()
     {
         Transform[] points = { pointStart, pointEnd };
         lineController.SetUpLine(points);
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
@@ -45,7 +50,7 @@ public class LineTesting : MonoBehaviour
 
                 playerDetected = false;
                 enemyScript.setPlayerSeen(false);
-                playerTransform = null;
+                // playerTransform = null;
 
                 // Reset to max distance in last known direction
                 pointEnd.position = pointStart.position + (Vector3)(lastDirection * maxDistance);
@@ -93,7 +98,7 @@ public class LineTesting : MonoBehaviour
 
                 enemyScript.setPlayerSeen(false);
                 playerDetected = false;
-                playerTransform = null;
+                // playerTransform = null;
             }
         }
 
@@ -102,8 +107,14 @@ public class LineTesting : MonoBehaviour
         lineController.SetUpLine(points);
     }
 
-    // public void setPlayerDetected(bool status)
-    // {
-    //     playerDetected = status;
-    // }
+    public void TriggerChase()
+    {
+
+        pointEnd.position = playerTransform.position;
+        // playerDetected = true;
+        // isAlreadyAlert = true;
+        // enemyScript.setPlayerSeen(true);
+        // source.PlayOneShot(AlertSound);
+    }
+
 }

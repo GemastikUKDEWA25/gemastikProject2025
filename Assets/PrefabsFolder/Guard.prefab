@@ -272,7 +272,6 @@ GameObject:
   - component: {fileID: 9066332805810681117}
   - component: {fileID: 4698847677326188168}
   - component: {fileID: 5269212240734485689}
-  - component: {fileID: 7137978267184625053}
   m_Layer: 0
   m_Name: HearingDistance
   m_TagString: Untagged
@@ -345,33 +344,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineOfSight: {fileID: 6755923697380499568}
   enemy: {fileID: 6265943127700293681}
---- !u!50 &7137978267184625053
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5199715384286715186}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!1 &5757567487216084153
 GameObject:
   m_ObjectHideFlags: 0
