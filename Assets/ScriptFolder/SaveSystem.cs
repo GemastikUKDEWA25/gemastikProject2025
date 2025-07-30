@@ -1,6 +1,8 @@
 using UnityEngine;
+using System.Collections;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections.Generic;
 
 public static class SaveSystem
 {
@@ -54,10 +56,52 @@ public static class SaveSystem
         WriteToFile(saveFile);
     }
 
-    public static void SavePlayerStage(int stage)
+    public static void SavePlayerStage(string stage)
     {
         SaveFile saveFile = LoadPlayer();
         saveFile.stage = stage;
         WriteToFile(saveFile);
+    }
+
+    public static void SaveStagePosition(string stageName, float[] stagePosition)
+    {
+        SaveFile saveFile = LoadPlayer();
+        if (saveFile.stageKeys == null) saveFile.stageKeys = new List<string>();
+        if (saveFile.stagePositions == null) saveFile.stagePositions = new List<float[]>();
+
+        if (saveFile.stageKeys != null && saveFile.stagePositions != null && saveFile.stageKeys.Count == saveFile.stagePositions.Count)
+        {
+            bool Exist = false;
+            for (int i = 0; i < saveFile.stageKeys.Count; i++)
+            {
+                if (saveFile.stageKeys[i] == stageName)
+                {
+                    saveFile.stagePositions[i] = stagePosition;
+                    Exist = true;
+                    break;
+                }
+            }
+
+            if (!Exist)
+            {
+                saveFile.stageKeys.Add(stageName);
+                saveFile.stagePositions.Add(stagePosition);
+            }
+        }
+
+        WriteToFile(saveFile);
+    }
+
+    public static void DeleteSaveFile()
+    {
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+            Debug.Log("Save file deleted.");
+        }
+        else
+        {
+            Debug.LogWarning("No save file to delete at: " + path);
+        }
     }
 }

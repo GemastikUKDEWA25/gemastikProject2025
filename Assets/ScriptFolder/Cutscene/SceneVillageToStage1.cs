@@ -19,14 +19,15 @@
         [Header("Audio")]
         public AudioClip clip;
         public AudioSource audioSource;
-        
+        public string NextSceneName;
         public DialogCutscene[] dialogList;
+        
         int dialogCounter = 0;
         float wordDelay = 0.09f;
         SaveFile data;
         bool isInDialog = false;
         bool isFinished = false;
-        float timer = 5f;
+        public float timer = 3f;
         bool hasChangedScene = false;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -67,7 +68,7 @@
         else if (!hasChangedScene)
         {
             hasChangedScene = true;
-            sceneController.changeScene("SceneTest2");
+            sceneController.changeScene(NextSceneName);
         }
     }
 

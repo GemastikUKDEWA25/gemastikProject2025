@@ -6,7 +6,7 @@ public class PlayerControllerScript : MonoBehaviour
     private float moveSpeed = 1.5f;
     private float sprintSpeed = 1f;
     public int Health = 100;
-    public int stage = 0;
+    public string stage = "";
     public string playerName = "???";
 
     bool isInDialog;
@@ -19,6 +19,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     public AudioClip footStepSound; // Assign in Inspector
     private AudioSource audioSource;
+    public string lastPosition;
 
 
     void Start()
@@ -27,6 +28,8 @@ public class PlayerControllerScript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = footStepSound;
         audioSource.loop = true;
+
+        // LoadPosition();
     }
 
     void Update()

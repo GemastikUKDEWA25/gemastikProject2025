@@ -1,22 +1,36 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
 public class SaveFile
 {
-    public float[] position;
     public int health;
-    public int stage;
-    public string name; // Add name field
+    public string stage;
+    public string name;
+    public float[] position;
+    public List<string> stageKeys;         // Example: "Stage_1", "Stage_2", ...
+    public List<float[]> stagePositions;   // Example: [x, y, z]
 
-    public SaveFile() { } // Needed for creating empty or default save
+    public SaveFile()
+    {
+        stageKeys = new List<string>();
+        stagePositions = new List<float[]>();
+    }
 
     public SaveFile(PlayerControllerScript player)
     {
-        Vector3 pos = player.transform.position;
-        position = new float[] { pos.x, pos.y, pos.z };
         health = player.Health;
         stage = player.stage;
-        name = player.playerName; // assumes playerName is public string
+        name = player.playerName;
+
+        stageKeys = new List<string>();
+        stagePositions = new List<float[]>();
+
+        // Just add the current stage and position
+        stageKeys.Add(stage); // or just stage.ToString()
+        Vector3 pos = player.transform.position;
+        stagePositions.Add(new float[] { pos.x, pos.y, pos.z });
     }
+
 }

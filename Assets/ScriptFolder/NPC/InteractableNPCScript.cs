@@ -22,7 +22,7 @@ public class InteractableNPCScript : MonoBehaviour
 
     // dialog ui
     [Header("Dialog UI")]
-    public DialogController dialog;
+    DialogController dialog;
 
     [Header("Audio")]
     public AudioClip clip;
@@ -33,9 +33,9 @@ public class InteractableNPCScript : MonoBehaviour
     public Dialog[] dialogList;
 
     void Start()
-    {   
-        if (audioSource == null)
-            audioSource = GetComponent<AudioSource>();
+    {
+        dialog = GameObject.FindGameObjectWithTag("DialogCanvas").GetComponent<DialogController>();
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

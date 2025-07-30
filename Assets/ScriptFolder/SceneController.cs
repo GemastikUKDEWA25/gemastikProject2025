@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,26 +9,30 @@ public class SceneController : MonoBehaviour
 
     public static SceneController instance { get; private set; }
     public GameObject menu;
+    GameObject player;
     bool isPaused;
     [SerializeField] Animator transitionSceneAnimation;
     private void Awake()
     {
-        // if (instance != null && instance != this)
+        // if (instance == null)
         // {
-        //     // Destroy the old instance (the one already stored)
-        //     Destroy(instance.gameObject);
+        //     instance = this;
+        //     DontDestroyOnLoad(gameObject);
+        // }
+        // else if (instance != this)
+        // {
+        //     Destroy(gameObject); // Destroy duplicate
         // }
 
-        // Assign this as the current instance
-        instance = this;
-
-        // Make this object persist between scenes
-        // DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         menu.SetActive(false);
+        // Debug.Log(player.transform.position);
+        if (player!= null) LoadPosition(player.transform);
+
     }
 
     void Update()
@@ -65,5 +70,28 @@ public class SceneController : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         menu.SetActive(false);
+    }
+
+    public void LoadPosition(Transform playerTransform)
+    {
+        SaveFile data = SaveSystem.LoadPlayer();
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (data != null)
+        {
+            // changeScene(data.stage); // this makes me change scene back and forth;
+            Debug.Log("Stage: ");
+            Debug.Log(data.stage);
+            for (int i = 0; i < data.stageKeys.Count; i++)
+            {
+                Debug.Log(data.stageKeys[i]);
+                Debug.Log(data.stagePositions[i]);
+                if (data.stageKeys[i] == sceneName)
+                {
+                    Vector3 pos = new Vector3(data.stagePositions[i][0], data.stagePositions[i][1], data.stagePositions[i][2]);
+                    playerTransform.position = pos;
+                    break;
+                }
+            }
+        }
     }
 }

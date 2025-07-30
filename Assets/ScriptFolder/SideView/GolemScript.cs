@@ -57,7 +57,7 @@ public class GolemScript : MonoBehaviour
             FlipTowardsPlayer();
 
             animator.SetFloat("Distance", distanceToPlayer);
-            animator.SetFloat("Health", health);
+            // animator.SetFloat("Health", health);
             timer -= Time.deltaTime;
 
             if (timer <= 0)

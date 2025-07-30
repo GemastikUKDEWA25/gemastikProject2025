@@ -1,5 +1,3 @@
-using System.Net;
-using System.Threading;
 using UnityEngine;
 
 public class HearingAreaScript : MonoBehaviour
@@ -19,7 +17,7 @@ public class HearingAreaScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.tag + " Enemy Hear You");
+        // Debug.Log(collision.tag + " Enemy Hear You");
         lineOfSight.TriggerChase();
 
     }

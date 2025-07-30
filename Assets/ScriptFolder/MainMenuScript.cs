@@ -30,13 +30,22 @@ public class MainMenuScript : MonoBehaviour
                 isInCredits = false;
             }
         }
-        
+
     }
-    
+
     public void playGame()
     {
         gameObject.SetActive(false);
-        sceneController.changeScene("SceneBeringin");
+        // sceneController.changeScene("SceneBeringin");
+        SaveFile saveFile = SaveSystem.LoadPlayer();
+        if (saveFile.stage != null)
+        {
+            sceneController.changeScene(saveFile.stage);
+        }
+        else
+        {
+            sceneController.changeScene("SceneBeringin");
+        }
     }
     public void playCredit()
     {
@@ -46,5 +55,10 @@ public class MainMenuScript : MonoBehaviour
             isInCredits = true;
             creditsAnimator.Play("CreditsAnimation");
         }
+    }
+
+    public void deleteSave()
+    {
+        SaveSystem.DeleteSaveFile();   
     }
 }

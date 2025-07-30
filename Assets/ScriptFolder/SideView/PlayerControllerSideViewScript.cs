@@ -26,6 +26,7 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        
     }
 
     void Update()

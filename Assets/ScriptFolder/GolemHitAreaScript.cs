@@ -13,7 +13,6 @@ public class GolemHitAreaScript : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("TriggeredPlayer");
         if (collision.CompareTag("Player"))
         {
             if (trigger && !player.isSliding)
@@ -28,7 +27,6 @@ public class GolemHitAreaScript : MonoBehaviour
                 }
                 player.attack(damage);
                 player.knockBackCounter = player.knockBackTotalTime;
-                Debug.Log("HitPlayer");
             }
         }
     }

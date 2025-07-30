@@ -14,6 +14,8 @@ TagManager:
   - OrganicTrash
   - InOrganicTrash
   - BabyTree
+  - GameManager
+  - DialogCanvas
   layers:
   - Default
   - TransparentFX
