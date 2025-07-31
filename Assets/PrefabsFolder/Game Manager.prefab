@@ -324,7 +324,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698442126439940798}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -638,7 +638,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4039322620206443512}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -955,11 +955,11 @@ GameObject:
   - component: {fileID: 2087878602550138881}
   m_Layer: 5
   m_Name: DialogCanvas
-  m_TagString: Untagged
+  m_TagString: DialogCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9167854256013112594
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1060,6 +1060,8 @@ MonoBehaviour:
   dialogName: {fileID: 201396282972168392}
   dialogBackground: {fileID: 2915177063260543607}
   characterExpression: {fileID: 8194104044173852687}
+  nextButtonText: {fileID: 5281828742118914786}
+  nextButtonBackground: {fileID: 6429402369454811883}
 --- !u!1 &6269001841903309258
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,7 +1115,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6269001841903309258}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1184,6 +1186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 8893019781904255738}
+  dialogController: {fileID: 2087878602550138881}
   transitionSceneAnimation: {fileID: 3299623341093023736}
 --- !u!1 &6337802936742147042
 GameObject:
@@ -1441,7 +1444,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6519984426639290234}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6677633123110406459}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: BackToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6884411536438545181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,7 +1607,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6935214336458271615}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

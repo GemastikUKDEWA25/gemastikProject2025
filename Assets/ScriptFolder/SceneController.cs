@@ -9,6 +9,7 @@ public class SceneController : MonoBehaviour
 
     public static SceneController instance { get; private set; }
     public GameObject menu;
+    public DialogController dialogController;
     GameObject player;
     bool isPaused;
     [SerializeField] Animator transitionSceneAnimation;
@@ -30,8 +31,8 @@ public class SceneController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         menu.SetActive(false);
-        // Debug.Log(player.transform.position);
-        if (player!= null) LoadPosition(player.transform);
+        dialogController.hideDialog();
+        if (player != null) LoadPosition(player.transform);
 
     }
 
@@ -70,6 +71,14 @@ public class SceneController : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         menu.SetActive(false);
+    }
+
+    public void BackToMainMenu()
+    {
+        changeScene("MainMenu");
+        ResumeGame();
+        menu.SetActive(false);
+        // SceneManager.LoadScene("MainMenu");
     }
 
     public void LoadPosition(Transform playerTransform)

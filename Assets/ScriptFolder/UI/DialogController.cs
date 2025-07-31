@@ -6,10 +6,13 @@ public class DialogController : MonoBehaviour
     public TextMeshProUGUI dialogName;
     public UnityEngine.UI.Image dialogBackground;
     public UnityEngine.UI.Image characterExpression;
+    public TextMeshProUGUI nextButtonText;
+    public UnityEngine.UI.Image nextButtonBackground;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        // hideDialog();
+        hideDialog();
     }
 
     // Update is called once per frame
@@ -20,12 +23,26 @@ public class DialogController : MonoBehaviour
 
     public void showDialog()
     {
-        gameObject.SetActive(true);
+        // gameObject.SetActive(true);
+        dialogtext.enabled = true;
+        dialogName.enabled = true;
+        dialogBackground.enabled = true;
+        characterExpression.enabled = true;
+
+        nextButtonText.enabled = true;
+        nextButtonBackground.enabled = true;
+
     }
 
     public void hideDialog()
     {
-        gameObject.SetActive(false);
+        dialogtext.enabled = false;
+        dialogName.enabled = false;
+        dialogBackground.enabled = false;
+        characterExpression.enabled = false;
+
+        nextButtonText.enabled = false;
+        nextButtonBackground.enabled = false;
     }
 
     public void resetDialog()
