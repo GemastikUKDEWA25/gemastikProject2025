@@ -51,19 +51,17 @@ public class PlayerControllerSideViewScript : MonoBehaviour
         }
 
 
-        if (isSliding)
-        {
-            slideTimer -= Time.deltaTime;
-            if (slideTimer <= 0)
-            {
-                isSliding = false;
-            }
-        }
+
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isSliding)
         {
-            isSliding = true;
             slideTimer = slideDuration;
+            isSliding = true;
         }
+        if (Input.GetKeyUp(KeyCode.LeftShift) && isSliding)
+        {
+            isSliding = false;
+        }
+        
         if (Input.GetKey(KeyCode.A) && !isWalledLeft)
         {
             isMoving = true;
@@ -79,14 +77,25 @@ public class PlayerControllerSideViewScript : MonoBehaviour
             if (hitAreaScript.Instance.getCircleOffset().x < 0) hitAreaScript.Instance.flipCircleOffset();
             // animator.Play("RunRight");
         }
+        
 
         float moveSpeedTemp = moveSpeed;
 
-
         if (isSliding)
         {
+            slideTimer -= Time.deltaTime;
             moveSpeedTemp += sprintSpeed;
+            if (slideTimer <= 0)
+            {
+                isSliding = false;
+            }
         }
+
+
+        // if (isSliding)
+        // {
+        //     moveSpeedTemp += sprintSpeed;
+        // }
 
         animator.SetBool("isGrounded", IsGroundedScript.Instance.getGrounded());
         animator.SetBool("isFacingRight", direction == "Right");
