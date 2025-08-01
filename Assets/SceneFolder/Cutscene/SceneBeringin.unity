@@ -2364,6 +2364,9 @@ MonoBehaviour:
   - name: Kayana
     dialog: glad you like it
     expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+  - name: Kayana
+    dialog: follow me, i'll bring you to the vilage
+    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
 --- !u!114 &1683255437
 MonoBehaviour:
   m_ObjectHideFlags: 0
