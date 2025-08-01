@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eddc7937e5380f444bd5e8a03dc3e2c6
+guid: 4ab8f38be1e98c2449b3cd28ff013742
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4136206039314474319
-    second: golem_eye_0
+      213: -3017964633122618654
+    second: Untitled977_20250731224822_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: golem_eye_0
+      name: Untitled977_20250731224822_0
       rect:
         serializedVersion: 2
-        x: 312
-        y: 339
-        width: 25
-        height: 21
+        x: 132
+        y: 7
+        width: 41
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1bad5d4958e3996c0800000000000000
-      internalID: -4136206039314474319
+      spriteID: 2e2c802f7290e16d0800000000000000
+      internalID: -3017964633122618654
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      golem_eye_0: -4136206039314474319
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

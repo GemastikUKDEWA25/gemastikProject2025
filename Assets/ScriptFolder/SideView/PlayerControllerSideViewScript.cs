@@ -9,6 +9,10 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     public bool isSliding = false;
+    
+    bool isWalledLeft = false;
+    bool isWalledRight = false;
+
     private float slideTimer = 0f;
     float slideDuration = 0.5f;
     string direction = "Right";
@@ -26,7 +30,7 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
+
     }
 
     void Update()
@@ -36,13 +40,17 @@ public class PlayerControllerSideViewScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) && doubleJump > 1)
         {
+            animator.SetTrigger("Jump");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // jump
             doubleJump -= 1;
+
         }
         if (IsGroundedScript.Instance.getGrounded())
         {
             doubleJump = 2;
         }
+
+
         if (isSliding)
         {
             slideTimer -= Time.deltaTime;
@@ -56,34 +64,36 @@ public class PlayerControllerSideViewScript : MonoBehaviour
             isSliding = true;
             slideTimer = slideDuration;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && !isWalledLeft)
         {
             isMoving = true;
             direction = "Left";
             moveInput -= 1;
             if (hitAreaScript.Instance.getCircleOffset().x > 0) hitAreaScript.Instance.flipCircleOffset();
-            animator.Play("RunLeft");
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && !isWalledRight)
         {
             isMoving = true;
             direction = "Right";
             moveInput += 1;
             if (hitAreaScript.Instance.getCircleOffset().x < 0) hitAreaScript.Instance.flipCircleOffset();
-            animator.Play("RunRight");
-        }
-        if (!isMoving)
-        {
-            if (direction == "Left") animator.Play("IdleLeft");
-            if (direction == "Right") animator.Play("IdleRight");
+            // animator.Play("RunRight");
         }
 
         float moveSpeedTemp = moveSpeed;
+
 
         if (isSliding)
         {
             moveSpeedTemp += sprintSpeed;
         }
+
+        animator.SetBool("isGrounded", IsGroundedScript.Instance.getGrounded());
+        animator.SetBool("isFacingRight", direction == "Right");
+        animator.SetBool("isMoving", isMoving);
+        animator.SetBool("isSliding", isSliding);
+        animator.SetFloat("xVelocity", rb.linearVelocityX);
+        animator.SetFloat("yVelocity", rb.linearVelocityY);
 
 
         if (knockBackCounter <= 0)
@@ -103,7 +113,7 @@ public class PlayerControllerSideViewScript : MonoBehaviour
             }
 
             knockBackCounter -= Time.deltaTime;
-        }   
+        }
     }
 
     public void attack(float damage)
@@ -112,4 +122,37 @@ public class PlayerControllerSideViewScript : MonoBehaviour
         Debug.Log(health);
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            foreach (ContactPoint2D contact in collision.contacts)
+            {
+                Vector2 contactPoint = contact.point;
+                Vector2 center = transform.position;
+
+                float direction = contactPoint.x - center.x;
+
+                if (direction < 0)
+                {
+                    Debug.Log("Hit from the LEFT");
+                    isWalledLeft = true;
+                }
+                else if (direction > 0)
+                {
+                    Debug.Log("Hit from the RIGHT");
+                    isWalledRight = true;
+                }
+            }
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            isWalledLeft = false;
+            isWalledRight = false;
+        }
+    }
 }

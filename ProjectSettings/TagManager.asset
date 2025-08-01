@@ -16,6 +16,7 @@ TagManager:
   - BabyTree
   - GameManager
   - DialogCanvas
+  - Wall
   layers:
   - Default
   - TransparentFX
