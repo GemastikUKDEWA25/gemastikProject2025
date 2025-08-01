@@ -1201,11 +1201,25 @@ MonoBehaviour:
   NextSceneName: SceneTest1
   dialogList:
   - name: Kayana
-    dialog: Halo
-    expression: {fileID: 0}
+    dialog: you'll meet a lot of people
+    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
   - name: Player
-    dialog: Halo
-    expression: {fileID: 0}
+    dialog: uh..
+    expression: {fileID: -5077560843715274879, guid: 42ef8f21bd82f04459ef8d5d84e2afa0, type: 3}
+  - name: Kayana
+    dialog: "he Chief and the Blacksmith are good people. Don\u2019t let their faces
+      scare you, alright?"
+    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+  - name: Kayana
+    dialog: "I\u2019m sure you\u2019ll enjoy your time in this village. The people
+      are kind, and the air is fresh."
+    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+  - name: Kayana
+    dialog: Pick up the pace and follow me!
+    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+  - name: Player
+    dialog: I'm coming!
+    expression: {fileID: -8821572342123823147, guid: f03dfea691a3337468563e7bc51c8bea, type: 3}
   timer: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
