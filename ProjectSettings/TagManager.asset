@@ -17,6 +17,7 @@ TagManager:
   - GameManager
   - DialogCanvas
   - Wall
+  - PatrolEnemy
   layers:
   - Default
   - TransparentFX

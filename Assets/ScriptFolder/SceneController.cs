@@ -61,6 +61,8 @@ public class SceneController : MonoBehaviour
 
     public void PauseGame()
     {
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "MainMenu") return;
         Time.timeScale = 0f;
         isPaused = true;
         menu.SetActive(true);

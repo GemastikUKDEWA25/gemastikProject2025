@@ -20,10 +20,10 @@ public class HearingAreaScript : MonoBehaviour
         // Debug.Log(collision.tag + " Enemy Hear You");
         lineOfSight.TriggerChase();
     }
-    void OnTriggerStay2D(Collider2D collision)
-    {
-        lineOfSight.TriggerChase();
-    }
+    // void OnTriggerStay2D(Collider2D collision)
+    // {
+    //     lineOfSight.TriggerChase();
+    // }
 
     void OnTriggerExit2D(Collider2D collision)
     {
