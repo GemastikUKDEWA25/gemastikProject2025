@@ -18,6 +18,7 @@ TagManager:
   - DialogCanvas
   - Wall
   - PatrolEnemy
+  - DoorKey
   layers:
   - Default
   - TransparentFX

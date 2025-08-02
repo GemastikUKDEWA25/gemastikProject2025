@@ -13,6 +13,7 @@ public class PlayerControllerScript : MonoBehaviour
     public static PlayerControllerScript Instance { get; private set; }
 
     Animator animator;
+    public InventoryScript inventory;
 
     string currentState = "";
     string lastDirection = "down";
@@ -44,7 +45,7 @@ public class PlayerControllerScript : MonoBehaviour
     {
         SaveSystem.SavePlayerName(name);
     }
-    
+
 
     public void LoadPlayer()
     {
@@ -163,5 +164,7 @@ public class PlayerControllerScript : MonoBehaviour
     {
         isInDialog = status;
     }
+    
+    
     
 }
