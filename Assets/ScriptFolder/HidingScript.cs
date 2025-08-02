@@ -1,68 +1,99 @@
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class HidingScript : MonoBehaviour
 {
     public CinemachineCamera cinemachineCamera;
 
-    GameObject player;
-    Vector3 lastPosition;
-    bool hiding = false;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    private GameObject player;
+    private SpriteRenderer playerRenderer;
+    private PlayerInput playerInput; // or your movement script
+    LineTesting enemy;
+    private bool isHiding = false;
+    private bool isPlayerInside = false;
 
+    bool triggerSetHidingToEnemy = false;
+
+    private void Start()
+    {
+        enemy = GameObject.FindGameObjectWithTag("PatrolEnemy").GetComponent<LineTesting>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerRenderer = player.GetComponent<SpriteRenderer>();
+        playerInput = player.GetComponent<PlayerInput>(); // replace with your actual movement script if needed
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (isHiding && !triggerSetHidingToEnemy)
         {
-            if (!hiding)
-            {
-                // Vector3 pos = lastPosition;
-                // pos.y += 1000f;
-                // player.transform.position = pos;
-                // player.layer = LayerMask.NameToLayer("Default");
-                player.SetActive(false);
+            enemy.setIsPlayerHiding(true);
+            triggerSetHidingToEnemy = true;
+        }
+        if (!isHiding && triggerSetHidingToEnemy)
+        {
+            enemy.setIsPlayerHiding(false);
+            triggerSetHidingToEnemy = false;
+        }
 
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerInside)
+        {
+            if (!isHiding)
+            {
+                // Hide player visually and disable input
+                playerRenderer.enabled = false;
+                player.layer = LayerMask.NameToLayer("Default"); // Change "Enemy" to your target layer name
+
+                if (playerInput != null) playerInput.enabled = false;
+
+                // Switch camera to hiding spot
                 cinemachineCamera.Follow = transform;
                 cinemachineCamera.LookAt = transform;
 
-                hiding = true;
+                isHiding = true;
             }
             else
             {
-                // player.layer = LayerMask.NameToLayer("Player");
-                player.SetActive(true);
+                // Unhide player and re-enable input
+                playerRenderer.enabled = true;
+                player.layer = LayerMask.NameToLayer("Player"); // Change "Enemy" to your target layer name
+
+                if (playerInput != null) playerInput.enabled = true;
+
+                // Switch camera back to player
                 cinemachineCamera.Follow = player.transform;
                 cinemachineCamera.LookAt = player.transform;
-                hiding = false;
+
+                isHiding = false;
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Hide");
         if (collision.CompareTag("Player"))
         {
-            player = collision.gameObject;
-            lastPosition = player.transform.position;
+            isPlayerInside = true;
         }
     }
 
-    void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Hide");
         if (collision.CompareTag("Player"))
         {
-            player = collision.gameObject;
-            lastPosition = player.transform.position;
+            isPlayerInside = false;
+
+            // Auto unhide if player exits while hiding
+            if (isHiding)
+            {
+                playerRenderer.enabled = true;
+                if (playerInput != null) playerInput.enabled = true;
+
+                cinemachineCamera.Follow = player.transform;
+                cinemachineCamera.LookAt = player.transform;
+
+                isHiding = false;
+            }
         }
     }
 }
