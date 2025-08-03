@@ -26,7 +26,6 @@ public class GolemHitAreaScript : MonoBehaviour
                     player.knockFromRight = false;
                 }
                 player.attack(damage);
-                player.knockBackCounter = player.knockBackTotalTime;
             }
         }
     }

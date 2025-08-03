@@ -7,6 +7,8 @@ public class hitAreaScript : MonoBehaviour
     public static hitAreaScript Instance { get; private set; }
     EnemyScript overlappingEnemy;
 
+    public PlayerControllerSideViewScript player;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -22,10 +24,20 @@ public class hitAreaScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if (Input.GetKeyDown(KeyCode.J) && overlappingEnemy != null)
+            if (Input.GetKeyDown(KeyCode.J))
             {   
-                overlappingEnemy.attack(10);
-                Debug.Log(overlappingEnemy.getHealth());
+                player.animator.Play("Attack");
+            if (player.transform.localScale.x == 1)
+            {    
+                player.magicAttackSpawner.spawnMagicDagger("Right");
+            }
+            if (player.transform.localScale.x == -1)
+            {    
+                player.magicAttackSpawner.spawnMagicDagger("Left");
+            }
+            
+            if (overlappingEnemy != null) overlappingEnemy.attack(10);
+            // Debug.Log(overlappingEnemy.getHealth());
             }
     }
 

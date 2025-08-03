@@ -7,7 +7,9 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     public float jumpForce = 5f;
     private int doubleJump = 2;
     private Rigidbody2D rb;
-    private Animator animator;
+    public Animator animator;
+    public MagicAttackSpawner magicAttackSpawner;
+    // SpriteRenderer spriteRenderer;
     public bool isSliding = false;
     
     bool isWalledLeft = false;
@@ -25,11 +27,15 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     public bool knockFromRight;
 
 
+    bool isBlocking;
+
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        // spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
 
@@ -37,48 +43,63 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     {
         float moveInput = 0f;
         bool isMoving = false;
-
-        if (Input.GetKeyDown(KeyCode.W) && doubleJump > 1)
+        if (direction == "Right" && transform.localScale.x == -1)
         {
-            animator.SetTrigger("Jump");
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // jump
-            doubleJump -= 1;
-
+            Vector3 scale = transform.localScale;
+            scale.x = 1;
+            transform.localScale = scale;
         }
-        if (IsGroundedScript.Instance.getGrounded())
+        if (direction == "Left" && transform.localScale.x == 1)
         {
-            doubleJump = 2;
+            Vector3 scale = transform.localScale;
+            scale.x = -1;
+            transform.localScale = scale;
         }
 
+        if (!isBlocking)
+        {
+            if (Input.GetKeyDown(KeyCode.W) && doubleJump > 1)
+            {
+                animator.SetTrigger("Jump");
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // jump
+                doubleJump -= 1;
+
+            }
+            if (IsGroundedScript.Instance.getGrounded())
+            {
+                doubleJump = 2;
+            }
 
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isSliding)
-        {
-            slideTimer = slideDuration;
-            isSliding = true;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift) && isSliding)
-        {
-            isSliding = false;
+
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !isSliding)
+            {
+                slideTimer = slideDuration;
+                isSliding = true;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift) && isSliding)
+            {
+                isSliding = false;
+            }
+
+
+            if (Input.GetKey(KeyCode.A) && !isWalledLeft)
+            {
+                isMoving = true;
+                direction = "Left";
+                moveInput -= 1;
+                if (hitAreaScript.Instance.getCircleOffset().x > 0) hitAreaScript.Instance.flipCircleOffset();
+            }
+            if (Input.GetKey(KeyCode.D) && !isWalledRight)
+            {
+                isMoving = true;
+                direction = "Right";
+                moveInput += 1;
+                if (hitAreaScript.Instance.getCircleOffset().x < 0) hitAreaScript.Instance.flipCircleOffset();
+                // animator.Play("RunRight");
+            }
         }
         
-        if (Input.GetKey(KeyCode.A) && !isWalledLeft)
-        {
-            isMoving = true;
-            direction = "Left";
-            moveInput -= 1;
-            if (hitAreaScript.Instance.getCircleOffset().x > 0) hitAreaScript.Instance.flipCircleOffset();
-        }
-        if (Input.GetKey(KeyCode.D) && !isWalledRight)
-        {
-            isMoving = true;
-            direction = "Right";
-            moveInput += 1;
-            if (hitAreaScript.Instance.getCircleOffset().x < 0) hitAreaScript.Instance.flipCircleOffset();
-            // animator.Play("RunRight");
-        }
-        
-
         float moveSpeedTemp = moveSpeed;
 
         if (isSliding)
@@ -91,12 +112,6 @@ public class PlayerControllerSideViewScript : MonoBehaviour
             }
         }
 
-
-        // if (isSliding)
-        // {
-        //     moveSpeedTemp += sprintSpeed;
-        // }
-
         animator.SetBool("isGrounded", IsGroundedScript.Instance.getGrounded());
         animator.SetBool("isFacingRight", direction == "Right");
         animator.SetBool("isMoving", isMoving);
@@ -104,7 +119,10 @@ public class PlayerControllerSideViewScript : MonoBehaviour
         animator.SetFloat("xVelocity", rb.linearVelocityX);
         animator.SetFloat("yVelocity", rb.linearVelocityY);
 
-
+        if (Input.GetKeyDown(KeyCode.L) && !isBlocking) {animator.Play("Block"); animator.SetBool("isBlocking", true);isBlocking = true; }
+        if (Input.GetKeyUp(KeyCode.L) && isBlocking) {animator.SetBool("isBlocking",false);isBlocking = false; }
+        
+        
         if (knockBackCounter <= 0)
         {
             rb.linearVelocity = new Vector2(moveInput * moveSpeedTemp, rb.linearVelocity.y);
@@ -127,7 +145,14 @@ public class PlayerControllerSideViewScript : MonoBehaviour
 
     public void attack(float damage)
     {
-        health -= damage;
+        if (!isBlocking)
+        {
+            knockBackCounter = knockBackTotalTime;
+            health -= damage;
+        }
+        // if (isBlocking) {animator.Play("Parry"); isBlocking = false; }
+        if (isBlocking) {animator.SetTrigger("Attacked"); isBlocking = false; }
+        
         Debug.Log(health);
     }
 
