@@ -9,6 +9,7 @@ public class HidingScript : MonoBehaviour
     private GameObject player;
     private SpriteRenderer playerRenderer;
     private PlayerInput playerInput; // or your movement script
+    PlayerControllerScript playerScript;
     LineTesting enemy;
     private bool isHiding = false;
     private bool isPlayerInside = false;
@@ -19,6 +20,7 @@ public class HidingScript : MonoBehaviour
     {
         enemy = GameObject.FindGameObjectWithTag("PatrolEnemy").GetComponent<LineTesting>();
         player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<PlayerControllerScript>();
         playerRenderer = player.GetComponent<SpriteRenderer>();
         playerInput = player.GetComponent<PlayerInput>(); // replace with your actual movement script if needed
     }
@@ -43,6 +45,8 @@ public class HidingScript : MonoBehaviour
                 // Hide player visually and disable input
                 playerRenderer.enabled = false;
                 player.layer = LayerMask.NameToLayer("Default"); // Change "Enemy" to your target layer name
+                playerScript.setIsInDialog(true);
+                playerScript.inventory.icon.enabled = false;
 
                 if (playerInput != null) playerInput.enabled = false;
 
@@ -57,7 +61,9 @@ public class HidingScript : MonoBehaviour
                 // Unhide player and re-enable input
                 playerRenderer.enabled = true;
                 player.layer = LayerMask.NameToLayer("Player"); // Change "Enemy" to your target layer name
-
+                playerScript.setIsInDialog(false);
+                playerScript.inventory.icon.enabled = true;
+                
                 if (playerInput != null) playerInput.enabled = true;
 
                 // Switch camera back to player

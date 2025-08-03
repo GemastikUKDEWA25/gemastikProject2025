@@ -74,7 +74,7 @@ public class LineTesting : MonoBehaviour
             Debug.Log(hit.collider.gameObject.tag);
             GameObject hitObject = hit.collider.gameObject;
             pointEnd.position = hit.point;
-            if (hitObject.CompareTag("Player"))
+            if (hitObject.CompareTag("Player") && hitObject.layer == LayerMask.NameToLayer("Player"))
             {
                 timerUnsee = 5f;
                 TriggerChase();

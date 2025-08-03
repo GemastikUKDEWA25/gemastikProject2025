@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/SceneFolder/VillageToStage1Cutscene.unity
     guid: a243bf2c2567e7346bb1b4cecf1ccf81
   - enabled: 1
+    path: Assets/SceneFolder/Stage1Map.unity
+    guid: cfffb7f39a4935f4c923d9d45427ac2d
+  - enabled: 1
     path: Assets/SceneFolder/SceneTest1.unity
     guid: 107b4ae9b6961f94cae4bb7a665ebb2d
   - enabled: 1

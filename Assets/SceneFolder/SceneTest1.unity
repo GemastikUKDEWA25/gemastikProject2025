@@ -2677,6 +2677,10 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 7546807773158301787, guid: a8977a3946b51f549bbe60236921f08f, type: 3}
+      propertyPath: edgeOffset
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

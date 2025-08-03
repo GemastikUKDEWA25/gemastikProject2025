@@ -83,6 +83,12 @@ public class SceneController : MonoBehaviour
         // SceneManager.LoadScene("MainMenu");
     }
 
+    public void loadCheckPoint()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        changeScene(sceneName);
+    }
+
     public void LoadPosition(Transform playerTransform)
     {
         SaveFile data = SaveSystem.LoadPlayer();
