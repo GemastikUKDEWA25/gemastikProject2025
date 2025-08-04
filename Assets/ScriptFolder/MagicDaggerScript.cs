@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class MagicDaggerScript : MonoBehaviour
 {
@@ -57,16 +58,13 @@ public class MagicDaggerScript : MonoBehaviour
     {
         if (collision.CompareTag("Wall") || collision.CompareTag("Enemy"))
         {
+            if (collision.CompareTag("Enemy"))
+            {
+                HurtBox enemy = collision.GetComponent<HurtBox>();
+                if (enemy != null) {if (enemy.isCore) enemy.attack(10);}
+            }
             flying = false;
             animator.SetTrigger("hit");
         }
     }
-    // void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Enemy"))
-    //     {
-    //         flying = false;
-    //         animator.SetTrigger("hit");
-    //     }
-    // }
 }

@@ -25,15 +25,15 @@ public class IsGroundedScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        isGrounded = true;
+        if (collision.CompareTag("Floor")) isGrounded = true;
     }
     void OnTriggerStay2D(Collider2D collision)
     {
-        isGrounded = true;
+        if (collision.CompareTag("Floor")) isGrounded = true;
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        isGrounded = false;
+        if (collision.CompareTag("Floor")) isGrounded = false;
     }
 
     public void setGrounded(bool status)

@@ -25,19 +25,16 @@ public class hitAreaScript : MonoBehaviour
     void Update()
     {
             if (Input.GetKeyDown(KeyCode.J))
-            {   
+            {
                 player.animator.Play("Attack");
-            if (player.transform.localScale.x == 1)
-            {    
-                player.magicAttackSpawner.spawnMagicDagger("Right");
-            }
-            if (player.transform.localScale.x == -1)
-            {    
-                player.magicAttackSpawner.spawnMagicDagger("Left");
-            }
-            
-            if (overlappingEnemy != null) overlappingEnemy.attack(10);
-            // Debug.Log(overlappingEnemy.getHealth());
+                if (player.mana - 10f > 0)
+                {
+                    player.mana -= 10f;
+                    if (player.transform.localScale.x == 1) player.magicAttackSpawner.spawnMagicDagger("Right"); 
+                    if (player.transform.localScale.x == -1) player.magicAttackSpawner.spawnMagicDagger("Left");
+                }
+                if (overlappingEnemy != null) overlappingEnemy.attack(5);
+                // Debug.Log(overlappingEnemy.getHealth());
             }
     }
 

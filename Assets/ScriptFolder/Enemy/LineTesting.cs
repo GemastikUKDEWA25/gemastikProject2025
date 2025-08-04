@@ -76,6 +76,9 @@ public class LineTesting : MonoBehaviour
             pointEnd.position = hit.point;
             if (hitObject.CompareTag("Player") && hitObject.layer == LayerMask.NameToLayer("Player"))
             {
+                if (!isAlreadyAlert) source.PlayOneShot(AlertSound);
+                isAlreadyAlert = true;
+                
                 timerUnsee = 5f;
                 TriggerChase();
             }
@@ -84,7 +87,6 @@ public class LineTesting : MonoBehaviour
         if(hit.collider == null || isPlayerHiding)
         {
             // No hit, ensure end reaches full max range
-            // pointEnd.position = pointStart.position + (Vector3)(lastDirection * maxDistance);
             if (playerDetected) timerUnsee -= Time.deltaTime; // if enemy see and still chased timer going to 
         }
 

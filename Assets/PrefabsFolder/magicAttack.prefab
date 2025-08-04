@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc06bf2abe310064783b3bb905b319ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: Left
+  direction: Right
 --- !u!95 &467829275854957818
 Animator:
   serializedVersion: 7
@@ -160,8 +160,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.025009872, y: 0.0053832866}
-  m_Size: {x: 0.86768377, y: 0.30247453}
+  m_Offset: {x: -0.10016142, y: 0.0053832955}
+  m_Size: {x: 0.71738106, y: 0.30247465}
   m_Direction: 1
 --- !u!50 &-7171602989494394439
 Rigidbody2D:
