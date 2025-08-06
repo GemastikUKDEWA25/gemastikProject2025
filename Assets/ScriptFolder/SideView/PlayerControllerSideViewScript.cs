@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControllerSideViewScript : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     private Rigidbody2D rb;
     public Animator animator;
     public MagicAttackSpawner magicAttackSpawner;
+    public hitAreaScript hitArea;
+
+    public Slider healthBar;
+    public Slider manaBar;
     // SpriteRenderer spriteRenderer;
     public bool isSliding = false;
     
@@ -24,13 +29,19 @@ public class PlayerControllerSideViewScript : MonoBehaviour
 
     float blockManaConsumption = 20f;
 
+    bool isChargedUp = false;
+    float chargingEnergy = 0f;
+    float chargedUpManaConsumption = 2f;
+
     public float knockBackForce;
     public float knockBackCounter;
     public float knockBackTotalTime;
     public bool knockFromRight;
 
 
-    bool isBlocking;
+    public bool isBlocking;
+
+    public float parryTimer = 0.3f;
 
 
 
@@ -39,12 +50,20 @@ public class PlayerControllerSideViewScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         // spriteRenderer = GetComponent<SpriteRenderer>();
+        healthBar.maxValue = 100;
+        manaBar.maxValue = 100;
 
     }
 
     void Update()
     {
-        if (health <= 0) { animator.Play("Dead"); return; }
+        if (health <= 0) { animator.Play("Dead"); healthBar.fillRect.gameObject.SetActive(false); return; }
+        int currentHealth = Mathf.Clamp(Mathf.FloorToInt(health), 0, 100);
+        healthBar.value = currentHealth;
+        if (mana <= 0){ manaBar.fillRect.gameObject.SetActive(false);}
+        else{manaBar.fillRect.gameObject.SetActive(true);}
+        int currentMana = Mathf.Clamp(Mathf.FloorToInt(mana), 0, 100);
+        manaBar.value = currentMana;
 
         float moveInput = 0f;
         bool isMoving = false;
@@ -77,7 +96,7 @@ public class PlayerControllerSideViewScript : MonoBehaviour
 
 
 
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !isSliding)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !isSliding && !isChargedUp)
             {
                 slideTimer = slideDuration;
                 isSliding = true;
@@ -126,11 +145,22 @@ public class PlayerControllerSideViewScript : MonoBehaviour
         animator.SetFloat("xVelocity", rb.linearVelocityX);
         animator.SetFloat("yVelocity", rb.linearVelocityY);
 
-        if (Input.GetKeyDown(KeyCode.L) && !isBlocking && mana - blockManaConsumption > 0) { animator.Play("Block"); animator.SetBool("isBlocking", true); isBlocking = true; }
-        if (Input.GetKeyUp(KeyCode.L) && isBlocking) { animator.SetBool("isBlocking", false); isBlocking = false; }
+        if (Input.GetKeyDown(KeyCode.L) && !isBlocking && mana - blockManaConsumption > 0)
+        {
+            parryTimer = 0.3f; CancelCharging();
+            animator.Play("Block");
+            animator.SetBool("isBlocking", true);
+            isBlocking = true;
+        }
+        if (Input.GetKeyUp(KeyCode.L) && isBlocking)
+        {
+            parryTimer = 0.3f;
+            animator.SetBool("isBlocking", false);
+            isBlocking = false;
+        }
 
-        if (Input.GetKeyDown(KeyCode.K)){ animator.SetBool("ChargedUp", true); animator.Play("ChargedAttack"); }
-        if (Input.GetKeyUp(KeyCode.K)){ animator.SetBool("ChargedUp", false); }
+        if (Input.GetKeyDown(KeyCode.K) && !isChargedUp){ isChargedUp = true; animator.SetBool("ChargedUp", true); animator.Play("ChargedAttack");}
+        if (Input.GetKeyUp(KeyCode.K) && isChargedUp){animator.SetBool("ChargedUp", false); }
         
         Debug.Log(mana);
         
@@ -160,8 +190,24 @@ public class PlayerControllerSideViewScript : MonoBehaviour
         if (isBlocking)
         {
             if (mana > 10f) mana -= blockManaConsumption * Time.fixedDeltaTime;
+            if (parryTimer > 0) parryTimer -= Time.deltaTime;
         }
-        else
+        if (isChargedUp)
+        {
+            if (mana > 10f)
+            {
+                if (chargingEnergy < 20f)
+                {
+                    mana -= chargedUpManaConsumption * Time.fixedDeltaTime;
+                    chargingEnergy += chargedUpManaConsumption * Time.fixedDeltaTime;
+                }
+            }
+            else
+            {
+                CancelCharging();
+            }
+        }
+        if (!isBlocking && !isChargedUp)
         {
             if (mana <= 100f)
             {
@@ -174,6 +220,7 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     public void attack(float damage)
     {
         animator.SetTrigger("Attacked");
+        CancelCharging();
         if (!isBlocking || (isBlocking && mana < blockManaConsumption))
         {
             knockBackCounter = knockBackTotalTime;
@@ -186,6 +233,44 @@ public class PlayerControllerSideViewScript : MonoBehaviour
         Debug.Log(health);
     }
 
+    public void spawnMagicDagger()
+    {
+        // hitArea.spawnMagicDagger();
+        if (mana - 10f > 0)
+        {
+            mana -= 10f;
+            Vector3 size = Vector3.zero;
+            if (chargingEnergy > 0)
+            {
+                if (chargingEnergy > 3) size = new Vector3(3, 3, 0);
+                else size = new Vector3(chargingEnergy, chargingEnergy, 0);
+            }
+            if (transform.localScale.x == 1)
+            {
+
+                magicAttackSpawner.spawnMagicDagger("Right",size,chargingEnergy);
+            }
+
+            if (transform.localScale.x == -1)
+            {
+                magicAttackSpawner.spawnMagicDagger("Left",size,chargingEnergy);
+            }
+        }
+
+        isChargedUp = false;
+        chargingEnergy = 0f;
+    }
+
+    void CancelCharging()
+{
+    if (isChargedUp)
+    {
+        // parryTimer = 2f;
+        isChargedUp = false;
+        chargingEnergy = 0f;
+        animator.SetBool("ChargedUp", false);
+    }
+}
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Wall"))

@@ -269,7 +269,6 @@ GameObject:
   - component: {fileID: 4167442745245902733}
   - component: {fileID: 4158347590002930110}
   - component: {fileID: 9124462764481896348}
-  - component: {fileID: 7009746449841174230}
   - component: {fileID: 4528387140109331556}
   m_Layer: 7
   m_Name: PlayerSideScroll
@@ -400,7 +399,7 @@ MonoBehaviour:
   sprintSpeed: 3
   jumpForce: 7
   animator: {fileID: 4451831478653410003}
-  magicAttackSpawner: {fileID: 7009746449841174230}
+  magicAttackSpawner: {fileID: 0}
   isSliding: 0
   health: 100
   mana: 100
@@ -408,19 +407,6 @@ MonoBehaviour:
   knockBackCounter: 0
   knockBackTotalTime: 0.2
   knockFromRight: 0
---- !u!114 &7009746449841174230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5275123648597492087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b00a0b7afeff9647b4c92a5abad253f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 3151554656986922615, guid: ad825dd55ee19a64891d2491a355cc32, type: 3}
 --- !u!212 &4528387140109331556
 SpriteRenderer:
   m_ObjectHideFlags: 0

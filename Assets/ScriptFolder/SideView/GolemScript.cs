@@ -1,10 +1,10 @@
 using UnityEngine;
-
 using TMPro;
-
+using UnityEngine.UI;
 public class GolemScript : MonoBehaviour
 {
-    float health = 100;
+    float Maxhealth = 500f;
+    float health;
     public static GolemScript Instance { get; private set; }
     public float eyeMovementRadius = 0.3f;
     Transform player;
@@ -38,6 +38,10 @@ public class GolemScript : MonoBehaviour
     [Header("Rocks")]
     public GolemHitAreaScript[] rocks;
 
+    public Slider healthBar;
+
+    public bool parryAvailable = false;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -46,11 +50,20 @@ public class GolemScript : MonoBehaviour
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         centerPosition = golemEye.transform.localPosition;
+        health = Maxhealth;
+        healthBar.maxValue = Maxhealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (health > 0)
+        {
+            int currentHealth = Mathf.Clamp(Mathf.FloorToInt(health), 0, Mathf.FloorToInt(Maxhealth));
+            healthBar.value = currentHealth;
+        }
+        else { healthBar.fillRect.gameObject.SetActive(false); }
+
         if (!isDead)
         {
             distanceToPlayer = Vector2.Distance(transform.position, player.position);
@@ -82,13 +95,29 @@ public class GolemScript : MonoBehaviour
                 isDead = true;
             }
         }
-        healthText.text = health.ToString();
 
     }
 
+    public void stunned()
+    {
+        animator.Play("GolemStunned");
+        animator.SetBool("isStunned", true);
+        parryAvailable = false;
+    }
+
+    public void setParryAvailableTrue()
+    {
+        parryAvailable = true;
+    }
+    public void setParryAvailableFalse()
+    {
+        parryAvailable = false;
+    }
+    
+
     public void attack(float damage)
     {
-        health -= damage;
+        if (health > 0) { health -= damage; }
     }
     public float getHealth()
     {

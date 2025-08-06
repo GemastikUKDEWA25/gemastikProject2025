@@ -5,9 +5,18 @@ public class MagicAttackSpawner : MonoBehaviour
     public GameObject objectToSpawn;  // Assign your prefab in the Inspector
     // public Transform spawnPoint;      // Optional spawn point (can be empty GameObject)
 
-    public void spawnMagicDagger(string direction)
+    public void spawnMagicDagger(string direction, Vector3 chargedSize, float chargedDamage)
     {
-        objectToSpawn.GetComponent<MagicDaggerScript>().direction = direction;
-        Instantiate(objectToSpawn, transform.position, transform.rotation);
+        GameObject spawned = Instantiate(objectToSpawn, transform.position, transform.rotation);
+
+        MagicDaggerScript magicDagger = spawned.GetComponent<MagicDaggerScript>();
+        magicDagger.direction = direction;
+
+        if (chargedSize != Vector3.zero && chargedDamage > 0)
+        {
+            spawned.transform.localScale = chargedSize;
+            magicDagger.damage = chargedDamage;
+        }
     }
+
 }

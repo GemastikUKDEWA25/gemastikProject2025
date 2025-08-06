@@ -15,7 +15,16 @@ public class GolemHitAreaScript : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (trigger && !player.isSliding)
+            if (golem.parryAvailable)
+            {
+                if (player.isBlocking && player.parryTimer > 0)
+                {
+                    player.parryTimer = 0.3f;
+                    golem.stunned();
+                } 
+            }
+
+            if (trigger)
             {
                 if (player.transform.position.x <= transform.position.x)
                 {
