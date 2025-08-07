@@ -7,6 +7,6 @@ public class HurtBox : MonoBehaviour
 
     public void attack(float damage)
     {
-        golemHurtBox.attack(damage);
+        if (isCore) golemHurtBox.attack(damage);
     }
 }

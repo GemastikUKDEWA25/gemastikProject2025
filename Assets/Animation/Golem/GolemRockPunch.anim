@@ -3309,10 +3309,38 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.5833333
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f2c2ddf230db28142ae04dce93451113, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.75
     functionName: setParryAvailableFalse
     data: 
     objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.8
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f2c2ddf230db28142ae04dce93451113, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.0333333
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f2c2ddf230db28142ae04dce93451113, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.2666667
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f2c2ddf230db28142ae04dce93451113, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

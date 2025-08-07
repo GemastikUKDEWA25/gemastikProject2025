@@ -27,8 +27,8 @@ public class hitAreaScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.J))
             {
                 player.animator.Play("Attack");
+                player.playSound(player.magicDaggerSound);
                 if (overlappingEnemy != null) overlappingEnemy.attack(5);
-                // Debug.Log(overlappingEnemy.getHealth());
             }
     }
 

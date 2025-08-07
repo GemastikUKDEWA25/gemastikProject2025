@@ -5,11 +5,12 @@ using UnityEngine.Assertions.Must;
 public class MagicDaggerScript : MonoBehaviour
 {
     Animator animator;
+    public AudioClip spawnSound;
     bool flying = false;
     public string direction = "";
     float timer = 10f;
 
-    public float damage = 10f;
+    public float damage = 15f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -66,7 +67,7 @@ public class MagicDaggerScript : MonoBehaviour
             if (collision.CompareTag("Enemy"))
             {
                 HurtBox enemy = collision.GetComponent<HurtBox>();
-                if (enemy != null) { if (enemy.isCore) enemy.attack(Mathf.FloorToInt(damage)); }
+                if (enemy != null) enemy.attack(Mathf.FloorToInt(damage)); 
                 
             }
             flying = false;

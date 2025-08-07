@@ -10,6 +10,8 @@ public class MagicAttackSpawner : MonoBehaviour
         GameObject spawned = Instantiate(objectToSpawn, transform.position, transform.rotation);
 
         MagicDaggerScript magicDagger = spawned.GetComponent<MagicDaggerScript>();
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(magicDagger.spawnSound);
         magicDagger.direction = direction;
 
         if (chargedSize != Vector3.zero && chargedDamage > 0)

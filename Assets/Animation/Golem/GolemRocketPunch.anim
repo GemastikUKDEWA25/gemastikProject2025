@@ -6738,6 +6738,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.93333334
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 8de5b6fd0bad98044bf8f9fc1e9a5527, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.95
     functionName: setParryAvailableTrue
     data: 

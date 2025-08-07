@@ -27,6 +27,7 @@ public class GolemScript : MonoBehaviour
 
     public bool isGrounded = false;
 
+
     [Header("BodyParts")]
     public GolemHitAreaScript LeftHand;
     public GolemHitAreaScript RightHand;
@@ -41,6 +42,8 @@ public class GolemScript : MonoBehaviour
     public Slider healthBar;
 
     public bool parryAvailable = false;
+    AudioSource audioSource;
+    public AudioClip damagedSound;
 
 
 
@@ -48,6 +51,7 @@ public class GolemScript : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         centerPosition = golemEye.transform.localPosition;
         health = Maxhealth;
@@ -57,6 +61,7 @@ public class GolemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        damageColorChange();
         if (health > 0)
         {
             int currentHealth = Mathf.Clamp(Mathf.FloorToInt(health), 0, Mathf.FloorToInt(Maxhealth));
@@ -117,8 +122,17 @@ public class GolemScript : MonoBehaviour
 
     public void attack(float damage)
     {
-        if (health > 0) { health -= damage; }
+        if (health > 0)
+        {
+            // isAttacked = true;
+            damageColorChange();
+            Invoke(nameof(changeColorToWhite), 0.2f); // ← Reset after 0.2s
+            if (!audioSource.isPlaying) audioSource.Stop(); playSound(damagedSound);
+
+            health -= damage;
+        }
     }
+
     public float getHealth()
     {
         return health;
@@ -208,6 +222,11 @@ public class GolemScript : MonoBehaviour
         RightFoot.trigger = true;
     }
 
+    public void playSound(AudioClip audio)
+    {
+        audioSource.PlayOneShot(audio);
+    }
+
     void rocksHitAreaTriggerOn()
     {
         for (int i = 0; i < rocks.Length; i++)
@@ -224,6 +243,15 @@ public class GolemScript : MonoBehaviour
         }
     }
 
+    void damageColorChange()
+    {
+
+    }
+
+    void changeColorToWhite()
+    {
+        
+    }
 
 
     public void hitAreaNeutral()

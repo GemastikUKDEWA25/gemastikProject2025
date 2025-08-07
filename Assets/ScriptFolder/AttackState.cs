@@ -7,6 +7,7 @@ public class AttackState : StateMachineBehaviour
     float movementSpeed = 3f;
     public float delay;
     float timer;
+    public AudioClip stomp;
     GolemScript golem;
     Rigidbody2D rb;
 
@@ -25,6 +26,7 @@ public class AttackState : StateMachineBehaviour
         if (golem.isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // jump
+            golem.playSound(stomp);
             golem.isGrounded = false;
         }
 

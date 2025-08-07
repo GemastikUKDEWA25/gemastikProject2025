@@ -4,39 +4,60 @@ public class GolemHitAreaScript : MonoBehaviour
 {
     public GolemScript golem;
     PlayerControllerSideViewScript player;
+    SpriteRenderer spriteRenderer;
     public bool trigger = false;
     public float damage = 5f;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerSideViewScript>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (golem.parryAvailable)
-            {
-                if (player.isBlocking && player.parryTimer > 0)
-                {
-                    player.parryTimer = 0.3f;
-                    golem.stunned();
-                } 
-            }
-
             if (trigger)
             {
-                if (player.transform.position.x <= transform.position.x)
+                if (player.animator.GetBool("isBlocking"))
                 {
-                    player.knockFromRight = true;
+                    if (golem.parryAvailable)
+                    {
+                        if (player.parryTimer > 0)
+                        {
+                            player.playSound(player.parrySound);
+                            player.parryTimer = 0.3f;
+                            golem.stunned();
+                        }
+                    }
+                    if (!golem.parryAvailable && player.parryTimer <= 0)
+                    {
+                        player.playSound(player.blockedSound);
+                    }
                 }
-                if (player.transform.position.x > transform.position.x)
+                else
                 {
-                    player.knockFromRight = false;
+                    if (player.transform.position.x <= transform.position.x)
+                    {
+                        player.knockFromRight = true;
+                    }
+                    if (player.transform.position.x > transform.position.x)
+                    {
+                        player.knockFromRight = false;
+                    }
                 }
                 player.attack(damage);
             }
         }
+    }
+    public void changeColorToRed()
+    {
+        spriteRenderer.color = Color.red;
+    }
+
+    public void changeColorToNormal()
+    {
+        spriteRenderer.color = Color.white;
     }
 
     

@@ -8944,6 +8944,20 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.8333333
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 8de5b6fd0bad98044bf8f9fc1e9a5527, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1166667
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f2c2ddf230db28142ae04dce93451113, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.1666666
     functionName: hitAreaNeutral
     data: 
@@ -8951,10 +8965,66 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1.2166667
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f2c2ddf230db28142ae04dce93451113, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.3333334
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f2c2ddf230db28142ae04dce93451113, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.4333333
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f2c2ddf230db28142ae04dce93451113, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 2.25
     functionName: GolemPunch
     data: 
     objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.3333333
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 8de5b6fd0bad98044bf8f9fc1e9a5527, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.4166667
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f2c2ddf230db28142ae04dce93451113, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.5333333
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f2c2ddf230db28142ae04dce93451113, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.65
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f2c2ddf230db28142ae04dce93451113, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.75
+    functionName: playSound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: f2c2ddf230db28142ae04dce93451113, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

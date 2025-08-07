@@ -39,9 +39,24 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     public bool knockFromRight;
 
 
-    public bool isBlocking;
+    // public bool isBlocking;
 
     public float parryTimer = 0.3f;
+
+    public AudioSource audioSourceCombat;
+    public AudioSource audioSourceMovement;
+    public AudioClip daggerSwing;
+    public AudioClip magicShieldSound;
+    public AudioClip blockedSound;
+    public AudioClip parrySound;
+    public AudioClip magicDaggerSound;
+    public AudioClip footStep;
+    public AudioClip jumpSound;
+    public AudioClip doubleJumpSound;
+    public AudioClip slidingSound;
+
+    public AudioClip chargedAttack;
+    
 
 
 
@@ -49,7 +64,6 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        // spriteRenderer = GetComponent<SpriteRenderer>();
         healthBar.maxValue = 100;
         manaBar.maxValue = 100;
 
@@ -60,13 +74,14 @@ public class PlayerControllerSideViewScript : MonoBehaviour
         if (health <= 0) { animator.Play("Dead"); healthBar.fillRect.gameObject.SetActive(false); return; }
         int currentHealth = Mathf.Clamp(Mathf.FloorToInt(health), 0, 100);
         healthBar.value = currentHealth;
-        if (mana <= 0){ manaBar.fillRect.gameObject.SetActive(false);}
-        else{manaBar.fillRect.gameObject.SetActive(true);}
+        if (mana <= 0) { manaBar.fillRect.gameObject.SetActive(false); }
+        else { manaBar.fillRect.gameObject.SetActive(true); }
         int currentMana = Mathf.Clamp(Mathf.FloorToInt(mana), 0, 100);
         manaBar.value = currentMana;
 
         float moveInput = 0f;
         bool isMoving = false;
+
         if (direction == "Right" && transform.localScale.x == -1)
         {
             Vector3 scale = transform.localScale;
@@ -80,7 +95,7 @@ public class PlayerControllerSideViewScript : MonoBehaviour
             transform.localScale = scale;
         }
 
-        if (!isBlocking)
+        if (!animator.GetBool("isBlocking"))
         {
             if (Input.GetKeyDown(KeyCode.W) && doubleJump > 1)
             {
@@ -103,6 +118,7 @@ public class PlayerControllerSideViewScript : MonoBehaviour
             }
             if (Input.GetKeyUp(KeyCode.LeftShift) && isSliding)
             {
+                // audioSourceMovement.Stop();
                 isSliding = false;
             }
 
@@ -121,6 +137,15 @@ public class PlayerControllerSideViewScript : MonoBehaviour
                 moveInput += 1;
                 if (hitAreaScript.Instance.getCircleOffset().x < 0) hitAreaScript.Instance.flipCircleOffset();
                 // animator.Play("RunRight");
+            }
+
+            if (isMoving && IsGroundedScript.Instance.getGrounded() && !isSliding)
+            {
+                if (!audioSourceMovement.isPlaying) audioSourceMovement.PlayOneShot(footStep);
+            }
+            if (!isMoving || !IsGroundedScript.Instance.getGrounded() || isSliding)
+            {
+                if (audioSourceMovement.isPlaying) audioSourceMovement.Stop();
             }
         }
 
@@ -145,25 +170,37 @@ public class PlayerControllerSideViewScript : MonoBehaviour
         animator.SetFloat("xVelocity", rb.linearVelocityX);
         animator.SetFloat("yVelocity", rb.linearVelocityY);
 
-        if (Input.GetKeyDown(KeyCode.L) && !isBlocking && mana - blockManaConsumption > 0)
+        if (Input.GetKeyDown(KeyCode.L) && !animator.GetBool("isBlocking") && mana - blockManaConsumption > 0)
         {
-            parryTimer = 0.3f; CancelCharging();
+            parryTimer = 0.3f;
+            CancelCharging();
             animator.Play("Block");
             animator.SetBool("isBlocking", true);
-            isBlocking = true;
+            // isBlocking = true;
         }
-        if (Input.GetKeyUp(KeyCode.L) && isBlocking)
+        if (Input.GetKeyUp(KeyCode.L) && animator.GetBool("isBlocking"))
         {
             parryTimer = 0.3f;
             animator.SetBool("isBlocking", false);
-            isBlocking = false;
+            // isBlocking = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.K) && !isChargedUp){ isChargedUp = true; animator.SetBool("ChargedUp", true); animator.Play("ChargedAttack");}
-        if (Input.GetKeyUp(KeyCode.K) && isChargedUp){animator.SetBool("ChargedUp", false); }
-        
+        if (Input.GetKeyDown(KeyCode.K) && !isChargedUp)
+        {
+            isChargedUp = true;
+            animator.SetBool("ChargedUp", true);
+            animator.Play("ChargedAttack");
+
+            audioSourceCombat.PlayOneShot(chargedAttack);
+        }
+        if (Input.GetKeyUp(KeyCode.K) && isChargedUp)
+        {
+            animator.SetBool("ChargedUp", false);
+            audioSourceCombat.Stop();
+        }
+
         Debug.Log(mana);
-        
+
         if (knockBackCounter <= 0)
         {
             rb.linearVelocity = new Vector2(moveInput * moveSpeedTemp, rb.linearVelocity.y);
@@ -182,12 +219,17 @@ public class PlayerControllerSideViewScript : MonoBehaviour
 
             knockBackCounter -= Time.deltaTime;
         }
+
+        // if (mana < blockManaConsumption)
+        // {
+        //     isBlocking = false;
+        // }
         
     }
 
     void FixedUpdate()
     {
-        if (isBlocking)
+        if (animator.GetBool("isBlocking"))
         {
             if (mana > 10f) mana -= blockManaConsumption * Time.fixedDeltaTime;
             if (parryTimer > 0) parryTimer -= Time.deltaTime;
@@ -207,7 +249,7 @@ public class PlayerControllerSideViewScript : MonoBehaviour
                 CancelCharging();
             }
         }
-        if (!isBlocking && !isChargedUp)
+        if (!animator.GetBool("isBlocking") && !isChargedUp)
         {
             if (mana <= 100f)
             {
@@ -216,21 +258,35 @@ public class PlayerControllerSideViewScript : MonoBehaviour
         }
     }
 
+    // This method resets the pitch
+    public void playSound(AudioClip audio)
+    {
+        // audioSource.Stop();
+        audioSourceCombat.pitch = Random.Range(1f, 1.5f);
+        audioSourceCombat.PlayOneShot(audio);
+    }
+
+    public void playSoundMovement(AudioClip audio)
+    {
+        audioSourceCombat.pitch = 1f;
+        audioSourceCombat.PlayOneShot(audio);
+    }
 
     public void attack(float damage)
     {
-        animator.SetTrigger("Attacked");
         CancelCharging();
-        if (!isBlocking || (isBlocking && mana < blockManaConsumption))
+        if (!animator.GetBool("isBlocking"))
         {
             knockBackCounter = knockBackTotalTime;
             health -= damage;
+            animator.Play("Attacked");
         }
-        // if (isBlocking) {animator.Play("Parry"); isBlocking = false; }
-        if (isBlocking) { isBlocking = false; }
-        else animator.Play("Attacked");
+        else
+        {
+            animator.SetTrigger("Attacked");
+            // isBlocking = false;
+        }
 
-        Debug.Log(health);
     }
 
     public void spawnMagicDagger()
@@ -262,15 +318,15 @@ public class PlayerControllerSideViewScript : MonoBehaviour
     }
 
     void CancelCharging()
-{
-    if (isChargedUp)
     {
-        // parryTimer = 2f;
-        isChargedUp = false;
-        chargingEnergy = 0f;
-        animator.SetBool("ChargedUp", false);
+        if (isChargedUp)
+        {
+            isChargedUp = false;
+            chargingEnergy = 0f;
+            animator.SetBool("ChargedUp", false);
+        }
     }
-}
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Wall"))

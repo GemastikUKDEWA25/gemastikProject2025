@@ -593,6 +593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 10
   delay: 3
+  stomp: {fileID: 8300000, guid: 8de5b6fd0bad98044bf8f9fc1e9a5527, type: 3}
 --- !u!1102 &4523215780757581541
 AnimatorState:
   serializedVersion: 6
