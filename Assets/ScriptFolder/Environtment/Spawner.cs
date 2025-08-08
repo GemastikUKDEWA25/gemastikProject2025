@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
     {
         if (resetTrees.RespawnStatus)
         {
-            Instantiate(prefabToSpawn, transform.position, quaternion.identity);
+            Instantiate(prefabToSpawn, gameObject.transform.position, quaternion.identity);
             resetTrees.changeRespawnStatus(false);
         }
     }

@@ -1,0 +1,284 @@
+fileFormatVersion: 2
+guid: a0584bc2db5c51b4da3b01e91ba3863c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6340005495312125261
+    second: deforestated_4_0
+  - first:
+      213: 3471689983739713661
+    second: deforestated_4_1
+  - first:
+      213: -2356067169746054003
+    second: deforestated_4_2
+  - first:
+      213: 4060909769404859457
+    second: deforestated_4_3
+  - first:
+      213: 6529315670214201749
+    second: deforestated_4_4
+  - first:
+      213: -4578844432509817587
+    second: deforestated_4_5
+  - first:
+      213: 6846870102354540273
+    second: deforestated_4_6
+  - first:
+      213: 8883809132617986503
+    second: deforestated_4_7
+  - first:
+      213: -6776605410576614643
+    second: deforestated_4_8
+  - first:
+      213: 7863546652144907657
+    second: deforestated_4_9
+  - first:
+      213: -9205362740355771316
+    second: deforestated_4_10
+  - first:
+      213: -4299955667174946451
+    second: deforestated_4_11
+  - first:
+      213: -5132081287152826259
+    second: deforestated_4_12
+  - first:
+      213: -7783222979481772212
+    second: deforestated_4_13
+  - first:
+      213: -1122590131773637678
+    second: deforestated_4_14
+  - first:
+      213: -7515067886659234159
+    second: deforestated_4_15
+  - first:
+      213: -5420971514755102720
+    second: deforestated_4_16
+  - first:
+      213: 2000090194075167961
+    second: deforestated_4_17
+  - first:
+      213: -2674052387510478671
+    second: deforestated_4_18
+  - first:
+      213: -5117794391988725113
+    second: deforestated_4_19
+  - first:
+      213: -5263168430228026916
+    second: deforestated_4_20
+  - first:
+      213: 961374152257023953
+    second: deforestated_4_21
+  - first:
+      213: 3101900480087627764
+    second: deforestated_4_22
+  - first:
+      213: 5058707276372944845
+    second: deforestated_4_23
+  - first:
+      213: 8633390388092411061
+    second: deforestated_4_24
+  - first:
+      213: -7676400988935671932
+    second: deforestated_4_25
+  - first:
+      213: 1875501296310043000
+    second: deforestated_4_26
+  - first:
+      213: 2555991655808389200
+    second: deforestated_4_27
+  - first:
+      213: 7794193021757736419
+    second: deforestated_4_28
+  - first:
+      213: 4006149681934144913
+    second: deforestated_4_29
+  - first:
+      213: 8620397440175137408
+    second: deforestated_4_30
+  - first:
+      213: 1155095513803013023
+    second: deforestated_4_31
+  - first:
+      213: 5191888468402325883
+    second: deforestated_4_32
+  - first:
+      213: -1604570620966248816
+    second: deforestated_4_33
+  - first:
+      213: -3284749639404425710
+    second: deforestated_4_34
+  - first:
+      213: 2415680580879329834
+    second: deforestated_4_35
+  - first:
+      213: -5099072668407903887
+    second: deforestated_4_36
+  - first:
+      213: -5084549052303364708
+    second: deforestated_4_37
+  - first:
+      213: 6549013814801655125
+    second: deforestated_4_38
+  - first:
+      213: -2152148986693285890
+    second: deforestated_4_39
+  - first:
+      213: 346864577059197432
+    second: deforestated_4_40
+  - first:
+      213: -7008128591674636872
+    second: deforestated_4_41
+  - first:
+      213: 439448038368871394
+    second: deforestated_4_42
+  - first:
+      213: 8255662587722904300
+    second: deforestated_4_43
+  - first:
+      213: -8769184104567859615
+    second: deforestated_4_44
+  - first:
+      213: 5791374094157775627
+    second: deforestated_4_45
+  - first:
+      213: 4192497256499209031
+    second: deforestated_4_46
+  - first:
+      213: -3573977680609744961
+    second: deforestated_4_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: deforestated_4_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 323
+        width: 640
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d84935064619d4fd0800000000000000
+      internalID: -2356067169746054003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 60d79790761d18d4da30af441ef1194f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      deforestated_4_2: -2356067169746054003
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

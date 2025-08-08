@@ -1,10 +1,94 @@
 fileFormatVersion: 2
-guid: 377245c38d0e16142b770166e4aad5c2
+guid: de4e1a6d7cef386468ca332c0b745690
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8595613444990795974
-    second: Untitled976_20250803184318_0
+      213: 7436928617676681172
+    second: deforestated_6_0
+  - first:
+      213: 6634024238329404313
+    second: deforestated_6_1
+  - first:
+      213: 8998204544771317881
+    second: deforestated_6_2
+  - first:
+      213: -7196960166804860218
+    second: deforestated_6_3
+  - first:
+      213: -5460942500566432001
+    second: deforestated_6_4
+  - first:
+      213: 5103369693312642101
+    second: deforestated_6_5
+  - first:
+      213: -908416957182395726
+    second: deforestated_6_6
+  - first:
+      213: -7474368037310118093
+    second: deforestated_6_7
+  - first:
+      213: -4019305002788177042
+    second: deforestated_6_8
+  - first:
+      213: -3207568070719640059
+    second: deforestated_6_9
+  - first:
+      213: -6843528638175442727
+    second: deforestated_6_10
+  - first:
+      213: -5519096776336184158
+    second: deforestated_6_11
+  - first:
+      213: 7710973534443958401
+    second: deforestated_6_12
+  - first:
+      213: -4188160413821355780
+    second: deforestated_6_13
+  - first:
+      213: 8496323582095306318
+    second: deforestated_6_14
+  - first:
+      213: 5621709698115495452
+    second: deforestated_6_15
+  - first:
+      213: -7583790697266907882
+    second: deforestated_6_16
+  - first:
+      213: -1489015660279636244
+    second: deforestated_6_17
+  - first:
+      213: 5658281935438571343
+    second: deforestated_6_18
+  - first:
+      213: 5988607986383671330
+    second: deforestated_6_19
+  - first:
+      213: 1453861037235417952
+    second: deforestated_6_20
+  - first:
+      213: -5329622865011516582
+    second: deforestated_6_21
+  - first:
+      213: -4514336428434742687
+    second: deforestated_6_22
+  - first:
+      213: 3234150178293197586
+    second: deforestated_6_23
+  - first:
+      213: -8770662011537711194
+    second: deforestated_6_24
+  - first:
+      213: 7195862504299361701
+    second: deforestated_6_25
+  - first:
+      213: -3630224407856478637
+    second: deforestated_6_26
+  - first:
+      213: 4295165011277886500
+    second: deforestated_6_27
+  - first:
+      213: 2936955756523937438
+    second: deforestated_6_28
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,40 +180,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled976_20250803184318_0
+      name: deforestated_6_16
       rect:
         serializedVersion: 2
-        x: 28
-        y: 74
-        width: 77
-        height: 48
+        x: 0
+        y: 302
+        width: 621
+        height: 103
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c08f3ff2e0c94770800000000000000
-      internalID: 8595613444990795974
+      spriteID: 6157e7e9a86f0c690800000000000000
+      internalID: -7583790697266907882
       vertices: []
       indices: 
       edges: []
@@ -138,7 +209,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 93ddd0d4d3e075d419d06ca211e8d556
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +219,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Untitled976_20250803184318_0: 8595613444990795974
+      deforestated_6_0: 1347255705
+      deforestated_6_1: 643935558
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

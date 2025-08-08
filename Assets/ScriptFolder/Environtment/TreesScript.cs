@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TreesScript : MonoBehaviour
 {
-
+    public bool isGoRight = false;
     void Start()
     {
 
@@ -11,7 +11,14 @@ public class TreesScript : MonoBehaviour
     void Update()
     {
         Vector3 move = Vector3.zero;
-        move += Vector3.left;
+        if (!isGoRight)
+        {
+            move += Vector3.left;
+        }
+        else
+        {
+            move += Vector3.right;
+        }
         move = move.normalized;
         transform.position += move * 1f * Time.deltaTime;
     }

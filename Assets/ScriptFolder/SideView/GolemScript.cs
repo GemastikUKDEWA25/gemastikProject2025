@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 public class GolemScript : MonoBehaviour
 {
-    float Maxhealth = 500f;
+    float Maxhealth = 250f;
     float health;
     public static GolemScript Instance { get; private set; }
     public float eyeMovementRadius = 0.3f;

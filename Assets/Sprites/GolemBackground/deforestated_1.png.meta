@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 377245c38d0e16142b770166e4aad5c2
+guid: c12e6676913177a439f9343621a83d0e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8595613444990795974
-    second: Untitled976_20250803184318_0
+      213: -6640486546358274712
+    second: deforestated_1_0
+  - first:
+      213: -2365868660477436240
+    second: deforestated_1_1
+  - first:
+      213: 1815701721502937502
+    second: deforestated_1_2
+  - first:
+      213: 2595130093762068954
+    second: deforestated_1_3
+  - first:
+      213: 7750587727419664606
+    second: deforestated_1_4
+  - first:
+      213: -161179697324817369
+    second: deforestated_1_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,40 +111,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled976_20250803184318_0
+      name: deforestated_1_2
       rect:
         serializedVersion: 2
-        x: 28
-        y: 74
-        width: 77
-        height: 48
+        x: 8
+        y: 483
+        width: 492
+        height: 141
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c08f3ff2e0c94770800000000000000
-      internalID: 8595613444990795974
+      spriteID: e917f30881ba23910800000000000000
+      internalID: 1815701721502937502
       vertices: []
       indices: 
       edges: []
@@ -138,7 +140,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9f644ab42fc083d42925b251fdefec0b
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +150,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Untitled976_20250803184318_0: 8595613444990795974
+      deforestated_1_2: 1815701721502937502
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
