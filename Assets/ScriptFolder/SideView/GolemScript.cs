@@ -10,7 +10,6 @@ public class GolemScript : MonoBehaviour
     Transform player;
     public Vector3 centerPosition;
     public GameObject golemEye;
-    public TextMeshProUGUI healthText;
     Animator animator;
     public bool isDead = false;
     public bool isInAnimation = false;
@@ -45,6 +44,8 @@ public class GolemScript : MonoBehaviour
     AudioSource audioSource;
     public AudioClip damagedSound;
 
+    float stunnedTimer = 5f;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -61,7 +62,17 @@ public class GolemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        damageColorChange();
+        if (animator.GetBool("isStunned"))
+        {
+            stunnedTimer -= Time.deltaTime;
+        }
+        if (stunnedTimer <= 0)
+        {
+            animator.SetBool("isStunned", false);
+            stunnedTimer = 5f;
+        }
+        
+
         if (health > 0)
         {
             int currentHealth = Mathf.Clamp(Mathf.FloorToInt(health), 0, Mathf.FloorToInt(Maxhealth));
@@ -100,7 +111,6 @@ public class GolemScript : MonoBehaviour
                 isDead = true;
             }
         }
-
     }
 
     public void stunned()
@@ -151,6 +161,7 @@ public class GolemScript : MonoBehaviour
 
     public void FlipTowardsPlayer()
     {
+        if (animator.GetBool("isStunned")) return;
         // Determine if player is to the right or left
         bool playerIsRight = player.position.x > transform.position.x;
 
@@ -225,6 +236,11 @@ public class GolemScript : MonoBehaviour
     public void playSound(AudioClip audio)
     {
         audioSource.PlayOneShot(audio);
+    }
+
+    public void stopSound()
+    {
+        audioSource.Stop();
     }
 
     void rocksHitAreaTriggerOn()

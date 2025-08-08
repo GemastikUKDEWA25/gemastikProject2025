@@ -2746,25 +2746,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2915177063260543607, guid: 1e2d218c62128f544b49136f7bc6a87f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4926701550076686047, guid: 1e2d218c62128f544b49136f7bc6a87f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5281828742118914786, guid: 1e2d218c62128f544b49136f7bc6a87f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6313357073849268493, guid: 1e2d218c62128f544b49136f7bc6a87f, type: 3}
       propertyPath: m_Name
       value: Game Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6429402369454811883, guid: 1e2d218c62128f544b49136f7bc6a87f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7291412591839781924, guid: 1e2d218c62128f544b49136f7bc6a87f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2805,10 +2789,6 @@ PrefabInstance:
     - target: {fileID: 7291412591839781924, guid: 1e2d218c62128f544b49136f7bc6a87f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8194104044173852687, guid: 1e2d218c62128f544b49136f7bc6a87f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -9,6 +9,7 @@ public class Dialog
 {
     public string name;
     public string dialog;
+    public AudioClip sound;
     public Sprite expression;
 }
 
@@ -47,17 +48,15 @@ public class InteractableNPCScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E) && isInInteractArea == true && isInDialog == false)
         {
-            // playerController.LoadPlayer();
-            if (isInInteractArea) interactKey.enabled = false;
             showDialog();
-
+            if (isInInteractArea) interactKey.enabled = false;
         }
         if (Input.GetKeyDown(KeyCode.Space) && isInDialog == true)
         {
             dialogCounter += 1;
-            dialog.resetDialog();
             if (dialogCounter < dialogList.Length)
             {
+                dialog.resetDialog();
                 showDialog();
             }
         }
@@ -71,7 +70,7 @@ public class InteractableNPCScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.tag);
+        // Debug.Log(collision.tag);
         if (collision.CompareTag("Player"))
         {
             playerController = collision.GetComponent<PlayerControllerScript>();
@@ -82,7 +81,7 @@ public class InteractableNPCScript : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log(collision.tag);
+        // Debug.Log(collision.tag);
         if (collision.CompareTag("Player"))
         {
             playerController = collision.GetComponent<PlayerControllerScript>();
@@ -103,8 +102,8 @@ public class InteractableNPCScript : MonoBehaviour
 
     void showDialog()
     {   
-        if (playerController != null) playerController.setIsInDialog(true);
         isInDialog = true;
+        if (playerController != null) playerController.setIsInDialog(true);
 
         string[] dialogSplit = dialogList[dialogCounter].dialog.Split(" ");
         string nameDialog = dialogList[dialogCounter].name;
@@ -117,7 +116,7 @@ public class InteractableNPCScript : MonoBehaviour
         else dialog.dialogName.text = nameDialog;
 
         if (dialogList[dialogCounter].expression != null) dialog.characterExpression.sprite = dialogList[dialogCounter].expression;
-        StartCoroutine(TypeText(dialogSplit));
+        StartCoroutine(TypeText(dialogSplit,dialogList[dialogCounter].sound));
     }
 
     void hideDialog()
@@ -129,14 +128,20 @@ public class InteractableNPCScript : MonoBehaviour
         dialog.hideDialog();
     }
 
-    IEnumerator TypeText(string[] dialogSplit)
+    IEnumerator TypeText(string[] dialogSplit,AudioClip voiceSound)
     {       
         foreach (string word in dialogSplit)
         {
             if (isInDialog)
-            {                
-                dialog.dialogtext.text += word + " ";
-                audioSource.PlayOneShot(clip);
+            {
+                Debug.Log($"word: {word} {word == "Player"}");
+                if (word == "Player")
+                {
+                    playerController.LoadName();
+                    dialog.dialogtext.text += playerController.playerName + " ";
+                }
+                else { dialog.dialogtext.text += word + " "; }
+                audioSource.PlayOneShot(voiceSound);
                 yield return new WaitForSeconds(wordDelay);
             }
         }

@@ -36,8 +36,8 @@ public class LineTesting : MonoBehaviour
 
     void Update()
     {
-            // Debug.Log(playerTransform.position);
-        Debug.Log(timerUnsee);
+        // Debug.Log(playerTransform.position);
+        // Debug.Log(timerUnsee);
         Vector2 direction = enemyScript.direction.normalized;
 
         if (direction != Vector2.zero)
