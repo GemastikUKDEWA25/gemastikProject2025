@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnSound: {fileID: 8300000, guid: 5d619bca2e3e65f4390b57dc2cad3188, type: 3}
   direction: Left
-  damage: 3.719997
+  damage: 18
 --- !u!95 &467829275854957818
 Animator:
   serializedVersion: 7
