@@ -729,19 +729,19 @@ MonoBehaviour:
   sceneNarations:
   - videoScene: {fileID: 32900000, guid: 93c63ed88738afc43827053faaa3a2e1, type: 3}
     comicPanel: {fileID: 0}
-    textNarator: test
+    textNarator: Earth (3045), Human greed is the root of this mess
   - videoScene: {fileID: 32900000, guid: 005edf1a5c3589b408984edd6a19a372, type: 3}
     comicPanel: {fileID: 0}
-    textNarator: test2
+    textNarator: "\"You are our only hope, Stop him\u2026\u201D"
   - videoScene: {fileID: 32900000, guid: 47d915187b3f8c34a86bd297423924b5, type: 3}
     comicPanel: {fileID: 0}
-    textNarator: test3
+    textNarator: 
   - videoScene: {fileID: 32900000, guid: df0e22377d9672041a593a25a8b50bbe, type: 3}
     comicPanel: {fileID: 0}
-    textNarator: test3
+    textNarator: 
   - videoScene: {fileID: 32900000, guid: da03462e58d05954f8b3cd7c2d74e7e8, type: 3}
     comicPanel: {fileID: 0}
-    textNarator: test3
+    textNarator: 'Kayana: ... who''s that?'
   videoPlayer: {fileID: 34855249}
   textNarator: {fileID: 366241137}
   sceneController: {fileID: 0}

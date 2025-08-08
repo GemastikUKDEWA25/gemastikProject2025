@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: e6028c947cf3c4e49b239aa6846c2c21
+guid: 900b2c7adc07ebb48a315bd316548310
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1940738496428130850
-    second: NPC_0
+      213: 4112356383579328530
+    second: Drone_0
   - first:
-      213: -6131185593638097393
-    second: NPC_1
+      213: -9122016740902801177
+    second: Drone_1
   - first:
-      213: 5084661014962647745
-    second: NPC_2
+      213: -7695309289240506667
+    second: Drone_2
+  - first:
+      213: -3223525642366603235
+    second: Drone_3
+  - first:
+      213: 1371902213157426602
+    second: Drone_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,30 +108,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NPC_0
+      name: Drone_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1
+        x: 84
+        y: 265
         width: 40
-        height: 57
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eddb976be9c1115e0800000000000000
-      internalID: -1940738496428130850
+      spriteID: 2105e09b756021930800000000000000
+      internalID: 4112356383579328530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_1
+      name: Drone_1
       rect:
         serializedVersion: 2
-        x: 54
-        y: 58
-        width: 34
-        height: 70
+        x: 137
+        y: 267
+        width: 42
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +149,64 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0e653fdf27a9eaa0800000000000000
-      internalID: -6131185593638097393
+      spriteID: 7e0725bca16186180800000000000000
+      internalID: -9122016740902801177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NPC_2
+      name: Drone_2
       rect:
         serializedVersion: 2
-        x: 46
-        y: 1
+        x: 179
+        y: 268
+        width: 49
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5de4e0219f4c43590800000000000000
+      internalID: -7695309289240506667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drone_3
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 264
+        width: 45
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d10306ad18cb343d0800000000000000
+      internalID: -3223525642366603235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drone_4
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 219
         width: 27
-        height: 41
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1c23020e048509640800000000000000
-      internalID: 5084661014962647745
+      spriteID: aa512d15bc9f90310800000000000000
+      internalID: 1371902213157426602
       vertices: []
       indices: 
       edges: []
@@ -197,10 +234,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      NPC_0: -1940738496428130850
-      NPC_1: -6131185593638097393
-      NPC_2: 5084661014962647745
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

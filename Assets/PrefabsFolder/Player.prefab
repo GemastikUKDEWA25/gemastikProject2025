@@ -197,6 +197,7 @@ MonoBehaviour:
   Health: 100
   stage: 0
   playerName: ???
+  inventory: {fileID: 0}
   footStepSound: {fileID: 8300000, guid: 25c28994ac030c3429851a6685de2894, type: 3}
   lastPosition: 
 --- !u!50 &8244991420525751401

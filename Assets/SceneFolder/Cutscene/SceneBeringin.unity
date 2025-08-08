@@ -2342,31 +2342,54 @@ MonoBehaviour:
   dialogList:
   - name: Kayana
     dialog: Hello There!
+    voiceSound: {fileID: 0}
     expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
   - name: ???
     dialog: ...
+    voiceSound: {fileID: 0}
     expression: {fileID: -5077560843715274879, guid: 42ef8f21bd82f04459ef8d5d84e2afa0, type: 3}
   - name: Kayana
-    dialog: what's your name, weirdo?
+    dialog: what are you doing here, weirdo?
+    voiceSound: {fileID: 0}
+    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+  - name: Kayana
+    dialog: you know that sleeping in the middle of the wood is dangerous right?
+    voiceSound: {fileID: 0}
     expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
   - name: ???
-    dialog: huh? i don't know..
+    dialog: huh? who are you?
+    voiceSound: {fileID: 0}
+    expression: {fileID: 2620316285102551417, guid: 6e4577c20dcc2f54caf4e87817625b97, type: 3}
+  - name: Kayana
+    dialog: Im kayana i live around here. you dont look like you from around here,
+      what's your name?
+    voiceSound: {fileID: 0}
+    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+  - name: ???
+    dialog: I don't remember
+    voiceSound: {fileID: 0}
     expression: {fileID: -4982430376927583594, guid: 37ab631746e387146ae736abefbe6c36, type: 3}
   - name: Kayana
-    dialog: alr then, i'll call you..
+    dialog: Well its weird if i call you weirdo all the time
+    voiceSound: {fileID: 0}
+    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+  - name: Kayana
+    dialog: maybe i will start calling you...
+    voiceSound: {fileID: 0}
     expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
   - name: EnterName
     dialog: 
+    voiceSound: {fileID: 0}
     expression: {fileID: 0}
+  - name: Kayana
+    dialog: Okay Player come with me i will bring you to my village and introduce
+      you to my people
+    voiceSound: {fileID: 0}
+    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
   - name: Player
-    dialog: sounds good..
-    expression: {fileID: 2620316285102551417, guid: 6e4577c20dcc2f54caf4e87817625b97, type: 3}
-  - name: Kayana
-    dialog: glad you like it
-    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
-  - name: Kayana
-    dialog: follow me, i'll bring you to the vilage
-    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+    dialog: Okay...
+    voiceSound: {fileID: 0}
+    expression: {fileID: 3258682265180347552, guid: c98cfd3c4803302428a3a7c99d96be82, type: 3}
 --- !u!114 &1683255437
 MonoBehaviour:
   m_ObjectHideFlags: 0

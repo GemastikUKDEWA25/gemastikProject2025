@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-
 public class LineTesting : MonoBehaviour
 {
     [SerializeField] public Transform pointStart;
@@ -36,8 +34,17 @@ public class LineTesting : MonoBehaviour
 
     void Update()
     {
-        // Debug.Log(playerTransform.position);
-        // Debug.Log(timerUnsee);
+        float facingDirection = pointEnd.position.x - transform.position.x;
+
+        if (facingDirection < 0 && transform.localScale.x > 0)
+        {
+            Flip();
+        }
+        else if (facingDirection > 0 && transform.localScale.x < 0)
+        {
+            Flip();
+        }
+        
         Vector2 direction = enemyScript.direction.normalized;
 
         if (direction != Vector2.zero)
@@ -62,9 +69,6 @@ public class LineTesting : MonoBehaviour
                 moveSpeed * Time.deltaTime
             );
         }
-
-        // Clamp distance (still needed for edge cases)
-        float currentDistance = Vector2.Distance(pointStart.position, pointEnd.position);
         // == Raycast to detect player or obstacle ===
         Vector2 rayDir = (pointEnd.position - pointStart.position).normalized;
         float rayDist = Vector2.Distance(pointStart.position, pointEnd.position);
@@ -127,6 +131,14 @@ public class LineTesting : MonoBehaviour
         enemyScript.setPlayerSeen(false);
         // playerTransform = playerTransform.transform;
         playerDetected = false;
+    }
+
+    public void Flip()
+    {
+        // Flip using x scale *= -1
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 
     public void setIsPlayerHiding(bool isHiding)

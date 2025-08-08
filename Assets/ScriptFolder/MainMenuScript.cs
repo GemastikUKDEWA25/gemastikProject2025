@@ -44,7 +44,7 @@ public class MainMenuScript : MonoBehaviour
         }
         else
         {
-            sceneController.changeScene("SceneBeringin");
+            sceneController.changeScene("CutsceneComicScene");
         }
     }
     public void playCredit()

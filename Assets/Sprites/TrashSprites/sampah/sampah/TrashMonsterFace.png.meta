@@ -1,0 +1,392 @@
+fileFormatVersion: 2
+guid: 17dd5733703a9064aa0eb69e47356a83
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2397921852344238130
+    second: TrashMonsterFace_0
+  - first:
+      213: 872011720074599937
+    second: TrashMonsterFace_1
+  - first:
+      213: 4981044126150462034
+    second: TrashMonsterFace_2
+  - first:
+      213: 2861027209507722449
+    second: TrashMonsterFace_3
+  - first:
+      213: -2194050899050861115
+    second: TrashMonsterFace_4
+  - first:
+      213: 7900502174779695302
+    second: TrashMonsterFace_5
+  - first:
+      213: 6069515719458932312
+    second: TrashMonsterFace_6
+  - first:
+      213: 275147118886844985
+    second: TrashMonsterFace_7
+  - first:
+      213: 8642459429451095430
+    second: TrashMonsterFace_8
+  - first:
+      213: 272654217293891252
+    second: TrashMonsterFace_9
+  - first:
+      213: -6231427082744037851
+    second: TrashMonsterFace_10
+  - first:
+      213: -5850206166273902946
+    second: TrashMonsterFace_11
+  - first:
+      213: 8731145120900021842
+    second: TrashMonsterFace_12
+  - first:
+      213: -8036541369354258168
+    second: TrashMonsterFace_13
+  - first:
+      213: 67781943657814068
+    second: TrashMonsterFace_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TrashMonsterFace_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 83
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10e160f0a020a1c00800000000000000
+      internalID: 872011720074599937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrashMonsterFace_3
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 73
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d45f63b61964b720800000000000000
+      internalID: 2861027209507722449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrashMonsterFace_4
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 85
+        width: 33
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cd62f6f45a2d81e0800000000000000
+      internalID: -2194050899050861115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrashMonsterFace_5
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 64
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c0e1fa8ed834ad60800000000000000
+      internalID: 7900502174779695302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrashMonsterFace_7
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 47
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93af83ac8d481d300800000000000000
+      internalID: 275147118886844985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrashMonsterFace_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 50
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b68058e099a8c300800000000000000
+      internalID: 272654217293891252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrashMonsterFace_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 32
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52efa4175168589a0800000000000000
+      internalID: -6231427082744037851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrashMonsterFace_12
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 11
+        width: 20
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25e71a55a324b2970800000000000000
+      internalID: 8731145120900021842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrashMonsterFace_13
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 13
+        width: 13
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80978e83438787090800000000000000
+      internalID: -8036541369354258168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrashMonsterFace_14
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 27
+        width: 33
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 438d8e1915fc0f000800000000000000
+      internalID: 67781943657814068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0fdb90b50bcfc58469657aa0b4b67bbe
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TrashMonsterFace_1: 872011720074599937
+      TrashMonsterFace_10: -6231427082744037851
+      TrashMonsterFace_12: 8731145120900021842
+      TrashMonsterFace_13: -8036541369354258168
+      TrashMonsterFace_14: 67781943657814068
+      TrashMonsterFace_3: 2861027209507722449
+      TrashMonsterFace_4: -2194050899050861115
+      TrashMonsterFace_5: 7900502174779695302
+      TrashMonsterFace_7: 275147118886844985
+      TrashMonsterFace_9: 272654217293891252
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

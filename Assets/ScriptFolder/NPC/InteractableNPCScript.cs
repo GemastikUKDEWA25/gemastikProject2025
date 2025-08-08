@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -15,6 +14,8 @@ public class Dialog
 
 public class InteractableNPCScript : MonoBehaviour
 {
+    public static InteractableNPCScript activeNPC; // The NPC currently in dialog
+
     public TextMeshProUGUI interactKey;
     bool isInDialog = false;
     int dialogCounter = 0;
@@ -39,19 +40,17 @@ public class InteractableNPCScript : MonoBehaviour
         if (audioSource == null) audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!isInDialog)
-        {
-            hideDialog();
-        }
-        if (Input.GetKeyDown(KeyCode.E) && isInInteractArea == true && isInDialog == false)
+        // Start dialog
+        if (Input.GetKeyDown(KeyCode.E) && isInInteractArea && activeNPC == null)
         {
             showDialog();
             if (isInInteractArea) interactKey.enabled = false;
         }
-        if (Input.GetKeyDown(KeyCode.Space) && isInDialog == true)
+
+        // Progress dialog
+        if (Input.GetKeyDown(KeyCode.Space) && activeNPC == this)
         {
             dialogCounter += 1;
             if (dialogCounter < dialogList.Length)
@@ -59,33 +58,29 @@ public class InteractableNPCScript : MonoBehaviour
                 dialog.resetDialog();
                 showDialog();
             }
-        }
-
-        if (dialogCounter >= dialogList.Length)
-        {
-            if (isInInteractArea) interactKey.enabled = true;
-            hideDialog();
+            else
+            {
+                hideDialog(); // End dialog
+            }
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // Debug.Log(collision.tag);
         if (collision.CompareTag("Player"))
         {
             playerController = collision.GetComponent<PlayerControllerScript>();
-            interactKey.enabled = true;
+            if (activeNPC == null) interactKey.enabled = true;
             isInInteractArea = true;
         }
     }
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        // Debug.Log(collision.tag);
         if (collision.CompareTag("Player"))
         {
             playerController = collision.GetComponent<PlayerControllerScript>();
-            interactKey.enabled = true;
+            if (activeNPC == null) interactKey.enabled = true;
             isInInteractArea = true;
         }
     }
@@ -97,17 +92,25 @@ public class InteractableNPCScript : MonoBehaviour
             playerController = null;
             interactKey.enabled = false;
             isInInteractArea = false;
+
+            // If this NPC was the one talking, end dialog
+            if (activeNPC == this)
+            {
+                hideDialog();
+            }
         }
     }
 
     void showDialog()
-    {   
+    {
+        activeNPC = this; // Mark this NPC as the one talking
         isInDialog = true;
         if (playerController != null) playerController.setIsInDialog(true);
 
         string[] dialogSplit = dialogList[dialogCounter].dialog.Split(" ");
         string nameDialog = dialogList[dialogCounter].name;
         dialog.showDialog();
+
         if (nameDialog.Trim() == "Player")
         {
             playerController.LoadName();
@@ -115,33 +118,45 @@ public class InteractableNPCScript : MonoBehaviour
         }
         else dialog.dialogName.text = nameDialog;
 
-        if (dialogList[dialogCounter].expression != null) dialog.characterExpression.sprite = dialogList[dialogCounter].expression;
-        StartCoroutine(TypeText(dialogSplit,dialogList[dialogCounter].sound));
+        if (dialogList[dialogCounter].expression != null)
+            dialog.characterExpression.sprite = dialogList[dialogCounter].expression;
+
+        StartCoroutine(TypeText(dialogSplit, dialogList[dialogCounter].sound));
     }
 
     void hideDialog()
     {
-        isInDialog = false; 
+        if (activeNPC != this) return; // Only the active NPC can hide the dialog
+
+        isInDialog = false;
         if (playerController != null) playerController.setIsInDialog(false);
         dialogCounter = 0;
         dialog.resetDialog();
         dialog.hideDialog();
+
+        activeNPC = null; // No NPC is talking anymore
+        if (isInInteractArea) interactKey.enabled = true;
     }
 
-    IEnumerator TypeText(string[] dialogSplit,AudioClip voiceSound)
-    {       
+    IEnumerator TypeText(string[] dialogSplit, AudioClip voiceSound)
+    {
         foreach (string word in dialogSplit)
         {
-            if (isInDialog)
+            if (isInDialog && activeNPC == this)
             {
-                Debug.Log($"word: {word} {word == "Player"}");
                 if (word == "Player")
                 {
                     playerController.LoadName();
                     dialog.dialogtext.text += playerController.playerName + " ";
                 }
-                else { dialog.dialogtext.text += word + " "; }
-                audioSource.PlayOneShot(voiceSound);
+                else
+                {
+                    dialog.dialogtext.text += word + " ";
+                }
+
+                if (voiceSound != null)
+                    audioSource.PlayOneShot(voiceSound);
+
                 yield return new WaitForSeconds(wordDelay);
             }
         }

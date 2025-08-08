@@ -7,6 +7,7 @@ public class DialogCutscene
 {
     public string name;
     public string dialog;
+    public AudioClip voiceSound;
     public Sprite expression;
 }
 
@@ -151,8 +152,15 @@ public class SceneBeringinScript : MonoBehaviour
         foreach (string word in dialogSplit)
         {
             if (isInDialog)
-            {                
-                dialog.dialogtext.text += word + " ";
+            {
+                if (word == "Player")
+                {
+                    dialog.dialogtext.text += playerController.playerName + " ";
+                }
+                else
+                {
+                    dialog.dialogtext.text += word + " ";
+                }
                 audioSource.PlayOneShot(clip);
                 yield return new WaitForSeconds(wordDelay);
             }
