@@ -66,14 +66,26 @@ public class NodeGenerator : MonoBehaviour
 
     void AssignEnemyStartNodes()
     {
+        // Assign patrol enemies
         PatrolEnemyScript[] enemies = FindObjectsByType<PatrolEnemyScript>(FindObjectsSortMode.None);
         foreach (var enemy in enemies)
         {
-            Node closest = allNodes.OrderBy(n => Vector2.Distance(n.position, enemy.transform.position)).FirstOrDefault();
+            Node closest = allNodes
+                .OrderBy(n => Vector2.Distance(n.position, enemy.transform.position))
+                .FirstOrDefault();
             if (closest != null)
-            {
                 enemy.currentNode = closest;
-            }
+        }
+
+        // Assign trash monsters
+        TrashMonsterScript[] trashMonsters = FindObjectsByType<TrashMonsterScript>(FindObjectsSortMode.None);
+        foreach (var monster in trashMonsters)
+        {
+            Node closest = allNodes
+                .OrderBy(n => Vector2.Distance(n.position, monster.transform.position))
+                .FirstOrDefault();
+            if (closest != null)
+                monster.currentNode = closest;
         }
     }
 }

@@ -67,7 +67,10 @@ public class MagicDaggerScript : MonoBehaviour
             if (collision.CompareTag("Enemy"))
             {
                 HurtBox enemy = collision.GetComponent<HurtBox>();
-                if (enemy != null) enemy.attack(Mathf.FloorToInt(damage)); 
+                DummyScript dummy = collision.GetComponent<DummyScript>();
+                Debug.Log(dummy == null);
+                if (enemy != null) enemy.attack(Mathf.FloorToInt(damage));
+                if (dummy != null) dummy.attack();
                 
             }
             flying = false;

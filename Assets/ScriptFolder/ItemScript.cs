@@ -5,14 +5,14 @@ using TMPro;
 public class ItemScript : MonoBehaviour
 {
     public SpriteRenderer InteractKey;
-    SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     InventoryScript inventory;
     bool isInInteractArea = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         InteractKey.enabled = false;
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        // spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame

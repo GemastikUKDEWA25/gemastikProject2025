@@ -16,11 +16,12 @@ public class InteractableNPCScript : MonoBehaviour
 {
     public static InteractableNPCScript activeNPC; // The NPC currently in dialog
 
-    public TextMeshProUGUI interactKey;
+    public SpriteRenderer spriteRenderer;
     bool isInDialog = false;
     int dialogCounter = 0;
     bool isInInteractArea = false;
     float wordDelay = 0.09f;
+    SceneController sceneController;
 
     // dialog ui
     [Header("Dialog UI")]
@@ -37,6 +38,7 @@ public class InteractableNPCScript : MonoBehaviour
     void Start()
     {
         dialog = GameObject.FindGameObjectWithTag("DialogCanvas").GetComponent<DialogController>();
+        sceneController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<SceneController>();
         if (audioSource == null) audioSource = GetComponent<AudioSource>();
     }
 
@@ -46,7 +48,7 @@ public class InteractableNPCScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && isInInteractArea && activeNPC == null)
         {
             showDialog();
-            if (isInInteractArea) interactKey.enabled = false;
+            if (isInInteractArea) spriteRenderer.enabled = false;
         }
 
         // Progress dialog
@@ -70,7 +72,7 @@ public class InteractableNPCScript : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerController = collision.GetComponent<PlayerControllerScript>();
-            if (activeNPC == null) interactKey.enabled = true;
+            if (activeNPC == null) spriteRenderer.enabled = true;
             isInInteractArea = true;
         }
     }
@@ -80,7 +82,7 @@ public class InteractableNPCScript : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerController = collision.GetComponent<PlayerControllerScript>();
-            if (activeNPC == null) interactKey.enabled = true;
+            if (activeNPC == null) spriteRenderer.enabled = true;
             isInInteractArea = true;
         }
     }
@@ -90,7 +92,7 @@ public class InteractableNPCScript : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerController = null;
-            interactKey.enabled = false;
+            spriteRenderer.enabled = false;
             isInInteractArea = false;
 
             // If this NPC was the one talking, end dialog
@@ -111,6 +113,12 @@ public class InteractableNPCScript : MonoBehaviour
         string nameDialog = dialogList[dialogCounter].name;
         dialog.showDialog();
 
+        if (nameDialog.Trim() == "ChangeScene")
+        {
+            sceneController.changeScene(dialogList[dialogCounter].dialog);
+            hideDialog();
+            return;
+        }
         if (nameDialog.Trim() == "Player")
         {
             playerController.LoadName();
@@ -135,7 +143,7 @@ public class InteractableNPCScript : MonoBehaviour
         dialog.hideDialog();
 
         activeNPC = null; // No NPC is talking anymore
-        if (isInInteractArea) interactKey.enabled = true;
+        if (isInInteractArea) spriteRenderer.enabled = true;
     }
 
     IEnumerator TypeText(string[] dialogSplit, AudioClip voiceSound)
