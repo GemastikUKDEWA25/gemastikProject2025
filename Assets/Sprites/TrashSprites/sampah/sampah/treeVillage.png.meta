@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e71a5fbdd0552904082aa4b4d764d613
+guid: f8904f1df48725c43a40bcb2baa148f2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6489607100845130692
-    second: village_0_0
+      213: -4944604909527601666
+    second: treeVillage_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: village_0_0
+      name: treeVillage_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 534
-        width: 1700
-        height: 746
+        y: 43
+        width: 292
+        height: 767
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3cf546a9b840f5a0800000000000000
-      internalID: -6489607100845130692
+      spriteID: efd64fc480c316bb0800000000000000
+      internalID: -4944604909527601666
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 704d0ea06e805044a9fd0ea7becaa364
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      village_0_0: -6489607100845130692
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

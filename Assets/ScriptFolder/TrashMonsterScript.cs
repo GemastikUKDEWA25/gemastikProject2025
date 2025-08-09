@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+
 public class TrashMonsterScript : MonoBehaviour
 {
     public int maxHealth = 100;
@@ -9,6 +10,7 @@ public class TrashMonsterScript : MonoBehaviour
     public GameObject alertMark;
     public Node currentNode;
     public List<Node> path = new List<Node>();
+
     public enum StateMachine
     {
         Patrol,
@@ -16,29 +18,28 @@ public class TrashMonsterScript : MonoBehaviour
         Evade
     }
     public StateMachine currentState;
+
     private PlayerControllerScript player;
     public float speed = 3f;
+
     private Vector3 lastPosition;
-    public Vector2 direction;  // this stores the movement direction
+    public Vector2 direction;
+
+    private Animator animator; // Animator reference
     private void Start()
     {
         curHealth = maxHealth;
         player = GameObject.Find("Player").GetComponent<PlayerControllerScript>();
         lastPosition = transform.position;
+        animator = GetComponent<Animator>(); // Get Animator from the same GameObject
     }
+
     private void Update()
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        Debug.Log($"distance: {distance}");
-        if (distance < 2)
-        {
-            playerSeen = true;
-        }
-        else
-        {
-            playerSeen = false;
-        }
+        playerSeen = distance < 2;
 
+        // State switching logic
         if (!playerSeen && currentState != StateMachine.Patrol && curHealth > (maxHealth * 20) / 100)
         {
             currentState = StateMachine.Patrol;
@@ -55,7 +56,8 @@ public class TrashMonsterScript : MonoBehaviour
             currentState = StateMachine.Evade;
             path.Clear();
         }
-        // Update path if needed
+
+        // Call behavior functions
         switch (currentState)
         {
             case StateMachine.Patrol:
@@ -68,13 +70,22 @@ public class TrashMonsterScript : MonoBehaviour
                 Evade();
                 break;
         }
-        // Move and update direction
+
+        // Move along the path
         CreatePath();
-        // Calculate direction (difference between this and last frame)
+
+        // Calculate movement delta AFTER moving
         Vector3 moveDelta = transform.position - lastPosition;
         direction = new Vector2(moveDelta.x, moveDelta.y).normalized;
+
+        // Animation control: Moving if actually traveling toward a target
+        bool isMoving = moveDelta.sqrMagnitude > 0.0001f;
+        if (!animator.GetBool("isPickedUp")) animator.SetBool("isMoving", isMoving);
+
+        // Store position for next frame
         lastPosition = transform.position;
     }
+
     void Patrol()
     {
         if (path.Count == 0)
@@ -85,6 +96,7 @@ public class TrashMonsterScript : MonoBehaviour
             );
         }
     }
+
     void Engage()
     {
         if (path.Count == 0)
@@ -95,6 +107,7 @@ public class TrashMonsterScript : MonoBehaviour
             );
         }
     }
+
     void Evade()
     {
         if (path.Count == 0)
@@ -105,18 +118,19 @@ public class TrashMonsterScript : MonoBehaviour
             );
         }
     }
+
     public void CreatePath()
     {
         if (path.Count > 0)
         {
-            int x = 0;
-            Vector3 target = new Vector3(path[x].transform.position.x, path[x].transform.position.y, -2);
+            Vector3 target = new Vector3(path[0].transform.position.x, path[0].transform.position.y, -2);
             transform.position = Vector3.MoveTowards(transform.position, target, (speed * panicMultiplier) * Time.deltaTime);
-            if (Vector2.Distance(transform.position, path[x].transform.position) < 0.1f)
+
+            if (Vector2.Distance(transform.position, path[0].transform.position) < 0.1f)
             {
-                currentNode = path[x];
-                path.RemoveAt(x);
+                currentNode = path[0];
+                path.RemoveAt(0);
             }
         }
-    } 
+    }
 }

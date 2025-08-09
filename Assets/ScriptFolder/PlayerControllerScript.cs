@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PlayerControllerScript : MonoBehaviour
 {
-    private float moveSpeed = 1.5f;
-    private float sprintSpeed = 1f;
+    private float moveSpeed = 1f;
+    private float sprintSpeed = 0.5f;
     public int Health = 100;
     public string stage = "";
     public string playerName = "???";

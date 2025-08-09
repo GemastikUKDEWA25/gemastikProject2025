@@ -18,23 +18,25 @@ public class VillageIntroduceCutsceneControl : MonoBehaviour
 
     void Update()
     {
-        float distancePlayer = Vector2.Distance(kayana.position, player.position);
-        float distanceDdwarf = Vector2.Distance(kayana.position, Ddwarf.position);
+        if (kayana != null && player != null)
+        {
+            float distancePlayer = Vector2.Distance(kayana.position, player.position);
 
-        Debug.Log(distancePlayer);
-        // Example: Pause if player is too far from Kayana
-        if (distancePlayer > maxDistance && !isPaused)
-        {
-            timeStamp();
-        }
-        if (distancePlayer < maxDistance && isPaused)
-        {
-            ResumeDirector();
-        }
+            Debug.Log(distancePlayer);
+            // Example: Pause if player is too far from Kayana
+            if (distancePlayer > maxDistance && !isPaused)
+            {
+                timeStamp();
+            }
+            if (distancePlayer < maxDistance && isPaused)
+            {
+                ResumeDirector();
+            }
 
-        if (isPaused)
-        {
-            PauseDirector();
+            if (isPaused)
+            {
+                PauseDirector();
+            }
         }
     }
 

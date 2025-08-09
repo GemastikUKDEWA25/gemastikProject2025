@@ -5,6 +5,8 @@ using UnityEngine;
 public class TrashBinScript : MonoBehaviour
 {
     public SpriteRenderer InteractKey;
+    public SpriteRenderer TrashType;
+    
     public AudioClip wrongSound;
     public AudioClip rightSound;
     public AudioSource audioSource;
@@ -14,6 +16,7 @@ public class TrashBinScript : MonoBehaviour
     void Start()
     {
         InteractKey.enabled = false;
+        TrashType.enabled = false;
 
     }
 
@@ -40,6 +43,7 @@ public class TrashBinScript : MonoBehaviour
         {
             inventory = collision.GetComponent<InventoryScript>();
             InteractKey.enabled = true;
+            TrashType.enabled = true;  
             isInInteractArea = true;
         }
     }
@@ -49,6 +53,7 @@ public class TrashBinScript : MonoBehaviour
         {
             inventory = collision.GetComponent<InventoryScript>();
             InteractKey.enabled = true;
+            TrashType.enabled = true;  
             isInInteractArea = true;
             
         }
@@ -59,6 +64,7 @@ public class TrashBinScript : MonoBehaviour
         if (collision.CompareTag("Inventory"))
         {
             InteractKey.enabled = false;
+            TrashType.enabled = false;  
             isInInteractArea = false;
 
         }
