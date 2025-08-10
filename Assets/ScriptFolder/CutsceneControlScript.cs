@@ -1,8 +1,6 @@
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Playables;
-using System.Collections;
-using TMPro;
+using Unity.Cinemachine;
 public class CutsceneControlScript : MonoBehaviour
 {
     double pauseTime;
@@ -10,6 +8,8 @@ public class CutsceneControlScript : MonoBehaviour
     bool isPausedSignal;
     PlayableDirector director;
     SceneController sceneController;
+
+    public CinemachineCamera cinemachineCamera;
 
 
     void Update()
@@ -47,6 +47,7 @@ public class CutsceneControlScript : MonoBehaviour
     public void ResumeDirector()
     {
         isPausedSignal = false;
+        isPaused = false;
     }
     public void assignPlayableDirector(PlayableDirector director)
     {
@@ -65,6 +66,12 @@ public class CutsceneControlScript : MonoBehaviour
     {
         npc.isInDialog = true;
         npc.showDialog();
+    }
+
+    public void MoveFocusCamera(Transform character)
+    {
+        cinemachineCamera.Follow = character;
+        cinemachineCamera.LookAt = character;
     }
 
 

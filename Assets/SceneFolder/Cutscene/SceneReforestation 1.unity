@@ -431,7 +431,7 @@ PrefabInstance:
     - target: {fileID: 3231920870372356657, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 1135418337}
+      objectReference: {fileID: 762215023}
     - target: {fileID: 4418789296304954838, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9583523
@@ -799,6 +799,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &304734900 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6404272578921229406, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
+  m_PrefabInstance: {fileID: 1336933534}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &314986530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,6 +2034,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4418789296304954838, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
   m_PrefabInstance: {fileID: 184622050}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &762215023 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6404272578921229406, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
+  m_PrefabInstance: {fileID: 184622050}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &776458919
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,9 +2425,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!212 &953947546 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6404272578921229406, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
+  m_PrefabInstance: {fileID: 1445540306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1026880115 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4418789296304954838, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
+  m_PrefabInstance: {fileID: 1207506226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1026880118 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6404272578921229406, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
   m_PrefabInstance: {fileID: 1207506226}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1035648614
@@ -2846,7 +2866,7 @@ PrefabInstance:
     - target: {fileID: 3231920870372356657, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 1135418337}
+      objectReference: {fileID: 1026880118}
     - target: {fileID: 4418789296304954838, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1963522
@@ -2948,7 +2968,7 @@ PrefabInstance:
     - target: {fileID: 3231920870372356657, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 1135418337}
+      objectReference: {fileID: 304734900}
     - target: {fileID: 4418789296304954838, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5373523
@@ -3107,6 +3127,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
+--- !u!212 &1409070962 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6404272578921229406, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
+  m_PrefabInstance: {fileID: 1816117194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1429137148 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6404272578921229406, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
+  m_PrefabInstance: {fileID: 2121447564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1441375564
 GameObject:
   m_ObjectHideFlags: 0
@@ -3221,7 +3251,7 @@ PrefabInstance:
     - target: {fileID: 3231920870372356657, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 1135418337}
+      objectReference: {fileID: 953947546}
     - target: {fileID: 4418789296304954838, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1123524
@@ -3598,7 +3628,7 @@ PrefabInstance:
     - target: {fileID: 3231920870372356657, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 1135418337}
+      objectReference: {fileID: 1867267845}
     - target: {fileID: 4418789296304954838, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.99735236
@@ -3992,7 +4022,7 @@ PrefabInstance:
     - target: {fileID: 3231920870372356657, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 1135418337}
+      objectReference: {fileID: 1409070962}
     - target: {fileID: 4418789296304954838, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.4263523
@@ -4149,6 +4179,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!212 &1867267845 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6404272578921229406, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
+  m_PrefabInstance: {fileID: 1716681354}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1872690049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4631,6 +4666,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4418789296304954838, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
   m_PrefabInstance: {fileID: 2089330518}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &2076034562 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6404272578921229406, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
+  m_PrefabInstance: {fileID: 2089330518}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2089330518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4658,7 +4698,7 @@ PrefabInstance:
     - target: {fileID: 3231920870372356657, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 1135418337}
+      objectReference: {fileID: 2076034562}
     - target: {fileID: 4418789296304954838, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.75935245
@@ -4842,7 +4882,7 @@ PrefabInstance:
     - target: {fileID: 3231920870372356657, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 1135418337}
+      objectReference: {fileID: 1429137148}
     - target: {fileID: 4418789296304954838, guid: e3f30a9a9749b05429af1e7a2fdf2c39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6443523
@@ -5088,6 +5128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9cf2487cb94ce45ad8b3bf58e170e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinemachineCamera: {fileID: 0}
 --- !u!114 &2141970377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5802,6 +5843,7 @@ MonoBehaviour:
   isInDialog: 0
   clip: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
   audioSource: {fileID: 1708119833084666034}
+  cutsceneControlScript: {fileID: 0}
   dialogList:
   - name: Albert
     dialog: There you are, im about to finish

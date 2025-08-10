@@ -1,6 +1,5 @@
-using NUnit.Framework;
+
 using UnityEngine;
-using UnityEngine.UI;
 public class MainMenuScript : MonoBehaviour
 {
     public GameObject Credits;
@@ -59,6 +58,12 @@ public class MainMenuScript : MonoBehaviour
 
     public void deleteSave()
     {
-        SaveSystem.DeleteSaveFile();   
+        SaveSystem.DeleteSaveFile();
+    }
+    
+    public void QuitApp()
+    {
+        Debug.Log("Quit button pressed."); // Works only in Editor for testing
+        Application.Quit(); // Quits in built game
     }
 }

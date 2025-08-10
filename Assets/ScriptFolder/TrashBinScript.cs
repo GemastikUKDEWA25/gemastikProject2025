@@ -1,4 +1,4 @@
-using TMPro;
+
 using UnityEngine;
 
 
@@ -14,6 +14,8 @@ public class TrashBinScript : MonoBehaviour
     SceneController sceneController;
     public string changeScene;
     bool isInInteractArea;
+    public RubbishCounter rubbishCounter;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,7 +33,23 @@ public class TrashBinScript : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E) && isInInteractArea)
                 {
-                    if (changeScene != null) sceneController.changeScene(changeScene);
+                    if (changeScene != "") sceneController.changeScene(changeScene);
+                    if (gameObject.tag == "OrganicTrashBin")
+                    {
+                        // rubbishCounter.addOrganic();
+                        RubbishCounter.instance.addOrganic();
+                    }
+                    if (gameObject.tag == "InOrganicTrashBin")
+                    {
+                        // rubbishCounter.addInOrganic();
+                        RubbishCounter.instance.addInOrganic();
+                    }
+                    if (gameObject.tag == "B3TrashBin")
+                    {
+                        // rubbishCounter.addB3();
+                        RubbishCounter.instance.addB3();
+                    }
+
                     inventory.Carry = "";
                     inventory.icon.enabled = false;
                 }
@@ -39,7 +57,6 @@ public class TrashBinScript : MonoBehaviour
         }
 
     }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Inventory"))

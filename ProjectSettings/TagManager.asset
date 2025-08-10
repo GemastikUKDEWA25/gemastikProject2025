@@ -19,6 +19,8 @@ TagManager:
   - Wall
   - PatrolEnemy
   - DoorKey
+  - B3TrashBin
+  - B3Trash
   layers:
   - Default
   - TransparentFX

@@ -19,7 +19,6 @@ public class ComicCutsceneScript : MonoBehaviour
     public float wordDelay;
     public float sceneDelay;
     public string nextScene;
-    bool controlTrigger = false;
     private int naratorCounter = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

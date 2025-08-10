@@ -1,7 +1,5 @@
     using UnityEngine;
-    using TMPro;
     using System.Collections;
-    using UnityEditor.SearchService;
 
     [System.Serializable]
     public class DialogVillageToStage1

@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+
 
 public class ItemScript : MonoBehaviour
 {
     public SpriteRenderer InteractKey;
-    SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     public Sprite[] sprites;
     AudioSource audioSource;
     InventoryScript inventory;
@@ -17,7 +16,7 @@ public class ItemScript : MonoBehaviour
         InteractKey.enabled = false;
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
         if (sprites.Length > 0) spriteRenderer.sprite = sprites[Mathf.FloorToInt(Random.Range(0, sprites.Length))];
     }
     // Update is called once per frame

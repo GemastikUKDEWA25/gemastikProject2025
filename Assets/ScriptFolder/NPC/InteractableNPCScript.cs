@@ -1,7 +1,5 @@
 using UnityEngine;
-using TMPro;
 using System.Collections;
-using UnityEngine.UI;
 
 [System.Serializable]
 public class Dialog
@@ -31,6 +29,7 @@ public class InteractableNPCScript : MonoBehaviour
     public AudioClip clip;
     public AudioSource audioSource;
     PlayerControllerScript playerController;
+    public CutsceneControlScript cutsceneControlScript;
 
     [Header("Dialog")]
     public Dialog[] dialogList;
@@ -142,6 +141,11 @@ public class InteractableNPCScript : MonoBehaviour
         {
             sceneController.guideText.text = dialogList[dialogCounter].dialog;
             hideDialog();
+
+            if (cutsceneControlScript != null)
+            {
+                cutsceneControlScript.ResumeDirector();
+            }
             return;
         }
 

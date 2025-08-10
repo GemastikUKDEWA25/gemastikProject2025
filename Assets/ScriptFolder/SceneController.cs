@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
 using TMPro;
-using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,15 +15,6 @@ public class SceneController : MonoBehaviour
     [SerializeField] Animator transitionSceneAnimation;
     private void Awake()
     {
-        // if (instance == null)
-        // {
-        //     instance = this;
-        //     DontDestroyOnLoad(gameObject);
-        // }
-        // else if (instance != this)
-        // {
-        //     Destroy(gameObject); // Destroy duplicate
-        // }
 
     }
 

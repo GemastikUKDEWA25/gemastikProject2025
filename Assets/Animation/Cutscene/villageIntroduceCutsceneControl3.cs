@@ -11,7 +11,6 @@ public class villageIntroduceCutsceneControl3 : MonoBehaviour
 
     private double pauseTime;
     private bool isPaused = false;
-    private float maxDistance = 2f;
 
     bool isIndialog = true;
 
