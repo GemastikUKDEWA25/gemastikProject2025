@@ -36,8 +36,8 @@ public class TrashMonsterScript : MonoBehaviour
 
     private void Update()
     {
-        float distance = Vector2.Distance(transform.position, player.transform.position);
-        playerSeen = distance < 2;
+        // float distance = Vector2.Distance(transform.position, player.transform.position);
+        // playerSeen = distance < 2;
 
         // State switching logic
         if (!playerSeen && currentState != StateMachine.Patrol && curHealth > (maxHealth * 20) / 100)

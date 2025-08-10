@@ -5,7 +5,7 @@ using TMPro;
 public class ItemScript : MonoBehaviour
 {
     public SpriteRenderer InteractKey;
-    public SpriteRenderer spriteRenderer;
+    SpriteRenderer spriteRenderer;
     public Sprite[] sprites;
     AudioSource audioSource;
     InventoryScript inventory;
@@ -17,7 +17,8 @@ public class ItemScript : MonoBehaviour
         InteractKey.enabled = false;
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-        spriteRenderer.sprite = sprites[Mathf.FloorToInt(Random.Range(0,sprites.Length))];
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (sprites.Length > 0) spriteRenderer.sprite = sprites[Mathf.FloorToInt(Random.Range(0, sprites.Length))];
     }
     // Update is called once per frame
     void Update()
@@ -27,7 +28,9 @@ public class ItemScript : MonoBehaviour
         {
             Debug.Log("picking up");
             // animator.Play("pickedUp");
-            animator.SetBool("isPickedUp",true);
+            if (animator != null )animator.SetBool("isPickedUp",true);
+            else pickUp();
+            
         }
     }
 

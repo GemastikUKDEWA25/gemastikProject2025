@@ -121,7 +121,7 @@ public class SceneBeringinScript : MonoBehaviour
 
             if (dialogList[dialogCounter].expression != null) dialog.characterExpression.sprite = dialogList[dialogCounter].expression;
             
-            StartCoroutine(TypeText(dialogSplit));
+            StartCoroutine(TypeText(dialogSplit,dialogList[dialogCounter].voiceSound));
         }
     }
 
@@ -147,7 +147,7 @@ public class SceneBeringinScript : MonoBehaviour
         isInstructionShowed = true;
     }
 
-    IEnumerator TypeText(string[] dialogSplit)
+    IEnumerator TypeText(string[] dialogSplit,AudioClip voiceSound)
     {       
         foreach (string word in dialogSplit)
         {
@@ -161,7 +161,7 @@ public class SceneBeringinScript : MonoBehaviour
                 {
                     dialog.dialogtext.text += word + " ";
                 }
-                audioSource.PlayOneShot(clip);
+                audioSource.PlayOneShot(voiceSound);
                 yield return new WaitForSeconds(wordDelay);
             }
         }

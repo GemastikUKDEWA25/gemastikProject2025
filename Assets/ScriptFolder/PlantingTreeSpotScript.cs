@@ -11,6 +11,8 @@ public class PlantingTreeSpotScript : MonoBehaviour
     bool isInInteractArea;
 
     bool isPlanted = false;
+
+    public ReforestationScript reforestationScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,10 +29,12 @@ public class PlantingTreeSpotScript : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E) && isInInteractArea)
                 {
+                    reforestationScript.treesCount -= 1;
                     inventory.Carry = "";
                     inventory.icon.enabled = false;
                     isPlanted = true;
-                    spawner.SpawnPrefab(babyTree,gameObject.transform);
+                    spawner.SpawnPrefab(babyTree, gameObject.transform);
+                    Destroy(gameObject);
                 }
             }
         }

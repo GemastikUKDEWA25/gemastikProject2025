@@ -11,6 +11,7 @@ public class GolemScript : MonoBehaviour
     public Vector3 centerPosition;
     public GameObject golemEye;
     Animator animator;
+    SceneController sceneController;
     public bool isDead = false;
     public bool isInAnimation = false;
     public float followSpeed = 2f;
@@ -54,6 +55,7 @@ public class GolemScript : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        sceneController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<SceneController>();
         centerPosition = golemEye.transform.localPosition;
         health = Maxhealth;
         healthBar.maxValue = Maxhealth;
@@ -109,6 +111,7 @@ public class GolemScript : MonoBehaviour
             {
                 animator.SetTrigger("Dead");
                 isDead = true;
+                sceneController.changeScene("SceneReforestation 2");
             }
         }
     }

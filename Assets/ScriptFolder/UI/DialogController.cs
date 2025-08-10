@@ -45,6 +45,8 @@ public class DialogController : MonoBehaviour
         nextButtonBackground.enabled = false;
     }
 
+    
+
     public void resetDialog()
     {
         dialogName.text = "";

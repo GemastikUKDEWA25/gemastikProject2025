@@ -11,13 +11,15 @@ public class TrashBinScript : MonoBehaviour
     public AudioClip rightSound;
     public AudioSource audioSource;
     InventoryScript inventory;
+    SceneController sceneController;
+    public string changeScene;
     bool isInInteractArea;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         InteractKey.enabled = false;
         TrashType.enabled = false;
-
+        sceneController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<SceneController>();
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class TrashBinScript : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E) && isInInteractArea)
                 {
+                    if (changeScene != null) sceneController.changeScene(changeScene);
                     inventory.Carry = "";
                     inventory.icon.enabled = false;
                 }

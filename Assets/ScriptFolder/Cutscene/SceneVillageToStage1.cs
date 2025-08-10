@@ -88,7 +88,7 @@
         }
         else dialog.dialogName.text = nameDialog;
         if (dialogList[dialogCounter].expression != null) dialog.characterExpression.sprite = dialogList[dialogCounter].expression;
-        StartCoroutine(TypeText(dialogSplit));
+        StartCoroutine(TypeText(dialogSplit,dialogList[dialogCounter].voiceSound));
             
         }
 
@@ -101,12 +101,12 @@
         }
 
 
-        IEnumerator TypeText(string[] dialogSplit)
+        IEnumerator TypeText(string[] dialogSplit, AudioClip audio)
         {       
             foreach (string word in dialogSplit)
             {               
                 dialog.dialogtext.text += word + " ";
-                audioSource.PlayOneShot(clip);
+                audioSource.PlayOneShot(audio);
                 yield return new WaitForSeconds(wordDelay);
 
             }

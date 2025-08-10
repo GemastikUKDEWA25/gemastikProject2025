@@ -4,6 +4,7 @@ public class DummyEnter : MonoBehaviour
 {
     public SpriteRenderer interactKey;
     SceneController sceneController;
+    public string nextScene;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,7 +16,7 @@ public class DummyEnter : MonoBehaviour
         interactKey.enabled = true;
         if (Input.GetKeyDown(KeyCode.E))
         {
-            sceneController.changeScene("SceneRangeDummy");
+            sceneController.changeScene(nextScene);
         }
     }
 
@@ -24,7 +25,7 @@ public class DummyEnter : MonoBehaviour
         interactKey.enabled = true;
         if (Input.GetKeyDown(KeyCode.E))
         {
-            sceneController.changeScene("SceneRangeDummy");
+            sceneController.changeScene(nextScene);
         }
     }
 

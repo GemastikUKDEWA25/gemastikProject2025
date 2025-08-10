@@ -1198,45 +1198,45 @@ MonoBehaviour:
   sceneController: {fileID: 1500226800}
   clip: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
   audioSource: {fileID: 1981713517}
-  NextSceneName: SceneTest1
+  NextSceneName: SceneVillageIntroduce
   dialogList:
   - name: Kayana
     dialog: Where are you from by the way
-    voiceSound: {fileID: 0}
-    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+    voiceSound: {fileID: 8300000, guid: b7cc09abe7202b348811420de7906dad, type: 3}
+    expression: {fileID: -848357302213773481, guid: 72da9090f529f8a4695bf11a03c0211c, type: 3}
   - name: Player
     dialog: Uh.., i don't know
-    voiceSound: {fileID: 0}
-    expression: {fileID: -4982430376927583594, guid: 37ab631746e387146ae736abefbe6c36, type: 3}
+    voiceSound: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
+    expression: {fileID: -2311659948842064771, guid: 9289f4d5e9efa974b94cc3fbbf176d62, type: 3}
   - name: Kayana
     dialog: You surely don't remember much, huh..
-    voiceSound: {fileID: 0}
-    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+    voiceSound: {fileID: 8300000, guid: b7cc09abe7202b348811420de7906dad, type: 3}
+    expression: {fileID: -848357302213773481, guid: 72da9090f529f8a4695bf11a03c0211c, type: 3}
   - name: Kayana
     dialog: You will open up eventually
-    voiceSound: {fileID: 0}
-    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+    voiceSound: {fileID: 8300000, guid: b7cc09abe7202b348811420de7906dad, type: 3}
+    expression: {fileID: -848357302213773481, guid: 72da9090f529f8a4695bf11a03c0211c, type: 3}
   - name: Kayana
     dialog: You will meet a lot of people there.
-    voiceSound: {fileID: 0}
-    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+    voiceSound: {fileID: 8300000, guid: b7cc09abe7202b348811420de7906dad, type: 3}
+    expression: {fileID: -848357302213773481, guid: 72da9090f529f8a4695bf11a03c0211c, type: 3}
   - name: Kayana
     dialog: you can stay there while you were here and figuring out where you really
       from.
-    voiceSound: {fileID: 0}
-    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+    voiceSound: {fileID: 8300000, guid: b7cc09abe7202b348811420de7906dad, type: 3}
+    expression: {fileID: -848357302213773481, guid: 72da9090f529f8a4695bf11a03c0211c, type: 3}
   - name: Player
     dialog: That would be nice.
-    voiceSound: {fileID: 0}
-    expression: {fileID: 3258682265180347552, guid: c98cfd3c4803302428a3a7c99d96be82, type: 3}
+    voiceSound: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
+    expression: {fileID: -2311659948842064771, guid: 9289f4d5e9efa974b94cc3fbbf176d62, type: 3}
   - name: Kayana
     dialog: Come! we already arrived.
-    voiceSound: {fileID: 0}
-    expression: {fileID: 7265310919871403661, guid: aa7fa94bb23429d49a6686b284d5b497, type: 3}
+    voiceSound: {fileID: 8300000, guid: b7cc09abe7202b348811420de7906dad, type: 3}
+    expression: {fileID: -848357302213773481, guid: 72da9090f529f8a4695bf11a03c0211c, type: 3}
   - name: Player
     dialog: I'm coming!
-    voiceSound: {fileID: 0}
-    expression: {fileID: -8821572342123823147, guid: f03dfea691a3337468563e7bc51c8bea, type: 3}
+    voiceSound: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
+    expression: {fileID: -2311659948842064771, guid: 9289f4d5e9efa974b94cc3fbbf176d62, type: 3}
   timer: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

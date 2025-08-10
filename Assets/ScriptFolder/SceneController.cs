@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using TMPro;
+using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +12,7 @@ public class SceneController : MonoBehaviour
     public static SceneController instance { get; private set; }
     public GameObject menu;
     public DialogController dialogController;
+    public TextMeshProUGUI guideText;
     GameObject player;
     bool isPaused;
     [SerializeField] Animator transitionSceneAnimation;
@@ -32,7 +35,10 @@ public class SceneController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         menu.SetActive(false);
         dialogController.hideDialog();
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName != "MainMenu") SaveSystem.SavePlayerStage(sceneName);
         if (player != null) LoadPosition(player.transform);
+        // guideText.enabled = false;
 
     }
 

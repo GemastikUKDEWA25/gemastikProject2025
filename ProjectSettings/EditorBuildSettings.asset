@@ -24,11 +24,11 @@ EditorBuildSettings:
     path: Assets/SceneFolder/Stage1Map.unity
     guid: cfffb7f39a4935f4c923d9d45427ac2d
   - enabled: 1
+    path: Assets/SceneFolder/SceneRangeDummyTutorial.unity
+    guid: a3fbac6c0dd1a3f43b225c6ac6c22f3d
+  - enabled: 1
     path: Assets/SceneFolder/SceneTest1.unity
     guid: 107b4ae9b6961f94cae4bb7a665ebb2d
-  - enabled: 1
-    path: Assets/SceneFolder/SceneTest2.unity
-    guid: d01e12f3f118b3442a99638e5d23af12
   - enabled: 1
     path: Assets/SceneFolder/CutsceneComicScene.unity
     guid: a1bb6216f19018944a6dc2ed8ab80dbd
@@ -41,6 +41,30 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SceneFolder/ScenePlantingTree.unity
     guid: 330dd13dba8d6c34d8e55953482c7eef
+  - enabled: 1
+    path: Assets/SceneFolder/Cutscene/SceneVillageIntroduce1.unity
+    guid: 4d13f9d7bbaace7429c11f709b5165bd
+  - enabled: 1
+    path: Assets/SceneFolder/Cutscene/SceneVillageIntroduce2.unity
+    guid: fbf1119006bc1d2499f78b9984e3259a
+  - enabled: 1
+    path: Assets/SceneFolder/Cutscene/SceneVillageIntroduce3.unity
+    guid: 37a8715278951484ebb4340b1f9c6649
+  - enabled: 1
+    path: Assets/SceneFolder/Cutscene/SceneVillageIntroduce4.unity
+    guid: ba86a98846fd6cf4e92f77c085ed13e0
+  - enabled: 1
+    path: Assets/SceneFolder/Cutscene/SceneVillageIntroduce5.unity
+    guid: 60a5ae7ff0af88140bee3a4fae80fd7a
+  - enabled: 1
+    path: Assets/SceneFolder/Cutscene/SceneReforestation.unity
+    guid: c387f37fdf4f4114982cf241e54a82ab
+  - enabled: 1
+    path: Assets/SceneFolder/Cutscene/SceneReforestation 1.unity
+    guid: 97ac1292a7eaa4444aaf1e3ab6e52684
+  - enabled: 1
+    path: Assets/SceneFolder/Cutscene/SceneReforestation 2.unity
+    guid: 943f75673d84ef0438f7240bedeede29
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
