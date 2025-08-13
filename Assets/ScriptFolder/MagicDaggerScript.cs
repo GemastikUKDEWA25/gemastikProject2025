@@ -64,15 +64,19 @@ public class MagicDaggerScript : MonoBehaviour
     {
         if (collision.CompareTag("Wall") || collision.CompareTag("Enemy"))
         {
-            if (collision.CompareTag("Enemy"))
-            {
-                HurtBox enemy = collision.GetComponent<HurtBox>();
-                DummyScript dummy = collision.GetComponent<DummyScript>();
-                Debug.Log(dummy == null);
-                if (enemy != null) enemy.attack(Mathf.FloorToInt(damage));
-                if (dummy != null) dummy.attack();
+            // if (collision.CompareTag("Enemy"))
+            // {
+            //     HurtBox enemy = collision.GetComponent<HurtBox>();
+            //     DummyScript dummy = collision.GetComponent<DummyScript>();
+            //     Debug.Log(dummy == null);
+            //     if (enemy != null)
+            //     {
+            //         enemy.attack(Mathf.FloorToInt(damage));
+
+            //     }
+            //     if (dummy != null) dummy.attack();
                 
-            }
+            // }
             flying = false;
             animator.SetTrigger("hit");
         }

@@ -815,7 +815,6 @@ GameObject:
   - component: {fileID: 7030960048040622725}
   - component: {fileID: 4614727361232166314}
   - component: {fileID: 4289402975331760160}
-  - component: {fileID: 6041410190447176200}
   m_Layer: 0
   m_Name: LeftLowerArm
   m_TagString: Untagged
@@ -967,20 +966,6 @@ MonoBehaviour:
   golem: {fileID: 7421952811884609580}
   trigger: 0
   damage: 5
---- !u!114 &6041410190447176200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3791224452786751590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca9f69631d03564182cf2e85da119d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  golemHurtBox: {fileID: 7421952811884609580}
-  isCore: 0
 --- !u!1 &3840216121635095225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,7 +1364,6 @@ GameObject:
   - component: {fileID: 7188393258567131173}
   - component: {fileID: 956300009373672278}
   - component: {fileID: 4914832969964489696}
-  - component: {fileID: 2990720978831884611}
   m_Layer: 0
   m_Name: RightUpperArm
   m_TagString: Untagged
@@ -1539,20 +1523,6 @@ PolygonCollider2D:
       - {x: 0.04, y: 0.26}
       - {x: 0.03, y: 0.26999998}
   m_UseDelaunayMesh: 0
---- !u!114 &2990720978831884611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4476926494662060405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca9f69631d03564182cf2e85da119d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  golemHurtBox: {fileID: 7421952811884609580}
-  isCore: 0
 --- !u!1 &4667865664585183813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,6 +1625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golemHurtBox: {fileID: 7421952811884609580}
+  spriteRenderer: []
   isCore: 1
 --- !u!60 &1775381760518004630
 PolygonCollider2D:
@@ -2183,7 +2154,6 @@ GameObject:
   - component: {fileID: 2375350870186690645}
   - component: {fileID: 2244117154067246025}
   - component: {fileID: 9034266077896388856}
-  - component: {fileID: 4987731672413259256}
   m_Layer: 0
   m_Name: GolemLeftLeg
   m_TagString: Enemy
@@ -2365,20 +2335,6 @@ MonoBehaviour:
   golem: {fileID: 7421952811884609580}
   trigger: 0
   damage: 5
---- !u!114 &4987731672413259256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6681552717310901646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca9f69631d03564182cf2e85da119d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  golemHurtBox: {fileID: 7421952811884609580}
-  isCore: 0
 --- !u!1 &6941687271182201362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,7 +2497,6 @@ GameObject:
   - component: {fileID: 6455648130087479769}
   - component: {fileID: 977960421472888652}
   - component: {fileID: 517996941969613799}
-  - component: {fileID: 4693785779694458954}
   m_Layer: 0
   m_Name: GolemRightLeg
   m_TagString: Enemy
@@ -2705,20 +2660,6 @@ MonoBehaviour:
   golem: {fileID: 7421952811884609580}
   trigger: 0
   damage: 5
---- !u!114 &4693785779694458954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7051325031798357648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca9f69631d03564182cf2e85da119d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  golemHurtBox: {fileID: 7421952811884609580}
-  isCore: 0
 --- !u!1 &7233248880617122966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,7 +3121,6 @@ GameObject:
   - component: {fileID: 1906514914020851390}
   - component: {fileID: 6081055675198890200}
   - component: {fileID: 4879262484213780006}
-  - component: {fileID: 5086669905145603484}
   m_Layer: 0
   m_Name: LeftUpperArm
   m_TagString: Untagged
@@ -3374,20 +3314,6 @@ PolygonCollider2D:
       - {x: 0.08, y: 0.255}
       - {x: 0.07, y: 0.265}
   m_UseDelaunayMesh: 0
---- !u!114 &5086669905145603484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8581134866571893938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca9f69631d03564182cf2e85da119d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  golemHurtBox: {fileID: 7421952811884609580}
-  isCore: 0
 --- !u!1 &8811939262821771799
 GameObject:
   m_ObjectHideFlags: 0
@@ -3399,7 +3325,6 @@ GameObject:
   - component: {fileID: 3316773238295764329}
   - component: {fileID: 5018969329008833330}
   - component: {fileID: 5219198261237957147}
-  - component: {fileID: 5293222808046721533}
   m_Layer: 0
   m_Name: GolemHead
   m_TagString: Enemy
@@ -3577,20 +3502,6 @@ PolygonCollider2D:
       - {x: 0.235, y: 0.12}
       - {x: 0.185, y: 0.07}
   m_UseDelaunayMesh: 0
---- !u!114 &5293222808046721533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8811939262821771799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca9f69631d03564182cf2e85da119d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  golemHurtBox: {fileID: 7421952811884609580}
-  isCore: 0
 --- !u!1 &8845646597425528120
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,7 +3790,6 @@ GameObject:
   - component: {fileID: 4341635525510327841}
   - component: {fileID: 4953358986733704446}
   - component: {fileID: 1804882187255184559}
-  - component: {fileID: 9139936300924779840}
   m_Layer: 0
   m_Name: RightLowerArm
   m_TagString: Untagged
@@ -4036,17 +3946,3 @@ MonoBehaviour:
   golem: {fileID: 7421952811884609580}
   trigger: 0
   damage: 5
---- !u!114 &9139936300924779840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9210246256411550611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca9f69631d03564182cf2e85da119d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  golemHurtBox: {fileID: 7421952811884609580}
-  isCore: 0

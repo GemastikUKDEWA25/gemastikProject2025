@@ -1412,6 +1412,7 @@ GameObject:
   - component: {fileID: 1903938104}
   - component: {fileID: 1903938106}
   - component: {fileID: 1903938107}
+  - component: {fileID: 1903938108}
   m_Layer: 0
   m_Name: Timeline
   m_TagString: Untagged
@@ -1448,6 +1449,8 @@ PlayableDirector:
     value: {fileID: 614763872}
   - key: {fileID: -2497536712618251925, guid: 856b919a6cfa3a146af4c6c9916a9117, type: 2}
     value: {fileID: 614763872}
+  - key: {fileID: -6277332926110369462, guid: 856b919a6cfa3a146af4c6c9916a9117, type: 2}
+    value: {fileID: 1903938106}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1903938105
@@ -1480,6 +1483,7 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 55c87aea69dea514eaf7f635b8bd335e, type: 2}
+    - {fileID: 11400000, guid: efb5df6b8ec60a449896e5b0912f3c5d, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -1490,6 +1494,20 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1903938108}
+          m_TargetAssemblyTypeName: CutsceneControlScript, Assembly-CSharp
+          m_MethodName: talkToNpc
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 6193942787037082768}
+            m_ObjectArgumentAssemblyTypeName: InteractableNPCScript, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1511,6 +1529,19 @@ MonoBehaviour:
   kayana: {fileID: 614763875}
   player: {fileID: 1497435925}
   director: {fileID: 1903938104}
+--- !u!114 &1903938108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903938102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9cf2487cb94ce45ad8b3bf58e170e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachineCamera: {fileID: 0}
 --- !u!4 &65072751620077758
 Transform:
   m_ObjectHideFlags: 0
@@ -2186,6 +2217,7 @@ MonoBehaviour:
   isInDialog: 0
   clip: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
   audioSource: {fileID: 285621783548031563}
+  cutsceneControlScript: {fileID: 0}
   dialogList:
   - name: Kayana
     dialog: Hi Albert where you going?
@@ -2317,6 +2349,7 @@ MonoBehaviour:
   isInDialog: 0
   clip: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
   audioSource: {fileID: 1625920877301048640}
+  cutsceneControlScript: {fileID: 0}
   dialogList:
   - name: Player
     dialog: Thank you so much D-Dwarf for upgrade and telling me about the magic

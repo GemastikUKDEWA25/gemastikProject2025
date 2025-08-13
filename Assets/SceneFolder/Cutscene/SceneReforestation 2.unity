@@ -1134,6 +1134,7 @@ MonoBehaviour:
   isInDialog: 0
   clip: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
   audioSource: {fileID: 574215204}
+  cutsceneControlScript: {fileID: 0}
   dialogList:
   - name: Kayana
     dialog: Are you alright Player ?
@@ -1425,6 +1426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9cf2487cb94ce45ad8b3bf58e170e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinemachineCamera: {fileID: 0}
 --- !u!114 &598319258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4528,7 +4530,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golemHurtBox: {fileID: 1374060370087623469}
+  spriteRenderer: []
   isCore: 0
+  flashDuration: 0.2
 --- !u!212 &831679706881155625
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5498,7 +5502,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golemHurtBox: {fileID: 1374060370087623469}
+  spriteRenderer: []
   isCore: 0
+  flashDuration: 0.2
 --- !u!1 &2929612078828684943
 GameObject:
   m_ObjectHideFlags: 0
@@ -6047,7 +6053,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golemHurtBox: {fileID: 1374060370087623469}
+  spriteRenderer: []
   isCore: 0
+  flashDuration: 0.2
 --- !u!212 &3582402815651039283
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6116,7 +6124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golemHurtBox: {fileID: 1374060370087623469}
+  spriteRenderer: []
   isCore: 0
+  flashDuration: 0.2
 --- !u!114 &3697602160984412689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6223,7 +6233,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golemHurtBox: {fileID: 1374060370087623469}
+  spriteRenderer: []
   isCore: 0
+  flashDuration: 0.2
 --- !u!1 &3851718881011705414
 GameObject:
   m_ObjectHideFlags: 0
@@ -6606,7 +6618,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 9
+  m_SortingOrder: 10
   m_Sprite: {fileID: 1235656499053500701, guid: dcc4956f0f964e445b5201bc0742bcd7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6801,7 +6813,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golemHurtBox: {fileID: 1374060370087623469}
+  spriteRenderer: []
   isCore: 0
+  flashDuration: 0.2
 --- !u!1 &4480589880558098367
 GameObject:
   m_ObjectHideFlags: 0
@@ -8093,7 +8107,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golemHurtBox: {fileID: 1374060370087623469}
+  spriteRenderer: []
   isCore: 0
+  flashDuration: 0.2
 --- !u!95 &6770381121386471044
 Animator:
   serializedVersion: 7
@@ -8288,7 +8304,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golemHurtBox: {fileID: 1374060370087623469}
+  spriteRenderer: []
   isCore: 1
+  flashDuration: 0.2
 --- !u!61 &7116045827044570465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8735,6 +8753,7 @@ MonoBehaviour:
   isInDialog: 0
   clip: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
   audioSource: {fileID: 3381013114620134717}
+  cutsceneControlScript: {fileID: 0}
   dialogList:
   - name: Albert
     dialog: Heyy there you are

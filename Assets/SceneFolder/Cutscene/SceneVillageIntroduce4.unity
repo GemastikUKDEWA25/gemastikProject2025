@@ -701,6 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9cf2487cb94ce45ad8b3bf58e170e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinemachineCamera: {fileID: 0}
 --- !u!4 &705984436
 Transform:
   m_ObjectHideFlags: 0
@@ -1348,7 +1349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &1399618809
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1498,6 +1499,7 @@ MonoBehaviour:
   isInDialog: 0
   clip: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
   audioSource: {fileID: 1399618810}
+  cutsceneControlScript: {fileID: 0}
   dialogList:
   - name: Kayana
     dialog: I will stay here, if you ready to help albert and the other planting
@@ -3336,6 +3338,7 @@ MonoBehaviour:
   isInDialog: 0
   clip: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
   audioSource: {fileID: 285621783548031563}
+  cutsceneControlScript: {fileID: 0}
   dialogList:
   - name: Kayana
     dialog: Hi Albert where you going?
@@ -3599,6 +3602,7 @@ MonoBehaviour:
   isInDialog: 0
   clip: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
   audioSource: {fileID: 1625920877301048640}
+  cutsceneControlScript: {fileID: 0}
   dialogList:
   - name: Kayana
     dialog: Chief let me introduce you to my friend here Player he's going to help
@@ -3904,6 +3908,7 @@ MonoBehaviour:
   isInDialog: 0
   clip: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
   audioSource: {fileID: 5846126948177648415}
+  cutsceneControlScript: {fileID: 0}
   dialogList:
   - name: Chief
     dialog: Thank you Player i appreciate it

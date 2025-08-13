@@ -21,6 +21,7 @@ TagManager:
   - DoorKey
   - B3TrashBin
   - B3Trash
+  - Weapon
   layers:
   - Default
   - TransparentFX

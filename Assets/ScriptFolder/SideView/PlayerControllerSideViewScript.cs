@@ -199,7 +199,7 @@ public class PlayerControllerSideViewScript : MonoBehaviour
             audioSourceCombat.Stop();
         }
 
-        Debug.Log(mana);
+        // Debug.Log(mana);
 
         if (knockBackCounter <= 0)
         {
