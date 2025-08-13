@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &74019996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+  m_PrefabInstance: {fileID: 374341299}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &246333700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3870129057153126345, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
@@ -636,6 +641,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+--- !u!1 &548126847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+  m_PrefabInstance: {fileID: 253790432}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &562144087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1391,6 +1401,11 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2386973682222430792, guid: e36c939306b5fd9479eafb6138f481e6, type: 3}
   m_PrefabInstance: {fileID: 579197733}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &860415847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+  m_PrefabInstance: {fileID: 293912625}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &925454262 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1608419484967354712, guid: e36c939306b5fd9479eafb6138f481e6, type: 3}
@@ -1590,6 +1605,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4926701550076686047, guid: 1e2d218c62128f544b49136f7bc6a87f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6313357073849268493, guid: 1e2d218c62128f544b49136f7bc6a87f, type: 3}
       propertyPath: m_Name
       value: Game Manager
@@ -1648,6 +1667,16 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3870129057153126345, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
   m_PrefabInstance: {fileID: 374341299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1202105863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+  m_PrefabInstance: {fileID: 1388378280}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1221286934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+  m_PrefabInstance: {fileID: 1576216349}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1248633807
 GameObject:
@@ -3226,6 +3255,11 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1854704206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+  m_PrefabInstance: {fileID: 1657274199}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1880467670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3424,7 +3458,7 @@ MonoBehaviour:
           m_MethodName: deactivateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 2030620290}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3436,7 +3470,7 @@ MonoBehaviour:
           m_MethodName: deactivateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 2015974466}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3460,7 +3494,7 @@ MonoBehaviour:
           m_MethodName: deactivateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 74019996}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3472,7 +3506,7 @@ MonoBehaviour:
           m_MethodName: deactivateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 860415847}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3484,7 +3518,7 @@ MonoBehaviour:
           m_MethodName: deactivateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 548126847}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3496,7 +3530,7 @@ MonoBehaviour:
           m_MethodName: deactivateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 1202105863}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3508,7 +3542,7 @@ MonoBehaviour:
           m_MethodName: deactivateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 1854704206}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3520,7 +3554,7 @@ MonoBehaviour:
           m_MethodName: deactivateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 1221286934}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3546,7 +3580,7 @@ MonoBehaviour:
           m_MethodName: activateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 2030620290}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3558,7 +3592,7 @@ MonoBehaviour:
           m_MethodName: activateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 2015974466}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3582,7 +3616,7 @@ MonoBehaviour:
           m_MethodName: activateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 74019996}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3594,7 +3628,7 @@ MonoBehaviour:
           m_MethodName: activateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 860415847}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3606,7 +3640,7 @@ MonoBehaviour:
           m_MethodName: activateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 548126847}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3618,7 +3652,7 @@ MonoBehaviour:
           m_MethodName: activateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 1202105863}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3630,7 +3664,7 @@ MonoBehaviour:
           m_MethodName: activateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 1854704206}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3642,7 +3676,7 @@ MonoBehaviour:
           m_MethodName: activateGameobject
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgument: {fileID: 1221286934}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -4035,6 +4069,16 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5589506494831652502, guid: e36c939306b5fd9479eafb6138f481e6, type: 3}
   m_PrefabInstance: {fileID: 579197733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2015974466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+  m_PrefabInstance: {fileID: 949113981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2030620290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+  m_PrefabInstance: {fileID: 1363255226}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &65072751620077758
 Transform:
