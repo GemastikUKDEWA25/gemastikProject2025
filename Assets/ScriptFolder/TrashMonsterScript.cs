@@ -35,6 +35,9 @@ public class TrashMonsterScript : MonoBehaviour
     private float idleTimer = 1f;
     private AudioSource audioSource;
 
+    public float idleStartDelay = 40f; // tunggu sebelum idle sound aktif
+    private float idleStartTimer;
+
 
     private void Start()
     {
@@ -47,16 +50,23 @@ public class TrashMonsterScript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
 
+
+        idleStartTimer = idleStartDelay;
+
     }
 
     private void Update()
     {
-        if (animator == null || !animator.GetBool("isPickedUp"))
+        if (idleStartTimer > 0f)
+        {
+            idleStartTimer -= Time.deltaTime;
+        }
+        else if ((animator == null || !animator.GetBool("isPickedUp")) && !audioSource.isPlaying)
         {
             idleTimer -= Time.deltaTime;
             if (idleTimer <= 0f)
             {
-                idleTimer = 1f; // cek tiap 1 detik
+                idleTimer = 1f;
                 if (idleSounds != null && idleSounds.Length > 0 && Random.value < idleChancePerSec)
                 {
                     audioSource.PlayOneShot(idleSounds[Random.Range(0, idleSounds.Length)]);
