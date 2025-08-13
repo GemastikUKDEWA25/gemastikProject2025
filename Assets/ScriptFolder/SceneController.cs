@@ -8,9 +8,12 @@ public class SceneController : MonoBehaviour
 
     public static SceneController instance { get; private set; }
     public GameObject menu;
+    public GameObject GameOver;
     public DialogController dialogController;
     public TextMeshProUGUI guideText;
     GameObject player;
+    PlayerControllerScript playerTopDownScript;
+    PlayerControllerSideViewScript playerControllerSideView;
     bool isPaused;
     [SerializeField] Animator transitionSceneAnimation;
     private void Awake()
@@ -21,6 +24,10 @@ public class SceneController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        playerTopDownScript = player.GetComponent<PlayerControllerScript>();
+        playerControllerSideView = player.GetComponent<PlayerControllerSideViewScript>();
+        
+
         menu.SetActive(false);
         dialogController.hideDialog();
         string sceneName = SceneManager.GetActiveScene().name;
@@ -36,8 +43,18 @@ public class SceneController : MonoBehaviour
         {
             if (isPaused) ResumeGame();
             else PauseGame();
-
         }
+
+        if (playerTopDownScript != null && playerTopDownScript.Health <= 0)
+        {
+            GameOverScreen();
+        }
+        if (playerControllerSideView != null && playerControllerSideView.health <= 0)
+        {
+            GameOverScreen();
+        }
+
+        
     }
 
     public void changeScene(string sceneName)
@@ -104,5 +121,10 @@ public class SceneController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void GameOverScreen()
+    {
+        GameOver.SetActive(true);
     }
 }
