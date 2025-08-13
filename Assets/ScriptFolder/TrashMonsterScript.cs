@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class TrashMonsterScript : MonoBehaviour
 {
@@ -26,20 +27,44 @@ public class TrashMonsterScript : MonoBehaviour
     public Vector2 direction;
 
     private Animator animator; // Animator reference
+
+
+
+    public AudioClip[] idleSounds;          
+    [Range(0f, 1f)] public float idleChancePerSec = 0.1f; 
+    private float idleTimer = 1f;
+    private AudioSource audioSource;
+
+
     private void Start()
     {
         curHealth = maxHealth;
         player = GameObject.Find("Player").GetComponent<PlayerControllerScript>();
         lastPosition = transform.position;
         animator = GetComponent<Animator>(); // Get Animator from the same GameObject
+
+        // --- Tambahan: setup AudioSource ---
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
+
     }
 
     private void Update()
     {
-        // float distance = Vector2.Distance(transform.position, player.transform.position);
-        // playerSeen = distance < 2;
+        if (animator == null || !animator.GetBool("isPickedUp"))
+        {
+            idleTimer -= Time.deltaTime;
+            if (idleTimer <= 0f)
+            {
+                idleTimer = 1f; // cek tiap 1 detik
+                if (idleSounds != null && idleSounds.Length > 0 && Random.value < idleChancePerSec)
+                {
+                    audioSource.PlayOneShot(idleSounds[Random.Range(0, idleSounds.Length)]);
+                }
+            }
+        }
 
-        // State switching logic
+
         if (!playerSeen && currentState != StateMachine.Patrol && curHealth > (maxHealth * 20) / 100)
         {
             currentState = StateMachine.Patrol;

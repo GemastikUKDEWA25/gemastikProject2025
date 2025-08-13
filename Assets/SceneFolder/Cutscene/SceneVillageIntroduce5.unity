@@ -3843,6 +3843,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: idleSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a37290600ef89e4c9a4d6b4fbf71600, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c7180f16e2fec994f9a4a4087d369d70, type: 3}
     - target: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
       propertyPath: m_Name
       value: inOrganicTrash
