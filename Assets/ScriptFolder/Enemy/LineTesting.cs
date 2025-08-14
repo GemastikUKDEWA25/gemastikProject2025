@@ -34,6 +34,9 @@ public class LineTesting : MonoBehaviour
 
     void Update()
     {
+        float dist = Vector2.Distance(playerTransform.position, transform.position);
+        lineController.lr.widthCurve = AnimationCurve.Linear(0f, 0f, 1f, Mathf.Clamp(dist, 0f, 0.5f));
+                
         float facingDirection = pointEnd.position.x - transform.position.x;
 
         if (facingDirection < 0 && transform.localScale.x > 0)

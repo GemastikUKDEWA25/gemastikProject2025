@@ -164,7 +164,11 @@ public class PlayerControllerScript : MonoBehaviour
     {
         isInDialog = status;
     }
-    
+
+    public void attack(int damage)
+    {
+        Health -= damage;
+    }
     
     
 }

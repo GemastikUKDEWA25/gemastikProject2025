@@ -29,6 +29,7 @@ public class GolemScript : MonoBehaviour
 
 
     [Header("BodyParts")]
+    public GolemHitAreaScript Head;
     public GolemHitAreaScript LeftHand;
     public GolemHitAreaScript RightHand;
     public GolemHitAreaScript LeftFoot;
@@ -230,6 +231,7 @@ public class GolemScript : MonoBehaviour
     public void GolemWheelRoll()
     {
         hitAreaNeutral();
+        Head.trigger = true;
         LeftHand.trigger = true;
         LeftFoot.trigger = true;
         RightHand.trigger = true;
@@ -275,6 +277,7 @@ public class GolemScript : MonoBehaviour
 
     public void hitAreaNeutral()
     {
+        Head.trigger = false;
         LeftHand.trigger = false;
         LeftFoot.trigger = false;
         RightHand.trigger = false;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LineScript : MonoBehaviour
 {
-    private LineRenderer lr;
+    public LineRenderer lr;
     private Transform[] points;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -12,7 +12,7 @@ public class LineScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()   
+    void Update()
     {
         if (points != null)
         {

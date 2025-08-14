@@ -4,14 +4,12 @@ public class GolemHitAreaScript : MonoBehaviour
 {
     public GolemScript golem;
     PlayerControllerSideViewScript player;
-    SpriteRenderer spriteRenderer;
     public bool trigger = false;
     public float damage = 5f;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerSideViewScript>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -50,15 +48,4 @@ public class GolemHitAreaScript : MonoBehaviour
             }
         }
     }
-    public void changeColorToRed()
-    {
-        spriteRenderer.color = Color.red;
-    }
-
-    public void changeColorToNormal()
-    {
-        spriteRenderer.color = Color.white;
-    }
-
-    
 }
