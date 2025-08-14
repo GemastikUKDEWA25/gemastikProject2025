@@ -34,7 +34,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     void Update()
     {
-        if (!isInDialog)
+        if (!isInDialog && Health > 0)
         {
             handleMovement();
         }
