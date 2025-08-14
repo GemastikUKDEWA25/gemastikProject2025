@@ -28,10 +28,6 @@ public class BulletSpawner : MonoBehaviour
 
     public void Spawn()
     {
-        // Decide where to spawn
-        // Vector3 spawnPos = transform.position;
-        
-        // Instantiate with the spawner's rotation
         Instantiate(prefab, transform.position, transform.rotation);
     }
 }

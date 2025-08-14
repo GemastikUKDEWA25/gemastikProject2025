@@ -20,6 +20,11 @@ public class PatrolEnemyScript : MonoBehaviour
     float speed = 40f;
     private Vector3 lastPosition;
     public Vector2 direction;  // this stores the movement direction
+
+    public BulletSpawner bulletSpawner;
+    float bulletTimer = 0.2f;
+    float bulletDelay = 0.2f;
+
     private void Start()
     {
         curHealth = maxHealth;
@@ -32,6 +37,20 @@ public class PatrolEnemyScript : MonoBehaviour
         // Debug.Log("State: " + currentState + " | Seen: " + playerSeen + " | HP: " + curHealth);
 
         // State transitions
+
+        if (currentState == StateMachine.Engage)
+        {
+            if (bulletTimer <= 0)
+            {
+                bulletSpawner.Spawn();
+                bulletTimer = bulletDelay;
+            }
+            else
+            {
+                bulletTimer -= Time.deltaTime;
+            }
+        }
+
         if (!playerSeen && currentState != StateMachine.Patrol && curHealth > (maxHealth * 20) / 100)
         {
             currentState = StateMachine.Patrol;
