@@ -137,6 +137,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: idleSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a37290600ef89e4c9a4d6b4fbf71600, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c7180f16e2fec994f9a4a4087d369d70, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
     - target: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
       propertyPath: m_Name
       value: inOrganicTrash (6)
@@ -414,6 +430,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: idleSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a37290600ef89e4c9a4d6b4fbf71600, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c7180f16e2fec994f9a4a4087d369d70, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
     - target: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
       propertyPath: m_Name
       value: inOrganicTrash (5)
@@ -543,6 +575,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5428248627087860436, guid: f9ac1a21ba0eaa14383398c142f2d7bb, type: 3}
+      propertyPath: growlClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
+    - target: {fileID: 5428248627087860436, guid: f9ac1a21ba0eaa14383398c142f2d7bb, type: 3}
+      propertyPath: carryAudio
+      value: 
+      objectReference: {fileID: 1412029676}
+    - target: {fileID: 5428248627087860436, guid: f9ac1a21ba0eaa14383398c142f2d7bb, type: 3}
+      propertyPath: growlAudioSource
+      value: 
+      objectReference: {fileID: 1412029676}
+    - target: {fileID: 5428248627087860436, guid: f9ac1a21ba0eaa14383398c142f2d7bb, type: 3}
+      propertyPath: trashMonsterGrowl
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
+    - target: {fileID: 5428248627087860436, guid: f9ac1a21ba0eaa14383398c142f2d7bb, type: 3}
+      propertyPath: carrySounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428248627087860436, guid: f9ac1a21ba0eaa14383398c142f2d7bb, type: 3}
+      propertyPath: 'carrySounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
     - target: {fileID: 5644475208778100220, guid: f9ac1a21ba0eaa14383398c142f2d7bb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -550,7 +606,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8557389741804113947, guid: f9ac1a21ba0eaa14383398c142f2d7bb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1412029676}
   m_SourcePrefab: {fileID: 100100000, guid: f9ac1a21ba0eaa14383398c142f2d7bb, type: 3}
 --- !u!1001 &374341299
 PrefabInstance:
@@ -560,6 +619,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: idleSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a37290600ef89e4c9a4d6b4fbf71600, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c7180f16e2fec994f9a4a4087d369d70, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
     - target: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
       propertyPath: m_Name
       value: inOrganicTrash (4)
@@ -1438,6 +1513,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: idleSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a37290600ef89e4c9a4d6b4fbf71600, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c7180f16e2fec994f9a4a4087d369d70, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
     - target: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
       propertyPath: m_Name
       value: inOrganicTrash (2)
@@ -1881,6 +1972,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: idleSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a37290600ef89e4c9a4d6b4fbf71600, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c7180f16e2fec994f9a4a4087d369d70, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
     - target: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
       propertyPath: m_Name
       value: inOrganicTrash (1)
@@ -2053,6 +2160,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: idleSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a37290600ef89e4c9a4d6b4fbf71600, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c7180f16e2fec994f9a4a4087d369d70, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
     - target: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
       propertyPath: m_Name
       value: inOrganicTrash (7)
@@ -2420,6 +2543,108 @@ Transform:
   - {fileID: 735306655}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1412029672 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8557389741804113947, guid: f9ac1a21ba0eaa14383398c142f2d7bb, type: 3}
+  m_PrefabInstance: {fileID: 298444871}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1412029676
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412029672}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
+  m_Resource: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1497435925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5335041749109108125, guid: f9ac1a21ba0eaa14383398c142f2d7bb, type: 3}
@@ -2438,6 +2663,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: idleSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a37290600ef89e4c9a4d6b4fbf71600, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c7180f16e2fec994f9a4a4087d369d70, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
     - target: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
       propertyPath: m_Name
       value: inOrganicTrash (9)
@@ -2655,6 +2896,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: idleSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a37290600ef89e4c9a4d6b4fbf71600, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c7180f16e2fec994f9a4a4087d369d70, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
     - target: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
       propertyPath: m_Name
       value: inOrganicTrash (8)
@@ -2977,6 +3234,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: idleSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a37290600ef89e4c9a4d6b4fbf71600, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c7180f16e2fec994f9a4a4087d369d70, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
     - target: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
       propertyPath: m_Name
       value: inOrganicTrash (3)
@@ -3845,7 +4118,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
       propertyPath: idleSounds.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
       propertyPath: 'idleSounds.Array.data[0]'
@@ -3855,6 +4128,10 @@ PrefabInstance:
       propertyPath: 'idleSounds.Array.data[1]'
       value: 
       objectReference: {fileID: 8300000, guid: c7180f16e2fec994f9a4a4087d369d70, type: 3}
+    - target: {fileID: 1429960101765424038, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
+      propertyPath: 'idleSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec9314c07f85224ab24002a4cb7a92c, type: 3}
     - target: {fileID: 3371907696107839081, guid: 882e0928aaafff348a6c78becee1b855, type: 3}
       propertyPath: m_Name
       value: inOrganicTrash
