@@ -17,7 +17,9 @@ public class PlayerControllerScript : MonoBehaviour
     string currentState = "";
     string lastDirection = "down";
 
-    public AudioClip footStepSound; // Assign in Inspector
+    public AudioClip footStepSound;
+    public AudioClip hurtSound;
+    
     private AudioSource audioSource;
     public string lastPosition;
 
@@ -34,6 +36,10 @@ public class PlayerControllerScript : MonoBehaviour
 
     void Update()
     {
+        if (Health <= 0)
+        {
+            animator.Play("DeadAnimation");
+        }
         if (!isInDialog && Health > 0)
         {
             handleMovement();
@@ -166,6 +172,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     public void attack(int damage)
     {
+        audioSource.PlayOneShot(hurtSound);
         Health -= damage;
     }
     

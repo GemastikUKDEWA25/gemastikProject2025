@@ -19,11 +19,6 @@ public class BulletSpawner : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         // Offset so the TOP of the sprite points at the target
         transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Spawn();
-        }
     }
 
     public void Spawn()

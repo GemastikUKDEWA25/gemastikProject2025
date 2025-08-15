@@ -17,7 +17,7 @@ public class PatrolEnemyScript : MonoBehaviour
     }
     public StateMachine currentState;
     private PlayerControllerScript player;
-    float speed = 40f;
+    public float speed = 25f;
     private Vector3 lastPosition;
     public Vector2 direction;  // this stores the movement direction
 

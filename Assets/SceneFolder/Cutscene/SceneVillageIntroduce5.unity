@@ -5304,7 +5304,7 @@ MonoBehaviour:
     sound: {fileID: 8300000, guid: b7cc09abe7202b348811420de7906dad, type: 3}
     expression: {fileID: -848357302213773481, guid: 72da9090f529f8a4695bf11a03c0211c, type: 3}
   - name: Kayana
-    dialog: Making them sentient, like the larga garbage robot from earlier
+    dialog: Making them sentient, like the large garbage robot from earlier
     sound: {fileID: 8300000, guid: b7cc09abe7202b348811420de7906dad, type: 3}
     expression: {fileID: -848357302213773481, guid: 72da9090f529f8a4695bf11a03c0211c, type: 3}
   - name: Kayana

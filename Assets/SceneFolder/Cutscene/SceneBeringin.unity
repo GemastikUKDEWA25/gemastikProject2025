@@ -2244,7 +2244,7 @@ MonoBehaviour:
   - name: Kayana
     dialog: Im kayana i live around here. you dont look like you from around here,
       what's your name?
-    voiceSound: {fileID: 8300000, guid: 569862c962f0c9f49a4a6e9b51cf447e, type: 3}
+    voiceSound: {fileID: 8300000, guid: b7cc09abe7202b348811420de7906dad, type: 3}
     expression: {fileID: -848357302213773481, guid: 72da9090f529f8a4695bf11a03c0211c, type: 3}
   - name: ???
     dialog: I don't remember
