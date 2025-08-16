@@ -10,16 +10,33 @@ public class NodeGenerator : MonoBehaviour
 
     public LayerMask obstacleMask; // Assign "Obstacles" layer in inspector
 
-    public static List<Node> allNodes = new List<Node>();
+    // public static List<Node> allNodes = new List<Node>();
+    public List<Node> allNodes = new List<Node>();
+    
 
     void Start()
     {
-        GenerateNodes();
-        ConnectNodes();
-        AssignEnemyStartNodes();
+        if (allNodes.Count <= 0)
+        {
+            GenerateAndConnectAndAssign();
+        }
+        // allNodes.Clear();
+        // foreach (Transform child in transform)
+        // {
+        //     allNodes.Add(child.gameObject.GetComponent<Node>());
+        // }
     }
 
-    void GenerateNodes()
+    // === MAIN SEQUENCE (same for button and Start) ===
+    public void GenerateAndConnectAndAssign()
+    {
+        ClearNodes();
+        GenerateNodes();
+        ConnectNodes();
+        // AssignEnemyStartNodes();
+    }
+
+    public void GenerateNodes()
     {
         allNodes.Clear();
 
@@ -48,7 +65,7 @@ public class NodeGenerator : MonoBehaviour
         }
     }
 
-    void ConnectNodes()
+    public void ConnectNodes()
     {
         foreach (Node node in allNodes)
         {
@@ -64,28 +81,63 @@ public class NodeGenerator : MonoBehaviour
         }
     }
 
-    void AssignEnemyStartNodes()
+    public void ResetConnections()
     {
-        // Assign patrol enemies
-        PatrolEnemyScript[] enemies = FindObjectsByType<PatrolEnemyScript>(FindObjectsSortMode.None);
-        foreach (var enemy in enemies)
+        foreach (Node node in allNodes)
         {
-            Node closest = allNodes
-                .OrderBy(n => Vector2.Distance(n.position, enemy.transform.position))
-                .FirstOrDefault();
-            if (closest != null)
-                enemy.currentNode = closest;
+            node.connections.Clear();
+        }
+    }
+
+    public void ClearNodes()
+    {
+        for (int i = transform.childCount - 1; i >= 0; i--)
+        {
+            DestroyImmediate(transform.GetChild(i).gameObject);
         }
 
-        // Assign trash monsters
-        TrashMonsterScript[] trashMonsters = FindObjectsByType<TrashMonsterScript>(FindObjectsSortMode.None);
-        foreach (var monster in trashMonsters)
-        {
-            Node closest = allNodes
-                .OrderBy(n => Vector2.Distance(n.position, monster.transform.position))
-                .FirstOrDefault();
-            if (closest != null)
-                monster.currentNode = closest;
-        }
+        allNodes.Clear();
+    }
+
+    // public void AssignEnemyStartNodes()
+    // {
+    //     // Patrol enemies
+    //     PatrolEnemyScript[] enemies = FindObjectsByType<PatrolEnemyScript>(FindObjectsSortMode.None);
+    //     foreach (var enemy in enemies)
+    //     {
+    //         Node closest = allNodes
+    //             .OrderBy(n => Vector2.Distance(n.position, enemy.transform.position))
+    //             .FirstOrDefault();
+    //         if (closest != null)
+    //             enemy.currentNode = closest;
+    //     }
+
+    //     // Trash monsters
+    //     TrashMonsterScript[] trashMonsters = FindObjectsByType<TrashMonsterScript>(FindObjectsSortMode.None);
+    //     foreach (var monster in trashMonsters)
+    //     {
+    //         Node closest = allNodes
+    //             .OrderBy(n => Vector2.Distance(n.position, monster.transform.position))
+    //             .FirstOrDefault();
+    //         if (closest != null)
+    //             monster.currentNode = closest;
+    //     }
+    // }
+
+    public Node[] getAllNodes()
+    {
+        Debug.Log(allNodes.Count);
+        return allNodes.ToArray();
+    }
+
+    public Node AssignEnemyNodes(Transform enemy)
+    {
+        Node closest = allNodes
+            .OrderBy(n => Vector2.Distance(n.position, enemy.position))
+            .FirstOrDefault();
+        // if (closest != null)
+        //     enemy.currentNode = closest;
+        return closest;
+
     }
 }

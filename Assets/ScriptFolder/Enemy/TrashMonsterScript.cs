@@ -37,8 +37,7 @@ public class TrashMonsterScript : MonoBehaviour
 
     public float idleStartDelay = 40f; // tunggu sebelum idle sound aktif
     private float idleStartTimer;
-
-
+    public NodeGenerator mainRoute;
     private void Start()
     {
         curHealth = maxHealth;
@@ -52,7 +51,8 @@ public class TrashMonsterScript : MonoBehaviour
 
 
         idleStartTimer = idleStartDelay;
-
+        
+        // currentNode = AStarManager.instance.FindNearestNode(transform.position, AStarManager.instance.AllNodes());
     }
 
     private void Update()
@@ -73,6 +73,7 @@ public class TrashMonsterScript : MonoBehaviour
                 }
             }
         }
+        
 
 
         if (!playerSeen && currentState != StateMachine.Patrol && curHealth > (maxHealth * 20) / 100)
@@ -123,48 +124,55 @@ public class TrashMonsterScript : MonoBehaviour
 
     void Patrol()
     {
+        // alertMark.SetActive(false);
+
+        currentNode = mainRoute.AssignEnemyNodes(transform);
         if (path.Count == 0)
         {
             path = AStarManager.instance.GeneratePath(
                 currentNode,
-                AStarManager.instance.AllNodes()[Random.Range(0, AStarManager.instance.AllNodes().Length)]
+                // AStarManager.instance.AllNodes()[Random.Range(0, AStarManager.instance.AllNodes().Length)]
+                mainRoute.getAllNodes()[Random.Range(0, mainRoute.getAllNodes().Length-1)]
             );
         }
     }
-
     void Engage()
     {
+        // alertMark.SetActive(true);
+
+        currentNode = mainRoute.AssignEnemyNodes(transform);
         if (path.Count == 0)
         {
             path = AStarManager.instance.GeneratePath(
                 currentNode,
-                AStarManager.instance.FindNearestNode(player.transform.position)
+                // AStarManager.instance.FindNearestNode(player.transform.position)
+                AStarManager.instance.FindNearestNode(player.transform.position,mainRoute.getAllNodes())
+
             );
         }
     }
-
     void Evade()
     {
         if (path.Count == 0)
         {
             path = AStarManager.instance.GeneratePath(
                 currentNode,
-                AStarManager.instance.FindFurthestNode(player.transform.position)
+                // AStarManager.instance.FindFurthestNode(player.transform.position)
+                AStarManager.instance.FindFurthestNode(player.transform.position,mainRoute.getAllNodes())
             );
         }
     }
-
     public void CreatePath()
     {
         if (path.Count > 0)
         {
-            Vector3 target = new Vector3(path[0].transform.position.x, path[0].transform.position.y, -2);
+            int x = 0;
+            Vector3 target = new Vector3(path[x].transform.position.x, path[x].transform.position.y, -2);
             transform.position = Vector3.MoveTowards(transform.position, target, (speed * panicMultiplier) * Time.deltaTime);
-
-            if (Vector2.Distance(transform.position, path[0].transform.position) < 0.1f)
+            if (Vector2.Distance(transform.position, path[x].transform.position) < 0.1f)
             {
-                currentNode = path[0];
-                path.RemoveAt(0);
+                currentNode = path[x];
+                path.RemoveAt(x);
             }
         }
     }

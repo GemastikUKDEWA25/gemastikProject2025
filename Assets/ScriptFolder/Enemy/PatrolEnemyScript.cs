@@ -9,6 +9,8 @@ public class PatrolEnemyScript : MonoBehaviour
     public GameObject alertMark;
     public Node currentNode;
     public List<Node> path = new List<Node>();
+    
+    
     public enum StateMachine
     {
         Patrol,
@@ -24,6 +26,11 @@ public class PatrolEnemyScript : MonoBehaviour
     public BulletSpawner bulletSpawner;
     float bulletTimer = 0.2f;
     float bulletDelay = 0.2f;
+
+    [Header("Route")]
+    public NodeGenerator patrolRoute;
+    public NodeGenerator mainRoute;
+
 
     private void Start()
     {
@@ -90,22 +97,29 @@ public class PatrolEnemyScript : MonoBehaviour
     void Patrol()
     {
         alertMark.SetActive(false);
+
+        currentNode = patrolRoute.AssignEnemyNodes(transform);
         if (path.Count == 0)
         {
             path = AStarManager.instance.GeneratePath(
                 currentNode,
-                AStarManager.instance.AllNodes()[Random.Range(0, AStarManager.instance.AllNodes().Length)]
+                // AStarManager.instance.AllNodes()[Random.Range(0, AStarManager.instance.AllNodes().Length)]
+                patrolRoute.getAllNodes()[Random.Range(0, patrolRoute.getAllNodes().Length-1)]
             );
         }
     }
     void Engage()
     {
         alertMark.SetActive(true);
+
+        currentNode = mainRoute.AssignEnemyNodes(transform);
         if (path.Count == 0)
         {
             path = AStarManager.instance.GeneratePath(
                 currentNode,
-                AStarManager.instance.FindNearestNode(player.transform.position)
+                // AStarManager.instance.FindNearestNode(player.transform.position)
+                AStarManager.instance.FindNearestNode(player.transform.position,mainRoute.getAllNodes())
+
             );
         }
     }
@@ -115,7 +129,8 @@ public class PatrolEnemyScript : MonoBehaviour
         {
             path = AStarManager.instance.GeneratePath(
                 currentNode,
-                AStarManager.instance.FindFurthestNode(player.transform.position)
+                // AStarManager.instance.FindFurthestNode(player.transform.position)
+                AStarManager.instance.FindFurthestNode(player.transform.position,mainRoute.getAllNodes())
             );
         }
     }

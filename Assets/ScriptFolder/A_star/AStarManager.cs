@@ -6,6 +6,7 @@ using UnityEngine;
 public class AStarManager : MonoBehaviour
 {
     public static AStarManager instance;
+    // public NodeGenerator nodeGenerator;
 
     private void Awake()
     {
@@ -78,12 +79,12 @@ public class AStarManager : MonoBehaviour
         return null;
     }
 
-    public Node FindNearestNode(Vector2 pos)
+    public Node FindNearestNode(Vector2 pos, Node[] allNodes)
     {
         Node foundNode = null;
         float minDistance = float.MaxValue;
 
-        Node[] allNodes = FindObjectsByType<Node>(FindObjectsSortMode.None);
+        // Node[] allNodes = FindObjectsByType<Node>(FindObjectsSortMode.None);
         foreach (Node node in allNodes)
         {
             float currentDistance = Vector2.Distance(pos, node.transform.position);
@@ -98,12 +99,12 @@ public class AStarManager : MonoBehaviour
         return foundNode;
     }
 
-    public Node FindFurthestNode(Vector2 pos)
+    public Node FindFurthestNode(Vector2 pos, Node[] allNodes)
     {
         Node foundNode = null;
         float maxDistance = default;
         
-        Node[] allNodes = FindObjectsByType<Node>(FindObjectsSortMode.None);
+        // Node[] allNodes = FindObjectsByType<Node>(FindObjectsSortMode.None);
         foreach (Node node in allNodes)
         {
             float currentDistance = Vector2.Distance(pos, node.transform.position);
@@ -118,7 +119,9 @@ public class AStarManager : MonoBehaviour
     }
 
     public Node[] AllNodes()
-    {   
+    {
         return FindObjectsByType<Node>(FindObjectsSortMode.None);
+        // return nodeGenerator.getAllNodes();
+        // return allNodes;
     }
 }
