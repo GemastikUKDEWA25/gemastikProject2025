@@ -127,12 +127,13 @@ public class TrashMonsterScript : MonoBehaviour
         // alertMark.SetActive(false);
 
         currentNode = mainRoute.AssignEnemyNodes(transform);
+        Debug.Log($"Path is null {path == null}");
         if (path.Count == 0)
         {
             path = AStarManager.instance.GeneratePath(
                 currentNode,
                 // AStarManager.instance.AllNodes()[Random.Range(0, AStarManager.instance.AllNodes().Length)]
-                mainRoute.getAllNodes()[Random.Range(0, mainRoute.getAllNodes().Length-1)]
+                mainRoute.getAllNodes()[Random.Range(0, mainRoute.getAllNodes().Length - 1)]
             );
         }
     }
