@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 public class GolemScript : MonoBehaviour
 {
-    float Maxhealth = 250f;
+    float Maxhealth = 500f;
     float health;
     public static GolemScript Instance { get; private set; }
     public float eyeMovementRadius = 0.3f;
@@ -138,11 +138,7 @@ public class GolemScript : MonoBehaviour
     {
         if (health > 0)
         {
-            // isAttacked = true;
-            damageColorChange();
-            Invoke(nameof(changeColorToWhite), 0.2f); // ← Reset after 0.2s
             if (!audioSource.isPlaying) audioSource.Stop(); playSound(damagedSound);
-
             health -= damage;
         }
     }
@@ -262,16 +258,6 @@ public class GolemScript : MonoBehaviour
         {
             rocks[i].trigger = false;
         }
-    }
-
-    void damageColorChange()
-    {
-
-    }
-
-    void changeColorToWhite()
-    {
-        
     }
 
 

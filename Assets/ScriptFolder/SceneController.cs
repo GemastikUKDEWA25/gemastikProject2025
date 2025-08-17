@@ -24,8 +24,11 @@ public class SceneController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerTopDownScript = player.GetComponent<PlayerControllerScript>();
-        playerControllerSideView = player.GetComponent<PlayerControllerSideViewScript>();
+        if (player != null)
+        {
+            playerTopDownScript = player.GetComponent<PlayerControllerScript>();
+            playerControllerSideView = player.GetComponent<PlayerControllerSideViewScript>();
+        }
         
 
         menu.SetActive(false);

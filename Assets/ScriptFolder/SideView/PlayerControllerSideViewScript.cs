@@ -241,7 +241,7 @@ public class PlayerControllerSideViewScript : MonoBehaviour
                 if (chargingEnergy < 20f)
                 {
                     mana -= chargedUpManaConsumption * Time.fixedDeltaTime;
-                    chargingEnergy += chargedUpManaConsumption * Time.fixedDeltaTime;
+                    chargingEnergy += 8 + chargedUpManaConsumption * Time.fixedDeltaTime;
                 }
             }
             else
