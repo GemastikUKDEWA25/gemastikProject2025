@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using Unity.Collections;
 using UnityEngine;
 public class PatrolEnemyScript : MonoBehaviour
 {
@@ -8,6 +10,10 @@ public class PatrolEnemyScript : MonoBehaviour
     private bool playerSeen;
     public GameObject alertMark;
     public Node currentNode;
+
+    bool patrolReachEnd = false;
+    int patrolIndex = 0;
+    
     public List<Node> path = new List<Node>();
     
     
@@ -41,9 +47,7 @@ public class PatrolEnemyScript : MonoBehaviour
     }
     private void Update()
     {
-        // Debug.Log("State: " + currentState + " | Seen: " + playerSeen + " | HP: " + curHealth);
-
-        // State transitions
+        Debug.Log($"patrolIndex: {patrolIndex}, reachEnd: {patrolReachEnd}");
 
         if (currentState == StateMachine.Engage)
         {
@@ -101,11 +105,22 @@ public class PatrolEnemyScript : MonoBehaviour
         currentNode = patrolRoute.AssignEnemyNodes(transform);
         if (path.Count == 0)
         {
-            path = AStarManager.instance.GeneratePath(
-                currentNode,
-                // AStarManager.instance.AllNodes()[Random.Range(0, AStarManager.instance.AllNodes().Length)]
-                patrolRoute.getAllNodes()[Random.Range(0, patrolRoute.getAllNodes().Length-1)]
-            );
+            // path = AStarManager.instance.GeneratePath(
+            //     currentNode,
+            //     // AStarManager.instance.AllNodes()[Random.Range(0, AStarManager.instance.AllNodes().Length)]
+            //     patrolRoute.getAllNodes()[Random.Range(0, patrolRoute.getAllNodes().Length-1)]
+            // );
+
+            path = new List<Node>(patrolRoute.getAllNodes());
+            if (patrolIndex >= path.Count())
+            {
+                patrolReachEnd = true;
+                path.Reverse();
+            }
+            if (patrolIndex <= 0)
+            {
+                patrolReachEnd = false;
+            }
         }
     }
     void Engage()
@@ -150,7 +165,19 @@ public class PatrolEnemyScript : MonoBehaviour
             {
                 currentNode = path[x];
                 path.RemoveAt(x);
-            }
+                if (currentState == StateMachine.Patrol && !patrolRoute.circling)
+                {
+                    if (patrolReachEnd)
+                    {
+                        patrolIndex -= 1;
+                    }
+                    if (!patrolReachEnd)
+                    {
+                        patrolIndex += 1;
+                    }
+                    
+                }
+            } 
         }
     }
     public void setPlayerSeen(bool isSeen)

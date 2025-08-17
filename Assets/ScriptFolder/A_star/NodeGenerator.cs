@@ -2,43 +2,69 @@ using System.Linq;
 using UnityEngine;
 using System.Collections.Generic;
 
+
 public class NodeGenerator : MonoBehaviour
 {
+    public enum GenerationMode
+    {
+        FloorGrid,
+        EdgeCollider
+    }
+
+    public GenerationMode generationMode = GenerationMode.FloorGrid;
+    public EdgeCollider2D edgeCollider;
+
+    // variables specific to modes
     public GameObject nodePrefab;
     public GameObject floor;
     public float spacing = 1f;
+    public bool circling = false;
 
     public LayerMask obstacleMask; // Assign "Obstacles" layer in inspector
 
-    // public static List<Node> allNodes = new List<Node>();
     public List<Node> allNodes = new List<Node>();
-    
 
     void Start()
     {
         if (allNodes.Count <= 0)
         {
-            GenerateAndConnectAndAssign();
+            if (generationMode == GenerationMode.FloorGrid)
+            {
+                GenerateAndConnectAndAssign();
+            }
+            if (generationMode == GenerationMode.EdgeCollider)
+            {
+                GenerateNodesFromEdge(edgeCollider,spacing);
+            }
         }
-        // allNodes.Clear();
-        // foreach (Transform child in transform)
-        // {
-        //     allNodes.Add(child.gameObject.GetComponent<Node>());
-        // }
     }
 
     // === MAIN SEQUENCE (same for button and Start) ===
     public void GenerateAndConnectAndAssign()
     {
         ClearNodes();
-        GenerateNodes();
+
+        if (generationMode == GenerationMode.FloorGrid)
+        {
+            GenerateNodes();
+        }
+        else if (generationMode == GenerationMode.EdgeCollider)
+        {
+            GenerateNodesFromEdge(edgeCollider, spacing);
+        }
+
         ConnectNodes();
-        // AssignEnemyStartNodes();
     }
 
     public void GenerateNodes()
     {
         allNodes.Clear();
+
+        if (floor == null)
+        {
+            Debug.LogError("Floor object not assigned!");
+            return;
+        }
 
         SpriteRenderer sr = floor.GetComponent<SpriteRenderer>();
         Vector2 startPos = sr.bounds.min;
@@ -63,6 +89,38 @@ public class NodeGenerator : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void GenerateNodesFromEdge(EdgeCollider2D edge, float spacing = 1f)
+    {
+        if (edge == null)
+        {
+            Debug.LogError("EdgeCollider2D not assigned!");
+            return;
+        }
+
+        allNodes.Clear();
+
+        Vector2[] points = edge.points;
+
+        for (int i = 0; i < points.Length - 1; i++)
+        {
+            Vector2 start = edge.transform.TransformPoint(points[i]);
+            Vector2 end = edge.transform.TransformPoint(points[i + 1]);
+
+            float dist = Vector2.Distance(start, end);
+            int segments = Mathf.Max(1, Mathf.FloorToInt(dist / spacing));
+
+            for (int j = 0; j <= segments; j++)
+            {
+                Vector2 pos = Vector2.Lerp(start, end, (float)j / segments);
+
+                GameObject obj = Instantiate(nodePrefab, pos, Quaternion.identity, transform);
+                Node node = obj.GetComponent<Node>();
+                allNodes.Add(node);
+            }
+        }
+        ConnectNodes();
     }
 
     public void ConnectNodes()
@@ -99,31 +157,6 @@ public class NodeGenerator : MonoBehaviour
         allNodes.Clear();
     }
 
-    // public void AssignEnemyStartNodes()
-    // {
-    //     // Patrol enemies
-    //     PatrolEnemyScript[] enemies = FindObjectsByType<PatrolEnemyScript>(FindObjectsSortMode.None);
-    //     foreach (var enemy in enemies)
-    //     {
-    //         Node closest = allNodes
-    //             .OrderBy(n => Vector2.Distance(n.position, enemy.transform.position))
-    //             .FirstOrDefault();
-    //         if (closest != null)
-    //             enemy.currentNode = closest;
-    //     }
-
-    //     // Trash monsters
-    //     TrashMonsterScript[] trashMonsters = FindObjectsByType<TrashMonsterScript>(FindObjectsSortMode.None);
-    //     foreach (var monster in trashMonsters)
-    //     {
-    //         Node closest = allNodes
-    //             .OrderBy(n => Vector2.Distance(n.position, monster.transform.position))
-    //             .FirstOrDefault();
-    //         if (closest != null)
-    //             monster.currentNode = closest;
-    //     }
-    // }
-
     public Node[] getAllNodes()
     {
         Debug.Log(allNodes.Count);
@@ -135,9 +168,6 @@ public class NodeGenerator : MonoBehaviour
         Node closest = allNodes
             .OrderBy(n => Vector2.Distance(n.position, enemy.position))
             .FirstOrDefault();
-        // if (closest != null)
-        //     enemy.currentNode = closest;
         return closest;
-
     }
 }
