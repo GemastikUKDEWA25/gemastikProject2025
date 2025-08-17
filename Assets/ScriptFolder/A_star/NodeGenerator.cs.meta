@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: 79a3e9323af9a434f96fb06f0ae119df
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - edgeCollider: {instanceID: 0}
+  - nodePrefab: {fileID: 4187554337506064916, guid: e04cc1a60a640ec439d6beeb4e280587, type: 3}
+  - floor: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
