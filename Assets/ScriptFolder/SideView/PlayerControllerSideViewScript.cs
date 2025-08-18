@@ -22,6 +22,11 @@ public class PlayerControllerSideViewScript : MonoBehaviour
 
     private float slideTimer = 0f;
     float slideDuration = 0.5f;
+
+    float slideDelay = 1f;
+    float slideDelayTimer = 0f;
+
+
     string direction = "Right";
 
     public float health = 100f;
@@ -71,6 +76,8 @@ public class PlayerControllerSideViewScript : MonoBehaviour
 
     void Update()
     {
+        Debug.Log($"delay timer: {slideDelayTimer}");
+
         if (health <= 0) { animator.Play("Dead"); healthBar.fillRect.gameObject.SetActive(false); return; }
         int currentHealth = Mathf.Clamp(Mathf.FloorToInt(health), 0, 100);
         healthBar.value = currentHealth;
@@ -111,17 +118,11 @@ public class PlayerControllerSideViewScript : MonoBehaviour
 
 
 
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !isSliding && !isChargedUp)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !isSliding && !isChargedUp && slideDelayTimer <= 0)
             {
                 slideTimer = slideDuration;
                 isSliding = true;
             }
-            if (Input.GetKeyUp(KeyCode.LeftShift) && isSliding)
-            {
-                // audioSourceMovement.Stop();
-                isSliding = false;
-            }
-
 
             if (Input.GetKey(KeyCode.A) && !isWalledLeft)
             {
@@ -151,14 +152,20 @@ public class PlayerControllerSideViewScript : MonoBehaviour
 
         float moveSpeedTemp = moveSpeed;
 
-        if (isSliding)
+        if (isSliding && slideDelayTimer <= 0)
         {
             slideTimer -= Time.deltaTime;
             moveSpeedTemp += sprintSpeed;
             if (slideTimer <= 0)
             {
                 isSliding = false;
+                slideDelayTimer = slideDelay;
             }
+        }
+
+        if (slideDelayTimer > 0)
+        {
+            slideDelayTimer -= Time.deltaTime;
         }
 
         animator.SetFloat("Health", health);
