@@ -1,4 +1,0 @@
-repository "gemastikProject2025/gemastikProject2025@1375776969981@cloud"
-  path "/"
-    br "/main"
-    co "/main"

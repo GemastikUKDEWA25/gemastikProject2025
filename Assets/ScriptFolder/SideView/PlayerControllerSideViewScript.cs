@@ -311,12 +311,12 @@ public class PlayerControllerSideViewScript : MonoBehaviour
             if (transform.localScale.x == 1)
             {
 
-                magicAttackSpawner.spawnMagicDagger("Right",size,chargingEnergy);
+                magicAttackSpawner.spawnMagicDagger("Right", size, chargingEnergy);
             }
 
             if (transform.localScale.x == -1)
             {
-                magicAttackSpawner.spawnMagicDagger("Left",size,chargingEnergy);
+                magicAttackSpawner.spawnMagicDagger("Left", size, chargingEnergy);
             }
         }
 

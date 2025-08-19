@@ -3,6 +3,7 @@ using UnityEngine;
 public class TreesScript : MonoBehaviour
 {
     public bool isGoRight = false;
+    public float movementSpeed = 1f;
     void Start()
     {
 
@@ -20,7 +21,7 @@ public class TreesScript : MonoBehaviour
             move += Vector3.right;
         }
         move = move.normalized;
-        transform.position += move * 1f * Time.deltaTime;
+        transform.position += move * movementSpeed * Time.deltaTime;
     }
     
 
